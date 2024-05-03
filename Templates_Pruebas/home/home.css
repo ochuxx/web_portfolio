@@ -1,0 +1,64 @@
+:root {
+    --main-color: #222F40;
+    --little-border: 0.65rem;
+    background-color: var(--main-color);
+    font-family: "M PLUS Code Latin", monospace;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-size: 16px;
+}
+
+.main {
+    color: #f1f1f1;
+}
+
+.main-header {
+    border: 1px solid red;
+    position: relative;
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr;
+    margin: 0 0.8rem;
+}
+
+.main-header [group="header_section"] {
+    border: 1px solid black;
+}
+
+.main-header-title_and_logo {
+    display: grid;
+    place-items: center;
+}
+
+.main-header-title_and_logo-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-header-title_and_logo-items img {
+    position: relative;
+    left: 2rem;
+    width: 5rem;
+    border-radius: var(--little-border);
+}
+
+.main-header-title_and_logo-items-words {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 19rem;
+    margin-left: 0.8rem;
+}
+
+.main-header-title_and_logo-items-words span {
+    font-size: 2.5rem;
+}
+
+.main-header-title_and_logo-items-words #ochux_name {
+    display: flex;
+    justify-content: right;
+    margin-right: 1rem;
+}
