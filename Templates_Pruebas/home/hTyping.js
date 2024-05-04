@@ -1,68 +1,43 @@
-const titlesAndAttributes = [["Web", "4.34", "450", "3"], ["Analyst", "9", "1000", "7"], ["Dev", "4.34", "450", "3"]];
+const titles = ["Web", "Analyst", "Dev"];
 const nSpanTitle = document.querySelector("#typing_effect_title");
-let titleSelected = 0
+let indexTitle = 0;
 
-nSpanTitle.innerHTML = titlesAndAttributes[titleSelected][0];
+function setTextAnimation() {
+    indexTitle++;
+    if (indexTitle == titles.length) {indexTitle = 0};
+    let title = titles[indexTitle];
+    nSpanTitle.innerHTML = "";
 
-const cssCode = `
-#typing_effect_title {
-    display: block;
-    white-space: nowrap;
-    border-right: 0.3rem solid;
-    width: ${titlesAndAttributes[titleSelected][1]}rem;
+    let setTextInterval = setInterval(() => {
+        let lenSpan = nSpanTitle.innerHTML.length;
+        if (lenSpan == title.length) {
+            clearInterval(setTextInterval);
+            activeAnimations();
+        }
 
-    animation: typing ${titlesAndAttributes[titleSelected][2]}ms steps(${titlesAndAttributes[titleSelected][3]}), blink .5s infinite step-end alternate;
-    overflow: hidden;
+        //Setting
+        nSpanTitle.innerHTML += title.slice(lenSpan, lenSpan + 1);
+    }, 230);
 }
 
-@keyframes typing {
-    from { width: 0; }
+function deleteTextAnimation() {
+    let deleteTextInterval = setInterval(() => {
+        let lenSpan = nSpanTitle.innerHTML.length;
+        if (lenSpan == 0) {
+            clearInterval(deleteTextInterval);
+            setTextAnimation();
+        }
+
+        // Cutting up
+        nSpanTitle.innerHTML = nSpanTitle.innerHTML.slice(0, lenSpan - 1);
+    }, 230);
 }
 
-@keyframes blink {
-    50% { border-color: transparent; }
-}
-`;
-
-let lStyle = document.createElement("style");
-lStyle.append(cssCode);
-document.head.appendChild(lStyle);
-
-setTimeout(() => {
-    document.head.removeChild(lStyle);
-}, 9000)
-
-setInterval(() => {
-    titleSelected++;
-    if (titleSelected == 3) {
-        titleSelected = 0;
-    }
-    const cssCode = `
-        #typing_effect_title {
-            display: block;
-            white-space: nowrap;
-            border-right: 0.3rem solid;
-            width: ${titlesAndAttributes[titleSelected][1]}rem;
-        
-            animation: typing ${titlesAndAttributes[titleSelected][2]}ms steps(${titlesAndAttributes[titleSelected][3]}), blink .5s infinite step-end alternate;
-            overflow: hidden;
-        }
-        
-        @keyframes typing {
-            from { width: 0; }
-        }
-        
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-    `;
-    lStyle.append(cssCode);
-
+//Timeout to start the animation of change text
+function activeAnimations() {
     setTimeout(() => {
-        nSpanTitle.innerHTML = titlesAndAttributes[titleSelected][0];
-        document.head.appendChild(lStyle);
-        setTimeout(() => {
-            document.head.removeChild(lStyle);
-        }, 9000)
-    }, 50)
-}, 30000)
+        deleteTextAnimation();
+    }, 2000);
+}
+
+activeAnimations();

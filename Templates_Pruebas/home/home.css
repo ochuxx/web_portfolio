@@ -1,56 +1,58 @@
 :root {
     --main-color: #222F40;
+    --font-color: #f1f1f1;
+    --secondary-color: #6F87A6;
+    --head-color: #1A1A1A;
     --little-border: 0.65rem;
+    --borders-header: 0.32rem;
     background-color: var(--main-color);
     font-family: "M PLUS Code Latin", monospace;
+    font-size: 100%;
 }
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-    font-size: 16px;
 }
 
 .main {
-    color: #f1f1f1;
+    color: var(--font-color);
 }
 
 .main-header {
-    border: 1px solid red;
     position: relative;
     display: grid;
-    grid-template-columns: 3fr 3fr 1fr;
-    margin: 0 0.8rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    border-radius: 0.2rem;
 }
 
 .main-header [group="header_section"] {
-    border: 1px solid black;
+    
 }
 
 .main-header-title_and_logo {
+    position: relative;
+    left: 1.2rem;
     display: grid;
-    place-items: center;
+    place-items: left;
 }
 
 .main-header-title_and_logo-items {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .main-header-title_and_logo-items img {
     position: relative;
-    left: 2rem;
     width: 5rem;
     border-radius: var(--little-border);
+    margin: 0.5rem 0;
 }
 
 .main-header-title_and_logo-items-words {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 19rem;
-    margin-left: 0.8rem;
+    grid-template-columns: 7.5rem 11.5rem;
 }
 
 .main-header-title_and_logo-items-words span {
@@ -60,5 +62,45 @@
 .main-header-title_and_logo-items-words #ochux_name {
     display: flex;
     justify-content: right;
-    margin-right: 1rem;
+    margin-right: 0.7rem;
+}
+
+/* typing effect */
+.main-header-title_and_logo-items-words #typing_effect {
+    display: flex;
+    align-items: center;
+}
+
+.main-header-title_and_logo-items-words span #typing_effect_title {
+    display: flex;
+    align-items: center;
+}
+
+.main-header-title_and_logo-items-words span #blink {
+    position: relative;
+    display: flex;
+    left: 0.25rem;
+    background-color: var(--font-color);
+    width: 0.4rem;
+    height: 85%;
+
+    animation: blink .5s infinite step-end alternate;
+    overflow: hidden;
+}
+
+.main-header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.main-header-menu-span a {
+    color: var(--font-color);
+    text-decoration: none;
+    font-size: 1.35rem;
+}
+
+@keyframes blink {
+    60% { background-color: transparent; }
 }
