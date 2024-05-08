@@ -1,13 +1,12 @@
 :root {
     --main-color: #222F40;
     --font-color: #f1f1f1;
-    --secondary-color: #6F87A6;
-    --head-color: #1A1A1A;
+    --secondary-color: #3F5573;
     --little-border: 0.65rem;
     --borders-header: 0.32rem;
     background-color: var(--main-color);
     font-family: "M PLUS Code Latin", monospace;
-    font-size: 100%;
+    font-size: 16px;
 }
 
 * {
@@ -24,16 +23,15 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    margin: 0 1.5rem;
     border-radius: 0.2rem;
+    height: 16vh;
 }
 
 .main-header [group="header_section"] {
-    
 }
 
 .main-header-title_and_logo {
-    position: relative;
-    left: 1.2rem;
     display: grid;
     place-items: left;
 }
@@ -99,6 +97,54 @@
     color: var(--font-color);
     text-decoration: none;
     font-size: 1.35rem;
+}
+
+.main-header-social_media {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 2rem;
+}
+
+.main-header-social_media span a {
+    color: var(--font-color);
+    font-size: 3rem;
+}
+
+.main-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    height: 80vh;
+    margin: 0 1.5rem;
+}
+
+.main-body-info {
+    width: 26.5rem;
+}
+
+.main-body-info-header span {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.main-body-info-title span {
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+.main-body-info-extra {
+    display: flex;
+    justify-content: center;
+}
+
+.main-body-info-extra a {
+    padding: 0.5rem 1rem;
+    margin-top: 3rem;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    border-radius: var(--little-border);
+    text-decoration: none;
 }
 
 @keyframes blink {
