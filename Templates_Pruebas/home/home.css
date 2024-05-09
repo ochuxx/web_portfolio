@@ -4,7 +4,7 @@
     --secondary-color: #3F5573;
     --little-border: 0.65rem;
     --borders-header: 0.32rem;
-    background-color: var(--main-color);
+    background: linear-gradient(to right, var(--main-color) 60%, var(--secondary-color));
     font-family: "M PLUS Code Latin", monospace;
     font-size: 16px;
 }
@@ -17,6 +17,7 @@
 
 .main {
     color: var(--font-color);
+    overflow: hidden;
 }
 
 .main-header {
@@ -112,15 +113,16 @@
 }
 
 .main-body {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    height: 80vh;
+    height: 84vh;
     margin: 0 1.5rem;
 }
 
 .main-body-info {
-    width: 26.5rem;
+    width: 30rem;
 }
 
 .main-body-info-header span {
@@ -129,7 +131,7 @@
 }
 
 .main-body-info-title span {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
     font-weight: 500;
 }
 
@@ -145,6 +147,39 @@
     color: var(--font-color);
     border-radius: var(--little-border);
     text-decoration: none;
+}
+
+.main-body-imgs {
+    position: relative;
+    display: grid;
+    padding: 3rem 1.4rem;
+}
+
+.main-body-imgs-personal img {
+    height: 35rem;
+    mask-image: linear-gradient(black 50%, transparent);
+}
+
+.main-body-imgs-first {
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+}
+
+.main-body-imgs-second {
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+}
+
+.main-body-imgs-videos {
+    height: 7.2rem;
+    border-radius: var(--little-border);
 }
 
 @keyframes blink {
