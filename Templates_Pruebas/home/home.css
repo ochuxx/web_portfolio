@@ -112,6 +112,22 @@
     font-size: 3rem;
 }
 
+.main-header-social_media #span-whatsapp-icon a,
+.main-header-social_media #span-linkedin-icon a {
+    transition: ease 300ms;
+}
+
+.main-header-social_media #span-whatsapp-icon a:hover {
+    color: #25D366;
+}
+
+.main-header-social_media #span-linkedin-icon a:hover {
+    color: #0077B5;
+}
+
+.main-header-social_media #span-linkedin-icon a {
+}
+
 .main-body {
     position: relative;
     display: grid;
