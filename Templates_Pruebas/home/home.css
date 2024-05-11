@@ -2,6 +2,8 @@
     --main-color: #222F40;
     --font-color: #f1f1f1;
     --secondary-color: #3F5573;
+    --gray-color: #6F87A6;
+    --black-color: #1A1A1A;
     --little-border: 0.65rem;
     --borders-header: 0.32rem;
     background: linear-gradient(to right, var(--main-color) 60%, var(--secondary-color));
@@ -16,6 +18,9 @@
 }
 
 .main {
+    display: grid;
+    grid-template-rows: 16vh 84vh 0;
+    padding: 0 1.5rem;
     color: var(--font-color);
     overflow: hidden;
 }
@@ -24,9 +29,7 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    margin: 0 1.5rem;
     border-radius: 0.2rem;
-    height: 16vh;
 }
 
 .main-header [group="header_section"] {
@@ -100,6 +103,24 @@
     font-size: 1.35rem;
 }
 
+.main-header-menu-span .bar {
+    position: relative;
+    top: 0.2rem;
+    border-bottom: 0.15rem solid var(--gray-color);
+    opacity: 0;
+
+    transition: 280ms ease;
+}
+
+.main-header-menu-span:hover .bar {
+    opacity: 1;
+}
+
+.main-header-menu-span #bar-selected {
+    border-bottom: 0.3rem solid var(--font-color);
+    opacity: 1;
+}
+
 .main-header-social_media {
     display: flex;
     align-items: center;
@@ -125,16 +146,11 @@
     color: #0077B5;
 }
 
-.main-header-social_media #span-linkedin-icon a {
-}
-
 .main-body {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    height: 84vh;
-    margin: 0 1.5rem;
 }
 
 .main-body-info {
@@ -163,6 +179,16 @@
     color: var(--font-color);
     border-radius: var(--little-border);
     text-decoration: none;
+    font-size: 1.15rem;
+    box-shadow: 0.3rem 0.3rem 0.1rem 0.25rem var(--black-color);
+
+    transition: 320ms ease;
+}
+
+.main-body-info-extra a:hover {
+    background-color: var(--font-color);
+    color: var(--secondary-color);
+    box-shadow: none;
 }
 
 .main-body-imgs {
@@ -196,6 +222,10 @@
 .main-body-imgs-videos {
     height: 7.2rem;
     border-radius: var(--little-border);
+}
+
+.main-footer {
+    border: 1px solid green;
 }
 
 @keyframes blink {
