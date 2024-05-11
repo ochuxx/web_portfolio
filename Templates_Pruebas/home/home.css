@@ -32,9 +32,6 @@
     border-radius: 0.2rem;
 }
 
-.main-header [group="header_section"] {
-}
-
 .main-header-title_and_logo {
     display: grid;
     place-items: left;
@@ -131,10 +128,7 @@
 .main-header-social_media span a {
     color: var(--font-color);
     font-size: 3rem;
-}
-
-.main-header-social_media #span-whatsapp-icon a,
-.main-header-social_media #span-linkedin-icon a {
+    
     transition: ease 300ms;
 }
 
@@ -222,10 +216,6 @@
 .main-body-imgs-videos {
     height: 7.2rem;
     border-radius: var(--little-border);
-}
-
-.main-footer {
-    border: 1px solid green;
 }
 
 @keyframes blink {
