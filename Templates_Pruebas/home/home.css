@@ -30,7 +30,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     border-radius: 0.2rem;
-}
+} 
 
 .main-header-title_and_logo {
     display: grid;
@@ -92,12 +92,14 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    display: none;
 }
 
 .main-header-menu-span a {
     color: var(--font-color);
     text-decoration: none;
     font-size: 1.35rem;
+    white-space: nowrap;
 }
 
 .main-header-menu-span .bar {
@@ -116,6 +118,75 @@
 .main-header-menu-span #bar-selected {
     border-bottom: 0.3rem solid var(--font-color);
     opacity: 1;
+}
+
+.main-header-menu_drop .dropdown {
+    min-width: 10rem;
+    position: relative;
+}
+
+.main-header-menu_drop .select_drop {
+    background-color: red;
+    color: blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--little-border);
+    padding: 1rem;
+    cursor: pointer;
+    transition: background 300ms;
+}
+
+.main-header-menu_drop .select_drop-clicked {
+    box-shadow: 0 0 0.8rem black;
+}
+
+.main-header-menu_drop .select_drop:hover {
+    background-color: blue;
+}
+
+.main-header-menu_drop .caret_drop {
+    width: 0;
+    height: 0;
+    border-left: 0.4rem solid transparent;
+    border-right: 0.4rem solid transparent;
+    border-top: 0.8rem solid var(--font-color);
+
+    transition: 300ms ease;
+}
+
+.main-header-menu_drop .caret_drop-rotate {
+    transform: rotate(180deg);
+}
+
+.main-header-menu_drop .option_drop {
+    list-style: none;
+    padding: 0.2rem 0.5rem;
+    background-color: black;
+    border-radius: var(--little-border);
+    position: absolute;
+    top: 3.3rem;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: ease 200ms;
+    z-index: 1;
+}
+
+.main-header-menu_drop .option_drop li {
+    padding: 0.5rem 0.3rem;
+    margin: 0.3rem 0;
+    cursor: pointer;
+}
+
+.main-header-menu_drop .option_drop-open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-header-menu_drop .active_drop {
+    background-color: green;    
 }
 
 .main-header-social_media {
@@ -220,4 +291,16 @@
 
 @keyframes blink {
     60% { background-color: transparent; }
+}
+
+@media (max-width: 1125px) {
+    .main-body {
+        place-items: unset;
+        grid-template-columns: unset;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4.5rem;
+    }
 }

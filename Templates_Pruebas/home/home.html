@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./imgs/ochux_logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@100..700&display=swap" rel="stylesheet">
@@ -10,7 +11,6 @@
     <title>Ochux</title>
 </head>
 <body>
-
     <div class="main" >
         <header class="main-header">
             <div class="main-header-title_and_logo" group="header_section">
@@ -39,6 +39,22 @@
                     <a href="#">Contacto</a><div class="bar"></div>
                 </span>
             </div>
+            <!--The dropmenu to responsive-->
+            <div class="main-header-menu_drop" group="header_section">
+                <div class="dropdown">
+                    <div class="select_drop">
+                        <span class="selected_drop">Inicio</span>
+                        <div class="caret_drop"></div>
+                    </div>
+                    <ul class="option_drop">
+                        <li class="active_drop">Inicio</li>
+                        <li>Portafolio</li>
+                        <li>Acerca de mí</li>
+                        <li>Contacto</li>
+                    </ul>
+                </div>
+            </div>
+            <!--End of dropmene-->
             <div class="main-header-social_media" group="header_section">
                 <span class="main-header-social_media-span" id="span-whatsapp-icon">
                     <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
@@ -61,15 +77,6 @@
                         Desarrollador y Analista de datos
                     </span>
                 </div>
-                <!--
-                <div class="main-body-info-box-desc">
-                    <span>
-                        Un apasionado desarrollador de software y analista de datos con experiencia en la creación de sitios web dinámicos con el framework Django.
-                        También, me he adentrado en el análisis y visualización de datos utilizando Python para depurar y Power BI para crear informes interactivos y paneles de control.
-                        ¡Estoy listo para nuevos desafíos!
-                    </span>
-                </div>
-                -->
                 <div class="main-body-info-extra">
                     <a href="#">
                         ¡Conoce más!
@@ -102,8 +109,9 @@
         </footer>
     </div>
 
-    <script src="./home.js"></script>
-    <script src="./hTyping.js"></script>
+    <script src="./scripts/home.js"></script>
+    <script src="./scripts/hTyping.js"></script>
+    <script src="./scripts/hMenu.js"></script>
     <script src="https://kit.fontawesome.com/6117eaa017.js" crossorigin="anonymous"></script>
 </body>
 </html>
