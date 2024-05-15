@@ -295,7 +295,7 @@
 
 .main-body-imgs-personal img {
     height: var(--personal-img-height);
-    mask-image: linear-gradient(black 50%, transparent);
+    mask-image: linear-gradient(black 60%, transparent);
 }
 
 .main-body-imgs-first {
