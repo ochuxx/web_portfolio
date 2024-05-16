@@ -1,0 +1,66 @@
+.main-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.main-body-projects-folders {
+    border: 1px solid green;
+}
+
+.main-body-projects-folders .folder_div {
+    position: relative;
+    display: flex;
+    align-items: left;
+    margin-left: 0.5rem;
+    border: 1px solid blue;
+}
+
+.main-body-projects-folders .folder_div .folder_highlight {
+    position: absolute;
+    align-self: start;
+    
+    border: 1px solid red;
+}
+
+.main-body-projects-folders .folder_div i {
+    font-size: 1.5rem;
+}
+
+.main-body-projects-folders .folder_div .folder_caret {
+    position: relative;
+    top: 1rem;
+    display: flex;
+    height: 0;
+    width: 0;
+    transform: rotate(-90deg);
+
+    transition: 300ms;
+}
+
+.main-body-projects-folders .folder_div .folder_caret-open {
+    top: -0.2rem;
+    right: 0.5rem;
+    transform: unset;
+}
+
+.main-body-projects-folders .folder_div .folder_icon {
+    margin-left: 1.5rem;
+}
+
+.main-body-projects-folders .folder_name {
+    position: absolute;
+    left: 3.5rem;
+    display: flex;
+}
+
+.main-body-projects-folders .folder_div i a {
+    display: flex;
+}
+
+
+.main-body-projects-folders .folder_name, .main-body-projects-folders .folder_div i a{
+    font-family: "M PLUS Code Latin", monospace;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 100%;
+}
