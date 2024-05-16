@@ -1,4 +1,6 @@
 const carets = document.querySelectorAll(".folder_caret");
+const foldersBox = document.querySelector(".main-body-projects-folders");
+const foldersHighlightButton = document.querySelectorAll(".folder_highlight");
 
 // Watch or ocult the sub-folders
 function watchSubFolders(caret) {
@@ -26,3 +28,17 @@ carets.forEach(caret => {
     }
     */
 });
+
+// The button's desing to watch the folders
+function adjustWidthHighlight() {
+    let foldersBoxWidth = foldersBox.offsetWidth;
+    foldersHighlightButton.forEach(element => {
+        element.style.width = `${foldersBoxWidth}px`;
+    })   
+}
+
+window.addEventListener("resize", () => {
+    adjustWidthHighlight();
+})
+
+adjustWidthHighlight();
