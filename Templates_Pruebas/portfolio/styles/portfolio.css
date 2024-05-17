@@ -1,66 +1,99 @@
+:root {
+    --font-size-folder_name: 1.6rem;
+    --pading-in-folders: 1.2rem;
+    --height-block-folder: calc(var(--font-size-folder_name) + var(--pading-in-folders));
+}
+
 .main-body {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
 .main-body-projects-folders {
-    border: 1px solid green;
+    margin-left: 0.3rem;
 }
 
 .main-body-projects-folders .folder_div {
     position: relative;
-    display: flex;
+    display: grid;
     align-items: left;
-    margin-left: 0.5rem;
-    border: 1px solid blue;
+    padding-top: var(--pading-in-folders);
+    width: 100%;
 }
 
 .main-body-projects-folders .folder_div .folder_highlight {
     position: absolute;
     right: 0;
     align-self: start;
-    border: 1px solid red;
+    height: var(--height-block-folder);
+    margin-right: 0.8rem;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.main-body-projects-folders .folder_div .folder_highlight:hover {
+    background-color: black;
+    mix-blend-mode: overlay;
 }
 
 .main-body-projects-folders .folder_div i {
-    font-size: 1.5rem;
+    position: relative;
+    font-size: var(--font-size-folder_name);
 }
 
 .main-body-projects-folders .folder_div .folder_caret {
-    position: relative;
-    top: 1rem;
-    display: flex;
+    position: absolute;
     height: 0;
     width: 0;
+    top: calc(var(--height-block-folder) * 0.5);
     transform: rotate(-90deg);
 
-    transition: 300ms;
+    transition: 310ms;
+}
+
+.main-body-projects-folders .folder_div .folder_caret::before {
+    position: relative;
+    right: 0.3rem;
 }
 
 .main-body-projects-folders .folder_div .folder_caret-open {
-    top: -0.2rem;
-    right: 0.5rem;
     transform: unset;
 }
 
+.main-body-projects-folders .folder_div .folder_caret-open::before {
+    position: relative;
+    bottom: 1.1rem;
+    right: 0.5rem;
+}
+
 .main-body-projects-folders .folder_div .folder_icon {
-    margin-left: 1.5rem;
+    margin-left: var(--font-size-folder_name);
+}
+
+.main-body-projects-folders .folder_div .folder_icon::before {
+    /*Mover el icono del .folder_icon*/
+    position: relative;
+    bottom: calc((var(--height-block-folder) * 0.5) - (var(--font-size-folder_name) * 0.5));
 }
 
 .main-body-projects-folders .folder_name {
     position: absolute;
-    left: 3.5rem;
     display: flex;
+    left: 4.2rem;
+    transform: translate(0, calc((var(--pading-in-folders) / 2) * -1)); /*Centrar el texto con la carpeta*/
 }
 
 .main-body-projects-folders .folder_div i a {
+    position: relative;
     display: flex;
+    bottom: calc(var(--pading-in-folders) / 2);
 }
 
 
 .main-body-projects-folders .folder_name, .main-body-projects-folders .folder_div i a{
+    margin-top: var(--pading-in-folders);
     font-family: "M PLUS Code Latin", monospace;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: var(--font-size-folder_name);
     line-height: 100%;
 }

@@ -185,7 +185,7 @@
     opacity: 0;
     visibility: hidden;
     transition: ease 200ms;
-    z-index: 1;
+    z-index: 3;
 }
 
 .main-header-menu_drop .option_drop a {
