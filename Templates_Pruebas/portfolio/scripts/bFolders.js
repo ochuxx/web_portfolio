@@ -5,8 +5,15 @@ const eventClick = new MouseEvent("click");
 
 // Watch or ocult the sub-folders
 function watchSubFolders(caret) {
+    // Left line to identify the folder children
+    //let parent = caret.parentElement;
+    //if (parent.localName == "div") {
+    //    parent.style.borderLeft = "0.1rem solid blue";
+    //}
+
+
     if(caret.classList.contains("folder_caret-open")) {
-        caret.nextElementSibling.classList.remove("fa-folder"); //Cambiar icono a abierto de carpeta
+        caret.nextElementSibling.classList.remove("fa-folder"); //Change folder icon (opened)
         caret.nextElementSibling.classList.remove("fa-solid");
         caret.nextElementSibling.classList.toggle("fa-folder-open");
         caret.nextElementSibling.classList.toggle("fa-regular");
@@ -17,7 +24,8 @@ function watchSubFolders(caret) {
         return;
     }
 
-    caret.nextElementSibling.classList.remove("fa-folder-open"); //Cambiar icono a cerrado de carpeta
+    //parent.style.border = "unset"; // Quit the left line
+    caret.nextElementSibling.classList.remove("fa-folder-open"); //Change folder icon (closed)
     caret.nextElementSibling.classList.remove("fa-regular");
     caret.nextElementSibling.classList.toggle("fa-folder");
     caret.nextElementSibling.classList.toggle("fa-solid");
@@ -25,6 +33,14 @@ function watchSubFolders(caret) {
     for(let i = 0; i < caret.nextElementSibling.children.length; i++) {
         caret.nextElementSibling.children[i].style.display = "none";
     }
+}
+
+// The button's desing to watch the folders
+function adjustWidthHighlight() {
+    let foldersBoxWidth = foldersBox.offsetWidth;
+    foldersHighlightButton.forEach(element => {
+        element.style.width = `${foldersBoxWidth}px`;
+    })   
 }
 
 foldersHighlightButton.forEach(folderHighlightButton => {
@@ -49,14 +65,6 @@ foldersHighlightButton.forEach(folderHighlightButton => {
         caret.nextElementSibling.children[i].style.display = "none";
     }
 });
-
-// The button's desing to watch the folders
-function adjustWidthHighlight() {
-    let foldersBoxWidth = foldersBox.offsetWidth;
-    foldersHighlightButton.forEach(element => {
-        element.style.width = `${foldersBoxWidth}px`;
-    })   
-}
 
 window.addEventListener("resize", () => {
     adjustWidthHighlight();
