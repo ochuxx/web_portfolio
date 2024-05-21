@@ -11,7 +11,6 @@ function watchSubFolders(caret) {
     //    parent.style.borderLeft = "0.1rem solid blue";
     //}
 
-
     if(caret.classList.contains("folder_caret-open")) {
         caret.nextElementSibling.classList.remove("fa-folder"); //Change folder icon (opened)
         caret.nextElementSibling.classList.remove("fa-solid");
@@ -49,8 +48,18 @@ foldersHighlightButton.forEach(folderHighlightButton => {
 
     // Si la etiqueta de al lado es un link, entonces se dispara el evento de esta
     if (caret.localName == "a") {
+        folderHighlightButton.style.cursor = "pointer";
+
         folderHighlightButton.addEventListener("click", () => {
             caret.dispatchEvent(new MouseEvent("click"));
+        })
+
+        folderHighlightButton.addEventListener("mouseenter", () => {
+            caret.classList.toggle("link_hover");
+        })
+
+        folderHighlightButton.addEventListener("mouseleave", () => {
+            caret.classList.remove("link_hover");
         })
         return;
     }
@@ -60,7 +69,7 @@ foldersHighlightButton.forEach(folderHighlightButton => {
         watchSubFolders(caret);
     });
 
-    /* DEBUGGER */
+    // Esconder carpetas para después abrirlas
     for(let i = 0; i < caret.nextElementSibling.children.length; i++) {
         caret.nextElementSibling.children[i].style.display = "none";
     }

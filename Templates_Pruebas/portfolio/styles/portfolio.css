@@ -7,14 +7,80 @@
 .main-body {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-top: 0.5rem;
+}
+
+.main-body-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 90%;
+}
+
+.main_body_subtitles {
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.main-body-projects-title{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 85%;
+    max-width: 25rem;
+}
+
+.main-body-projects-title span {
+    position: relative;
+    font-size: xx-large;
+    /* POSIBLES CAMBIOS
+    top: -0.6rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: var(--font-color);
+    color: var(--black-color);
+    */
 }
 
 /* ---------- FOLDERS --------- */
 
 .main-body-projects-folders {
-    height: 95%;
     overflow-y: auto;
     overflow-x: hidden;
+    height: 100%;
+    max-height: 28rem;
+    width: 93%;
+    max-width: 30rem;
+    padding: 0.25rem 0;
+    border-radius: 0.3rem;
+    background-color: var(--black-color);
+    box-shadow: 0 0.2rem 1rem 0.2rem #000000;
+
+    transition: 200ms ease;
+}
+
+.main-body-projects-folders:hover {
+    box-shadow: 0 0.2rem 1rem 0.3rem #000000;
+}
+
+.main-body-projects-folders::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.main-body-projects-folders::-webkit-scrollbar-track {
+    border-radius: 0.5rem;
+}
+
+.main-body-projects-folders::-webkit-scrollbar-thumb {
+    background: var(--font-color);
+    border-radius: 0.5rem;
+}
+
+.main-body-projects-folders::-webkit-scrollbar-thumb:hover {
+    background-color: #59708f;
 }
 
 .main-body-projects-folders .folder_div {
@@ -34,14 +100,21 @@
     right: 0;
     align-self: start;
     height: var(--height-block-folder);
-    margin-right: 0.8rem;
+    margin-right: 0.6rem;
     z-index: 1;
-    cursor: pointer;
 }
 
-.main-body-projects-folders .folder_div .folder_highlight:hover {
-    background-color: var(--black-color);
-    mix-blend-mode: hue;
+.main-body-projects-folders .folder_div .folder_highlight:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(300, 300, 300, 0.1); /* Ajusta el color y la opacidad según sea necesario */
+    mix-blend-mode: color;
+    pointer-events: none; /* Asegura que el pseudo-elemento no interfiera con la interacción */
+    z-index: -1;
 }
 
 .main-body-projects-folders .folder_div i {
@@ -107,16 +180,44 @@
     text-decoration: none;
     margin-left: calc(var(--font-size-folder_name) * 0.8);
     color: var(--font-color);
+
 }
 
-.main-body-projects-folders .folder_div i a i {
+.main-body-projects-folders .folder_div i .link_hover {
     color: var(--gray-color);
 }
 
+.main-body-projects-folders .folder_div i a i {
+    color: orange;
+}
+
 .main-body-projects-folders .folder_div i a * {
+    position: relative;
     white-space: nowrap;
 }
 
+.main-body-projects-folders .folder_div i a span::before, .main-body-projects-folders .folder_div i a span::after {
+    content: "";
+    position: absolute;
+    height: 0.15rem;
+    bottom: -0.3rem;
+    width: 0%;
+    background-color: var(--secondary-color);
+
+    transition: 230ms ease;
+}
+
+.main-body-projects-folders .folder_div i a span::before {
+    right: 50%;
+}
+
+.main-body-projects-folders .folder_div i a span::after {
+    left: 50%;
+}
+
+.main-body-projects-folders .folder_div i .link_hover span::before, .main-body-projects-folders .folder_div i .link_hover span::after {
+    width: 50%;
+}
 
 .main-body-projects-folders .folder_name, .main-body-projects-folders .folder_div i a{
     margin-top: var(--pading-in-folders);
@@ -124,4 +225,10 @@
     font-weight: 400;
     font-size: var(--font-size-folder_name);
     line-height: 100%;
+}
+
+@media (max-width: 860px) {
+    .main-body-projects-folders {
+        height: 60vh;
+    }
 }
