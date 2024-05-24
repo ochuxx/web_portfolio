@@ -28,6 +28,7 @@
     align-items: end;
     font-size: xx-large;
     font-weight: 500;
+    cursor: default;
 }
 
 .main-body-projects-title{
@@ -228,6 +229,7 @@
 }
 
 .main-body-skills {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 0.1fr 1fr;
     height: 100%;
@@ -235,6 +237,7 @@
     width: 100%;
     max-width: 42rem;
     align-self: center;
+    cursor: default;
 }
 
 .main-body-skills-skill {
@@ -242,14 +245,32 @@
     grid-template-rows: 0.17fr 1fr;
     align-items: center;
     border-radius: var(--little-border);
+    transition: 300ms ease;
+}
+
+.main-body-skills .main::before {
+    content: "";
+    position: absolute;
+    width: 23%;
+    height: 100%;
+    bottom: 0;
+    border: 1px solid red;
 }
 
 .main-body-skills .data {
     background-color: var(--green-color);
 }
 
+.main-body-skills .data::before {
+    left: 0;
+}
+
 .main-body-skills .dev {
     background-color: var(--main-color);
+}
+
+.main-body-skills .dev::before {
+    right: 0;
 }
 
 .main-body-skills-skill-title {
@@ -268,7 +289,8 @@
 }
 
 .main-body-skills-skill-title span {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
+    white-space: nowrap;
 }
 
 .main-body-skills .data .main-body-skills-skill-title i {
