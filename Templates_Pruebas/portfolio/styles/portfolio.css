@@ -302,9 +302,9 @@
 }
 
 .main-body-skills .main:hover::before, .main-body-skills .main:hover::after {
-    width: calc(100% - 0.6rem);
+    width: calc(100% - 0.5rem);
     height: calc(50% - 0.2rem);
-    border: 0.3rem solid var(--black-color);
+    border: 0.3rem solid var(--font-color);
 
     transition: width 200ms linear, height 200ms linear 200ms;
 }
@@ -366,7 +366,7 @@
 .main-body-skills .data_and_dev .main-body-skills-skill-tools {
     position: absolute;
     height: fit-content;
-    width: 103%;
+    width: 125%;
     padding: 1.5rem 0;
     background: linear-gradient(90deg, var(--green-color) 5%, var(--main-color) 95%);
 }
@@ -382,8 +382,8 @@
 }
 
 .main-body-skills .data_and_dev .skill_left_active::before {
-    width: 100%;
-    border: 0.3rem solid var(--black-color);
+    width: 85%;
+    border: 0.3rem solid var(--font-color);
     border-left-color: var(--green-color);
     border-top-right-radius: var(--little-border);
     border-bottom-right-radius: var(--little-border);
@@ -392,8 +392,8 @@
 }
 
 .main-body-skills .data_and_dev .skill_right_active::before {
-    width: 100%;
-    border: 0.3rem solid var(--black-color);
+    width: 85%;
+    border: 0.3rem solid var(--font-color);
     border-right-color: var(--main-color);
     border-top-left-radius: var(--little-border);
     border-bottom-left-radius: var(--little-border);
