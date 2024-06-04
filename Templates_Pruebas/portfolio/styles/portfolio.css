@@ -232,7 +232,7 @@
 .main-body-skills {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 0.2fr 1fr;
+    grid-template-columns: 1fr 0.3fr 1fr;
     height: 100%;
     max-height: calc(var(--max-height-folder-skill) + 1rem);
     width: 100%;
@@ -242,6 +242,7 @@
 }
 
 .main-body-skills-skill {
+    position: relative;
     display: grid;
     grid-template-rows: 0.17fr 1fr;
     align-items: center;
@@ -260,6 +261,7 @@
 
 .main-body-skills .data:hover {
     box-shadow: -0.8rem 0.8rem 1.3rem 0.5rem var(--black-color);
+    transform: translate(0, -0.4rem);
 }
 
 .main-body-skills .dev {
@@ -269,6 +271,7 @@
 
 .main-body-skills .dev:hover {
     box-shadow: 0.8rem 0.8rem 1.3rem 0.5rem var(--black-color);
+    transform: translate(0, -0.4rem);
 }
 
 /*!!Skill boxes effects!!*/
@@ -304,7 +307,7 @@
 .main-body-skills .main:hover::before, .main-body-skills .main:hover::after {
     width: calc(100% - 0.5rem);
     height: calc(50% - 0.2rem);
-    border: 0.3rem solid var(--font-color);
+    border: 0.3rem solid #95A5A6;
 
     transition: width 200ms linear, height 200ms linear 200ms;
 }
@@ -356,6 +359,13 @@
     flex-direction: column;
 }
 
+.main-body-skills-skill-tools span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+
 .main-body-skills .data_and_dev {
     grid-template-rows: unset;
     position: relative;
@@ -366,9 +376,11 @@
 .main-body-skills .data_and_dev .main-body-skills-skill-tools {
     position: absolute;
     height: fit-content;
-    width: 125%;
+    width: 130%;
     padding: 1.5rem 0;
     background: linear-gradient(90deg, var(--green-color) 5%, var(--main-color) 95%);
+
+    transition: 330ms ease-in;
 }
 
 .main-body-skills .data_and_dev .main-body-skills-skill-tools::before {
@@ -376,14 +388,18 @@
     position: absolute;
     width: 0%;
     height: 100%;
-    border: 0.3rem solid transparent;
-
+    border: 0.25rem solid transparent;
+    
     transition: width 200ms linear 100ms, border 150ms linear 300ms;
 }
 
+.main-body-skills .data_and_dev .skill_left_active,.main-body-skills .data_and_dev .skill_right_active {
+    transform: translate(0, -0.4rem);
+}
+
 .main-body-skills .data_and_dev .skill_left_active::before {
-    width: 85%;
-    border: 0.3rem solid var(--font-color);
+    width: 80%;
+    border: 0.25rem solid #95A5A6;
     border-left-color: var(--green-color);
     border-top-right-radius: var(--little-border);
     border-bottom-right-radius: var(--little-border);
@@ -392,8 +408,8 @@
 }
 
 .main-body-skills .data_and_dev .skill_right_active::before {
-    width: 85%;
-    border: 0.3rem solid var(--font-color);
+    width: 80%;
+    border: 0.25rem solid #95A5A6;
     border-right-color: var(--main-color);
     border-top-left-radius: var(--little-border);
     border-bottom-left-radius: var(--little-border);
