@@ -9,10 +9,7 @@
 .main-body--portfolio {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 0.5rem;
-    margin-bottom: 2rem;
-
-    border: 1px solid red;
+    height: 84vh;
 }
 
 .main-body-projects {
