@@ -1,8 +1,12 @@
-import { MainHeader } from "./header/Header"
+import { MainHeader } from './header/MainHeader'
+import { MainContent } from './content/MainContent'
 
 function App() {
   return (
-    <MainHeader />
+    <>
+      <MainHeader />
+      <MainContent />
+    </>
   )
 }
 

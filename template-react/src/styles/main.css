@@ -20,5 +20,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 16vh 84vh;
+  grid-gap: 0;
+  height: 100vh;
+  overflow: hidden;
   color: var(--font-color);
 }

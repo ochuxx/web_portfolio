@@ -1,17 +1,24 @@
 /* component: SocialMedia */
 .social-media {
-
+  width: max-content;
+  display: flex;
+  gap: 1.75rem;
 }
 
 /* component: SocialMediaIcon */
-.icon-container {
+.icon-link {}
 
+.icon-link__symbol {
+  height: 2.75rem;
+  color: var(--font-color);
+
+  transition: ease .3s;
 }
 
-.icon-link {
-
+.icon-link__symbol--whatsapp:hover {
+  color: #25D366;
 }
 
-.icon-symbol {
-
+.icon-link__symbol--linkedin:hover {
+  color: #0077B5;
 }

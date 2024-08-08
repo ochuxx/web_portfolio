@@ -1,0 +1,31 @@
+.list-menu {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.list-menu__item {
+  position: relative;
+  top: .25rem;
+  font-size: 1.2rem;
+  list-style: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.item__bar, .item__bar--selected {
+  height: .13rem;
+  width: 95%;
+  margin: auto;
+  margin-top: .15rem;
+
+  transition: ease .3s;
+}
+
+.item__bar--selected {
+  background-color: var(--font-color);
+  height: .25rem;
+}
+
+.list-menu__item:hover .item__bar {
+  background-color: var(--gray-color);
+}
