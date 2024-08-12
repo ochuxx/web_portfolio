@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import styles from '../styles/header/AnimatedTitle.module.css'
+import styles from '@styles/header/AnimatedTitle.module.css'
 
 const titles = ['Web', 'Dev', 'Analyst']
 let isDeleting, iTitle = 0

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import styles from '../styles/header/SocialMedia.module.css'
+import styles from '@styles/header/SocialMedia.module.css'
 
 function SocialMediaIcon({symbol, link, variant}) {
   const variantClass = `icon-link__symbol--${variant}`

@@ -1,7 +1,7 @@
 import { AnimatedTitle } from './AnimatedTitle'
 import { SocialMedia } from './SocialMedia'
 import { ListMenu } from './ListMenu'
-import styles from '../styles/header/Header.module.css'
+import styles from '@styles/header/Header.module.css'
 
 // Component: Masthead
 function Masthead() {

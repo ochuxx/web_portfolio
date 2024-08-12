@@ -1,4 +1,4 @@
-import styles from '../styles/header/ListMenu.module.css';
+import styles from '@styles/header/ListMenu.module.css';
 
 function MenuItem({children, isSelected = false}) {
   const classOfBar = isSelected ? 'item__bar--selected' : 'item__bar'
