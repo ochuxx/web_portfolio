@@ -4,9 +4,8 @@ import styles from '@styles/content/01-home/PersonalImage.module.css'
 function ThematicVideo({videoRoute}) {
   return (
     <video
-      autoplay
+      autoPlay
       muted
-      playsinline
       loop
       className={styles['profession-video']} 
     >
