@@ -1,0 +1,5 @@
+.all-content-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 84vh;
+}

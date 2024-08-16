@@ -1,0 +1,67 @@
+:root {
+  --folder-height: 2rem;
+  --folders-container-width: 30rem;
+}
+
+/*--- module: ProjectsList ---*/
+
+.folders-container {
+  width: var(--folders-container-width);
+  border: 2px solid;
+  margin: auto;
+}
+
+/*--- module: ProjectFolder ---*/
+
+.folder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  cursor: pointer;
+}
+
+.folder__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  height: var(--folder-height);
+}
+
+.folder__header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: var(--folders-container-width);
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  z-index: -1;
+} 
+
+.folder__header:hover::before {
+  opacity: .1;
+}
+
+.folder__header__caret-icon {
+  height: 1rem;
+  border: 1px solid green;
+}
+
+.folder__header__folder-icon {
+  height: 1rem;
+  border: 1px solid blue;
+}
+
+.folder__header__title {
+  font-weight: 400;
+}
+
+.folder__children-container--open {
+  display: flex;
+}
+
+.folder__children-container--closed {
+  display: none;
+}
