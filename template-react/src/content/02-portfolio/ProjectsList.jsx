@@ -1,12 +1,24 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown, faFolder } from '@fortawesome/free-solid-svg-icons'
+import { faCaretRight, faFolder, faFile } from '@fortawesome/free-solid-svg-icons'
+import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 import styles from '@styles/content/02-portfolio/ProjectsList.module.css'
 
+function ProjectFile({title, childIndex}) {
+  return (
+    <div className={styles.file}>
+        <FontAwesomeIcon
+          style={{ marginLeft: `calc(${childIndex} * 1.6rem` }}
+          className={styles['file__file-icon']}
+          icon={faFile}
+        />
+        <h3 className={styles['file__title']}>{title}</h3>
+    </div>
+  )
+}
+
 function ProjectFolder({children, title, childIndex}) {
-
   const [isOpen, setIsOpen] = useState(false)
-
   const handleClickFolder = () => {
     setIsOpen(!isOpen)
   }
@@ -15,13 +27,13 @@ function ProjectFolder({children, title, childIndex}) {
     <div className={styles.folder}>
       <header className={styles['folder__header']} onClick={handleClickFolder}>
         <FontAwesomeIcon
-          style={{ marginLeft: `calc(${childIndex} * .8rem` }}
+          style={{ marginLeft: `calc(${childIndex} * 1.25rem` }}
           className={styles['folder__header__caret-icon']}
-          icon={faCaretDown}
+          icon={faCaretRight}
         />
         <FontAwesomeIcon
          className={styles['folder__header__folder-icon']}
-         icon={faFolder}
+         icon={isOpen ? faFolderOpen : faFolder}
         />
         <h3 className={styles['folder__header__title']}>{title}</h3>
       </header>
@@ -44,9 +56,10 @@ export function ProjectsList() {
     <section>
       <h2>Proyectos</h2>
       <div className={styles['folders-container']}>
-        <ProjectFolder title='Análisis de datos' childIndex={1}>
-          <ProjectFolder title='Proyecto 1' childIndex={2}>
-            <ProjectFolder title='Proyecto 2' childIndex={3}>
+        <ProjectFolder title='Análisis de datos' childIndex={0}>
+          <ProjectFolder title='Proyecto 1' childIndex={1}>
+            <ProjectFolder title='Proyecto 2' childIndex={2}>
+              <ProjectFile title='Archivo' childIndex={3}/>
             </ProjectFolder>
           </ProjectFolder>
         </ProjectFolder>
