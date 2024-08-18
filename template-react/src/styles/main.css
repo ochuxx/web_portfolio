@@ -8,7 +8,7 @@
   --black-color: #1A1A1A;
   --green-color: #0d727a;
   --little-border: .65rem;
-  --borders-header: .32rem;
+  --mini-border: .32rem;
   background: linear-gradient(to right, var(--main-color) 60%, var(--secondary-color));
   font-family: "M PLUS Code Latin", monospace;
   font-size: 100%;

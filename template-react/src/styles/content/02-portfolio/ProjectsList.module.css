@@ -1,18 +1,48 @@
 :root {
-  --folder-height: 2rem;
+  --folder-height: 2.2rem;
   --folders-container-width: 30rem;
 }
 
 /*--- module: ProjectsList ---*/
 
 .folders-container {
-  width: var(--folders-container-width);
+  overflow-y: auto;
+  overflow-x: hidden;
   height: 25rem;
-  border: 2px solid;
+  max-height: 25rem;
+  width: 100%;
+  max-width: 30rem;
+  padding: .25rem 0;
+  border-radius: var(--mini-border);
+  background-color: var(--black-color);
+  box-shadow: 0 .2rem 1rem .2rem #000000;
   margin: auto;
+
+  transition: 200ms ease;
 }
 
-/*--- module: ProjectFolder ---*/
+.folders-container:hover {
+  box-shadow: 0 .2rem 1rem .3rem #000000;
+}
+
+.folders-container::-webkit-scrollbar {
+  width: .5rem;
+}
+
+.folders-container::-webkit-scrollbar-track {
+  border-radius: .5rem;
+}
+
+.folders-container::-webkit-scrollbar-thumb {
+  background: var(--font-color);
+  border-radius: .5rem;
+}
+
+.folders-container::-webkit-scrollbar-thumb:hover {
+  background-color: #59708f;
+}
+
+/*--- module: ProjectFolder and ProjectFile ---*/
 
 .folder {
   position: relative;
@@ -29,6 +59,8 @@
   height: var(--folder-height);
   width: 100%;
   cursor: default;
+  z-index: 1;
+  user-select: none;
 }
 
 .folder__header::before, .file::before {
@@ -39,7 +71,6 @@
   height: 100%;
   background-color: white;
   opacity: 0;
-  z-index: -1;
 } 
 
 .folder__header:hover::before, .file:hover::before {
@@ -50,6 +81,12 @@
   position: relative;
   height: 1rem;
   left: .2rem;
+
+  transition: .2s ease all;
+}
+
+.folder__header__caret-icon--open {
+  transform: rotate(90deg);
 }
 
 .folder__header__folder-icon, .file__file-icon {
@@ -57,7 +94,17 @@
 }
 
 .folder__header__title, .file__title {
+  position: relative;
   font-weight: 400;
+}
+
+.folder__header__title::before {
+  content: '';
+  position: absolute;
+  height: 200%;
+  width: .05rem;
+  left: -2.2rem;
+  background-color: blue;
 }
 
 .folder__children-container--open {
@@ -66,4 +113,43 @@
 
 .folder__children-container--closed {
   display: none;
+}
+
+.file {
+  color: var(--font-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.file__file-icon {
+  color: gray;
+}
+
+/* File title animation */
+
+.file__title::before, .file__title::after {
+  content: '';
+  position: absolute;
+  height: .14rem;
+  bottom: -.05rem;
+  width: 0%;
+  background-color: var(--secondary-color);
+
+  transition: 230ms ease;
+}
+
+.file__title::before {
+  right: 50%;
+}
+
+.file__title::after {
+  left: 50%;
+}
+
+.file:hover .file__title {
+  color: var(--gray-color);
+}
+
+.file:hover .file__title::before, .file:hover .file__title::after {
+  width: 50%;
 }

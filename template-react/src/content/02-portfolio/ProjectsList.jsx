@@ -4,16 +4,16 @@ import { faCaretRight, faFolder, faFile } from '@fortawesome/free-solid-svg-icon
 import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 import styles from '@styles/content/02-portfolio/ProjectsList.module.css'
 
-function ProjectFile({title, childIndex}) {
+function ProjectFile({title, childIndex, link='#'}) {
   return (
-    <div className={styles.file}>
+    <a className={styles.file} href={link}>
         <FontAwesomeIcon
-          style={{ marginLeft: `calc(${childIndex} * 1.6rem` }}
+          style={{ marginLeft: `calc((${childIndex} * 1.6rem) + .5rem)` }}
           className={styles['file__file-icon']}
           icon={faFile}
         />
         <h3 className={styles['file__title']}>{title}</h3>
-    </div>
+    </a>
   )
 }
 
@@ -27,8 +27,13 @@ function ProjectFolder({children, title, childIndex}) {
     <div className={styles.folder}>
       <header className={styles['folder__header']} onClick={handleClickFolder}>
         <FontAwesomeIcon
-          style={{ marginLeft: `calc(${childIndex} * 1.25rem` }}
-          className={styles['folder__header__caret-icon']}
+          style={{ marginLeft: `calc((${childIndex} * 1.25rem) + .5rem)` }}
+          className={
+            `
+            ${styles['folder__header__caret-icon']}
+            ${isOpen ? styles['folder__header__caret-icon--open'] : ''}
+            `
+          }
           icon={faCaretRight}
         />
         <FontAwesomeIcon
@@ -59,7 +64,7 @@ export function ProjectsList() {
         <ProjectFolder title='Análisis de datos' childIndex={0}>
           <ProjectFolder title='Proyecto 1' childIndex={1}>
             <ProjectFolder title='Proyecto 2' childIndex={2}>
-              <ProjectFile title='Archivo' childIndex={3}/>
+              <ProjectFile title='Archivo' childIndex={3} />
             </ProjectFolder>
           </ProjectFolder>
         </ProjectFolder>
