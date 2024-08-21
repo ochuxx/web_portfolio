@@ -1,18 +1,16 @@
 :root {
-  --folder-height: 2.2rem;
-  --folders-container-width: 30rem;
+  --folder-height: 2.5rem;
+  --folders-container-height: 25rem;
 }
 
 /*--- module: ProjectsList ---*/
-
 .folders-container {
   overflow-y: auto;
   overflow-x: hidden;
-  height: 25rem;
-  max-height: 25rem;
+  height: var(--folders-container-height);
+  max-height: var(--folders-container-height);
   width: 100%;
   max-width: 30rem;
-  padding: .25rem 0;
   border-radius: var(--mini-border);
   background-color: var(--black-color);
   box-shadow: 0 .2rem 1rem .2rem #000000;
@@ -49,29 +47,43 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  user-select: none;
+}
+
+.folder__reference-line {
+  position: absolute;
+  background-color: var(--gray-color);
+  height: 0%;
+  width: .08rem;
+  top: 1.35rem;
+
+  transition: .2s ease;
+}
+
+.folder__reference-line--open {
+  height: calc(100% - 1.35rem);
 }
 
 .folder__header, .file {
   position: relative;
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: .7rem;
   height: var(--folder-height);
   width: 100%;
   cursor: default;
   z-index: 1;
-  user-select: none;
 }
 
 .folder__header::before, .file::before {
   content: '';
   position: absolute;
   top: 0;
-  width: var(--folders-container-width);
+  width: 100%;
   height: 100%;
   background-color: white;
   opacity: 0;
-} 
+}
 
 .folder__header:hover::before, .file:hover::before {
   opacity: .1;
@@ -79,7 +91,7 @@
 
 .folder__header__caret-icon {
   position: relative;
-  height: 1rem;
+  height: 1.35rem;
   left: .2rem;
 
   transition: .2s ease all;
@@ -89,30 +101,31 @@
   transform: rotate(90deg);
 }
 
-.folder__header__folder-icon, .file__file-icon {
-  height: 1rem;
+.folder__header__folder-icon-container {
+  display: flex;
+  align-items: center;
+  width: 1.35rem;
+}
+
+.folder__header__folder-icon-container__folder-icon,
+.file__file-icon {
+  position: relative;
+  height: 1.35rem;
 }
 
 .folder__header__title, .file__title {
   position: relative;
   font-weight: 400;
+  font-size: 1.25rem;
 }
 
-.folder__header__title::before {
-  content: '';
-  position: absolute;
-  height: 200%;
-  width: .05rem;
-  left: -2.2rem;
-  background-color: blue;
+.folder__children-container {
+  display: none;
 }
 
 .folder__children-container--open {
   display: flex;
-}
-
-.folder__children-container--closed {
-  display: none;
+  flex-direction: column;
 }
 
 .file {

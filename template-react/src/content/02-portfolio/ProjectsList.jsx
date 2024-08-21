@@ -25,6 +25,16 @@ function ProjectFolder({children, title, childIndex}) {
 
   return (
     <div className={styles.folder}>
+      <span
+        className={
+          `
+          ${styles['folder__reference-line']}
+          ${isOpen ? styles['folder__reference-line--open'] : ''}
+          `
+        }
+        style={{ marginLeft: `calc((${childIndex} * 1.25rem) + 1rem)` }}
+      >
+      </span>
       <header className={styles['folder__header']} onClick={handleClickFolder}>
         <FontAwesomeIcon
           style={{ marginLeft: `calc((${childIndex} * 1.25rem) + .5rem)` }}
@@ -36,18 +46,21 @@ function ProjectFolder({children, title, childIndex}) {
           }
           icon={faCaretRight}
         />
-        <FontAwesomeIcon
-         className={styles['folder__header__folder-icon']}
-         icon={isOpen ? faFolderOpen : faFolder}
-        />
+        <figure className={styles['folder__header__folder-icon-container']}>
+          <FontAwesomeIcon
+          className={styles['folder__header__folder-icon-container__folder-icon']}
+          icon={isOpen ? faFolderOpen : faFolder}
+          />
+        </figure>
         <h3 className={styles['folder__header__title']}>{title}</h3>
       </header>
 
       <aside 
         className={
-          isOpen
-          ? styles['folder__children-container--open']
-          : styles['folder__children-container--closed']
+          `
+          ${styles['folder__children-container']}
+          ${isOpen ? styles['folder__children-container--open'] : ''}
+          `
         }
       >
         {children}
@@ -58,13 +71,30 @@ function ProjectFolder({children, title, childIndex}) {
 
 export function ProjectsList() {
   return (
-    <section>
+    <section className={styles['title-list-container']}>
       <h2>Proyectos</h2>
       <div className={styles['folders-container']}>
         <ProjectFolder title='Análisis de datos' childIndex={0}>
           <ProjectFolder title='Proyecto 1' childIndex={1}>
             <ProjectFolder title='Proyecto 2' childIndex={2}>
               <ProjectFile title='Archivo' childIndex={3} />
+              <ProjectFile title='Archivo 2' childIndex={3} />
+            </ProjectFolder>
+            <ProjectFolder title='Proyecto 2' childIndex={2}>
+              <ProjectFile title='Archivo' childIndex={3} />
+              <ProjectFile title='Archivo 2' childIndex={3} />
+            </ProjectFolder>
+          </ProjectFolder>
+        </ProjectFolder>
+        <ProjectFolder title='Análisis de datos' childIndex={0}>
+          <ProjectFolder title='Proyecto 1' childIndex={1}>
+            <ProjectFolder title='Proyecto 2' childIndex={2}>
+              <ProjectFile title='Archivo' childIndex={3} />
+              <ProjectFile title='Archivo 2' childIndex={3} />
+            </ProjectFolder>
+            <ProjectFolder title='Proyecto 2' childIndex={2}>
+              <ProjectFile title='Archivo' childIndex={3} />
+              <ProjectFile title='Archivo 2' childIndex={3} />
             </ProjectFolder>
           </ProjectFolder>
         </ProjectFolder>
