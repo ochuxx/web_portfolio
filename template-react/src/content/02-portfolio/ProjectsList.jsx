@@ -72,7 +72,7 @@ function ProjectFolder({children, title, childIndex}) {
 export function ProjectsList() {
   return (
     <section className={styles['title-list-container']}>
-      <h2>Proyectos</h2>
+      <h2 className={styles['project-title']}>Proyectos</h2>
       <div className={styles['folders-container']}>
         <ProjectFolder title='Análisis de datos' childIndex={0}>
           <ProjectFolder title='Proyecto 1' childIndex={1}>

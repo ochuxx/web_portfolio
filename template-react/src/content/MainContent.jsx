@@ -5,8 +5,8 @@ import styles from '@styles/content/MainContent.module.css';
 export function MainContent() {
   return (
     <main className={styles['all-content-container']}>
-      <Portfolio />
       <Home />
+      <Portfolio />
     </main>
   )
 }

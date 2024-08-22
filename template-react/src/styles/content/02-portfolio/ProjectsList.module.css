@@ -4,17 +4,30 @@
 }
 
 /*--- module: ProjectsList ---*/
+.title-list-container {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  width: 30rem;
+  max-height: 40rem;
+  margin: auto 0;
+}
+
+.project-title {
+  width: max-content;
+  margin: auto;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
 .folders-container {
   overflow-y: auto;
   overflow-x: hidden;
   height: var(--folders-container-height);
   max-height: var(--folders-container-height);
   width: 100%;
-  max-width: 30rem;
   border-radius: var(--mini-border);
   background-color: var(--black-color);
   box-shadow: 0 .2rem 1rem .2rem #000000;
-  margin: auto;
 
   transition: 200ms ease;
 }
