@@ -1,0 +1,107 @@
+/* component: SkillsList */
+.title-box-container {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  max-width: 45rem;
+  height: 30rem;
+  max-height: 30rem;
+  margin: auto 0;
+}
+
+.skill-title {
+  width: max-content;
+  margin: auto;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.boxes-container {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 2.5fr;
+}
+
+/* component: SkillsBox */
+.box {
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+  place-items: center;
+  border-radius: var(--mini-border);
+}
+
+.box:hover {
+  box-shadow: 0 .3rem 1rem .5rem var(--black-color);
+  z-index: 1;
+}
+
+.box--data {
+  background-color: var(--green-color);
+}
+
+.box--dev {
+  background-color: var(--main-color);
+}
+
+.box--data_dev {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  padding: 1rem 0;
+  height: max-content;
+  border-radius: unset;
+  background: linear-gradient(90deg, var(--green-color) 0%, var(--main-color) 100%);
+}
+
+.box--data_dev .box__header {
+  display: none;
+}
+
+.box__header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  width: max-content;
+}
+
+.box__header--ocult {
+  display: none;
+}
+
+.box__header__icon {
+  font-size: 2rem;
+}
+
+.box--data .box__header__icon {
+  color: var(--main-color);
+}
+
+.box--dev .box__header__icon {
+  color: var(--green-color);
+}
+
+.box__header__title {
+  font-weight: 400;
+}
+
+/* component: SkillCards */
+.cards-container {
+  display: flex;
+  gap: .8rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  list-style: none;
+}
+
+.card__icon {
+  width: 1.8rem;
+}
+
+.card__name {
+  font-size: .9rem;
+}

@@ -6,13 +6,11 @@
 }
 
 /* component: SocialMediaIcon */
-.icon-link {}
-
 .icon-link__symbol {
   height: 2.75rem;
   color: var(--font-color);
 
-  transition: ease .3s;
+  transition: ease .15s;
 }
 
 .icon-link__symbol--whatsapp:hover {
@@ -21,4 +19,8 @@
 
 .icon-link__symbol--linkedin:hover {
   color: #0077B5;
+}
+
+.icon-link__symbol--github:hover {
+  color: #333;
 }

@@ -8,7 +8,8 @@
   display: grid;
   grid-template-rows: 1fr 5fr;
   width: 30rem;
-  max-height: 40rem;
+  height: 30rem;
+  max-height: 30rem;
   margin: auto 0;
 }
 
