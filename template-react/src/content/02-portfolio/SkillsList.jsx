@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChartSimple } from '@fortawesome/free-solid-svg-icons'
+import { faChartSimple, faCode } from '@fortawesome/free-solid-svg-icons'
 import dataSkills from '@skills-json'
 
 function SkillChart({title, headerIcon, profession}) {
@@ -33,6 +33,7 @@ export function SkillsList() {
       <h2>Habilidades</h2>
       <div>
         <SkillChart headerIcon={faChartSimple} title='Análisis de datos' profession='data' />
+        <SkillChart headerIcon={faCode} title='Desarrollo web' profession='development' />
       </div>
     </section>
   )
