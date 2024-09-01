@@ -4,7 +4,7 @@ import { faCaretRight, faFolder, faFile } from '@fortawesome/free-solid-svg-icon
 import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 import styles from '@styles/content/02-portfolio/ProjectsList.module.css'
 
-function ProjectFile({title, childIndex, link='#'}) {
+function ProjectFile({ title, childIndex, link='#' }) {
   return (
     <a className={styles.file} href={link}>
         <FontAwesomeIcon
@@ -17,7 +17,7 @@ function ProjectFile({title, childIndex, link='#'}) {
   )
 }
 
-function ProjectFolder({children, title, childIndex}) {
+function ProjectFolder({ children, title, childIndex }) {
   const [isOpen, setIsOpen] = useState(false)
   const handleClickFolder = () => {
     setIsOpen(!isOpen)

@@ -52,6 +52,10 @@
   background: linear-gradient(90deg, var(--green-color) 0%, var(--main-color) 100%);
 }
 
+.box--data_dev--hover, .box--data--hover, .box--dev--hover {
+  border: 1px solid red;
+}
+
 .box--data_dev .box__header {
   display: none;
 }

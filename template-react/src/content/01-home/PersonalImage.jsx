@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '@styles/content/01-home/PersonalImage.module.css'
 
-function ThematicVideo({videoRoute}) {
+function ThematicVideo({ videoRoute }) {
   return (
     <video
       autoPlay
