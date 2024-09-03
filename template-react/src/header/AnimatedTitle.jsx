@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import styles from '@styles/header/AnimatedTitle.module.css'
 
-const titles = ['Web', 'Dev', 'Analyst']
+const titles = ['Web', 'Dev', 'Data']
 let isDeleting, iTitle = 0
 
 export function AnimatedTitle() {

@@ -1,6 +1,6 @@
 .portfolio-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  place-items: center;
   height: 84vh;
-  padding: 0 4rem;
 }

@@ -89,7 +89,12 @@ export function SkillsList() {
   return (
     <section className={styles['title-box-container']}>
       <h2 className={styles['skill-title']}>Habilidades</h2>
-      <div className={styles['boxes-container']}>
+      <div
+        className={`
+          ${styles['boxes-container']} 
+          ${boxHoverReference != null ? styles[`boxes-container--hover-on-${boxHoverReference}`] : ''}
+        `}
+      >
         {
           professions.map(data => (
             <SkillsBox
