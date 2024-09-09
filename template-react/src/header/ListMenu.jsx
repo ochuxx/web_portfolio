@@ -16,7 +16,7 @@ export function ListMenu() {
       <ul className={styles['list-menu']}>
         <MenuItem isSelected >Inicio</MenuItem>
         <MenuItem>Portafolio</MenuItem>
-        <MenuItem>Acerca de mí</MenuItem>
+        <MenuItem>Acerca de</MenuItem>
         <MenuItem>Contacto</MenuItem>
       </ul>
   )
