@@ -1,21 +1,24 @@
-.main-container {}
+.main-profession-selector-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
 
 .profession-container {
   position: relative;
 }
 
 .profession-container__header {
-  position: relative;
-  border: 1px solid red;
+  position: absolute;
+  top: -30%;
+  left: -6%;
   width: max-content;
 }
 
 .profession-container__header__icon {
-  height: 10rem;
-}
-
-.profession-container__header__icon path {
-  color: aqua !important;
+  height: 3.5rem;
+  color: black;
 }
 
 .profession-container__header__title {
@@ -25,8 +28,30 @@
   width: 100%;
   height: 100%;
   top: 0;
+  font-size: .8rem;
+  font-weight: 400;
 }
 
 .profession-container__aside {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.profession-container__aside__button {
+  padding: 1.5rem 3.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border: unset;
+}
+
+.profession-container__aside__reference-line {
   display: none;
+  width: 100%;
+  height: 15%;
+  background-color: white;
+  align-self: center;
+}
+
+.profession-container__aside__reference-line--active {
+  display: block;
 }
