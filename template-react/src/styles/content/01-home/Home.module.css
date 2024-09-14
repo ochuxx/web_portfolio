@@ -1,0 +1,10 @@
+.home-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: center;
+  place-items: center;
+  height: 84vh;
+
+  transition: 300ms ease;
+}

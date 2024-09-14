@@ -1,0 +1,38 @@
+.images-container {
+  position: relative;
+  display: grid;
+  width: max-content;
+  margin: auto;
+}
+
+.images-container__video-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.images-container__video-container--video1 {
+  justify-content: left;
+  transform: translate(-1.2rem, -.8rem);
+}
+
+.images-container__img-container {
+  height: max-content;
+}
+
+.images-container__video-container--video2 {
+  justify-content: right;
+  bottom: 0;
+  transform: translate(1.2rem, .8rem);
+}
+
+.profession-video {
+  height: 6rem;
+  border: .1rem solid var(--green-color);
+}
+
+.personal-image {
+  height: 30rem;
+  border-radius: 5%;
+}

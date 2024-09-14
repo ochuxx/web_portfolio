@@ -1,0 +1,13 @@
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  height: 84vh;
+}
+
+.about-container__prof-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
