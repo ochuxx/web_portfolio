@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 .portfolio-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
   height: 84vh;
-=======
-.portfolio-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  place-items: center;
-  height: 84vh;
->>>>>>> 2847d45 (.gitignore añadido)
 }

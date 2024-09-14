@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=M+PLUS+Code+Latin:wght@100..700&display=swap');
 
 :root {
@@ -28,35 +27,4 @@ body {
   height: 100vh;
   overflow: hidden;
   color: var(--font-color);
-=======
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=M+PLUS+Code+Latin:wght@100..700&display=swap');
-
-:root {
-  --main-color: #222F40;
-  --font-color: #f1f1f1;
-  --secondary-color: #3F5573;
-  --gray-color: #6F87A6;
-  --black-color: #1A1A1A;
-  --green-color: #0d727a;
-  --little-border: .65rem;
-  --mini-border: .32rem;
-  background: linear-gradient(to right, var(--main-color) 60%, var(--secondary-color));
-  font-family: "M PLUS Code Latin", monospace;
-  font-size: 100%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  display: grid;
-  grid-template-rows: 16vh 84vh;
-  grid-gap: 0;
-  height: 100vh;
-  overflow: hidden;
-  color: var(--font-color);
->>>>>>> 2847d45 (.gitignore añadido)
 }
