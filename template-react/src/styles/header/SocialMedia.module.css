@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* component: SocialMedia */
 .social-media {
   width: max-content;
@@ -23,4 +24,31 @@
 
 .icon-link__symbol--github:hover {
   color: #333;
+=======
+/* component: SocialMedia */
+.social-media {
+  width: max-content;
+  display: flex;
+  gap: 1.75rem;
+}
+
+/* component: SocialMediaIcon */
+.icon-link__symbol {
+  height: 2.75rem;
+  color: var(--font-color);
+
+  transition: ease .15s;
+}
+
+.icon-link__symbol--whatsapp:hover {
+  color: #25D366;
+}
+
+.icon-link__symbol--linkedin:hover {
+  color: #0077B5;
+}
+
+.icon-link__symbol--github:hover {
+  color: #333;
+>>>>>>> 2847d45 (.gitignore añadido)
 }

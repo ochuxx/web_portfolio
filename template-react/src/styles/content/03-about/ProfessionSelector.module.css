@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .profession-container {
   position: relative;
 }
@@ -47,4 +48,55 @@
 
 .profession-container__aside__reference-line--active {
   display: block;
+=======
+.profession-container {
+  position: relative;
+}
+
+.profession-container__header {
+  position: absolute;
+  top: -30%;
+  left: -6%;
+  width: max-content;
+}
+
+.profession-container__header__icon {
+  height: 3.5rem;
+  color: black;
+}
+
+.profession-container__header__title {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+.profession-container__aside {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.profession-container__aside__button {
+  padding: 1.5rem 3.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border: unset;
+}
+
+.profession-container__aside__reference-line {
+  display: none;
+  width: 100%;
+  height: 15%;
+  background-color: white;
+  align-self: center;
+}
+
+.profession-container__aside__reference-line--active {
+  display: block;
+>>>>>>> 2847d45 (.gitignore añadido)
 }
