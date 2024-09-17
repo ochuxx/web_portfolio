@@ -1,0 +1,34 @@
+.curriculum-section-container {
+  width: 100%;
+  height: 100%;
+}
+
+.line-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+}
+
+.line-container__line {
+  background-color: blue;
+  height: 30%;
+}
+
+.line-container__line--large {
+  width: 80%;
+}
+
+.line-container__line--medium {
+  width: 60%;
+}
+
+.line-container__line--small {
+  width: 40%;
+}
+
+.line-container__line-head {
+  height: 100%;
+  width: 3rem;
+  background-color: blue;
+}

@@ -1,16 +1,25 @@
-function DecorationLine({ widthLine, figure, hasCurriculumButton=false }) {
+import styles from '@styles/content/03-about/CurriculumSection.module.css'
+
+function DecorationLine({ widthClass, figure, hasCurriculumButton=false }) {
   return (
-    <div>
-      <span></span>
-      <aside></aside>
+    <div className={styles['line-container']}>
+      <span
+        className={`
+          ${styles['line-container__line']}
+          ${styles[`line-container__line--${widthClass}`]}
+        `}>
+      </span>
+      <aside className={styles['line-container__line-head']}></aside>
     </div>
   )
 }
 
 export function CurriculumSection() {
   return (
-    <section>
-      Soy el apartado de Hoja de Vida
-    </section>
+    <div className={styles['curriculum-section-container']}>
+      <DecorationLine widthClass='medium' />
+      <DecorationLine widthClass='large' />
+      <DecorationLine widthClass='small' />
+    </div>
   )
 }
