@@ -11,6 +11,8 @@
 }
 
 .line-container__line {
+  position: relative;
+  left: .1rem;
   background-color: blue;
   height: 30%;
 }
@@ -31,4 +33,16 @@
   height: 100%;
   width: 3rem;
   background-color: blue;
+  border-radius: 50%;
+  transition: .35s ease all;
+}
+
+.line-container__line-head--has-button-child {
+  border-radius: 10%;
+  width: max-content;
+  padding: 0 .5rem;
+}
+
+.line-container__line-head--is-square {
+  border-radius: unset;
 }

@@ -53,7 +53,7 @@ export function About() {
       >
         {professionDataCurrent.description}
       </DescriptionFile>
-      <CurriculumSection/>
+      <CurriculumSection extensionActive={professionDataCurrent.extension} />
     </section>
   )
 }
