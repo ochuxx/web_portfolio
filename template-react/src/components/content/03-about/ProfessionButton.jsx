@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile } from '@fortawesome/free-solid-svg-icons'
-import styles from '@styles/content/03-about/ProfessionSelector.module.css'
+import styles from '@styles/content/03-about/ProfessionButton.module.css'
 
-export function ProfessionButton({ extension, children, extensionActive, handleClick }) {
+export function ProfessionButton({ extension, extensionActive, handleClick }) {
+  const extensionWithoutDot = extension.replace('.', '')
+
   return (
     <section className={styles['profession-container']} >
       <header className={styles['profession-container__header']}>
@@ -10,12 +12,19 @@ export function ProfessionButton({ extension, children, extensionActive, handleC
         <h3 className={styles['profession-container__header__title']}>{extension}</h3>
       </header>
       <aside className={styles['profession-container__aside']}>
-        <button
-          className={styles['profession-container__aside__button']}
-          onClick={() => handleClick(extension)}
+        <div
+          className={`
+            ${styles['profession-container__aside__button-container']}
+            ${styles[`profession-container__aside__button-container--${extensionWithoutDot}`]}
+          `}
         >
-          Acerca de:<br/>{children}
-        </button>
+          <button
+            className={styles['profession-container__aside__button-container__button']}
+            onClick={() => handleClick(extension)}
+          >
+            Abrir archvio
+          </button>
+        </div>
         <span 
           className={`
             ${styles['profession-container__aside__reference-line']}

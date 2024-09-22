@@ -35,16 +35,12 @@ export function About() {
           extension='.data'
           extensionActive={professionDataCurrent.extension}
           handleClick={handleClickProfession}
-        >
-          Análisis de datos
-        </ProfessionButton>
+        />
         <ProfessionButton
           extension='.dev'
           extensionActive={professionDataCurrent.extension}
           handleClick={handleClickProfession}
-        >
-          Desarrollo Web
-        </ProfessionButton>
+        />
       </div>
 
       <DescriptionFile
