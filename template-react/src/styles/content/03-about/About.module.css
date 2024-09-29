@@ -1,7 +1,7 @@
 .about-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  place-items: left;
   height: 84vh;
 }
 

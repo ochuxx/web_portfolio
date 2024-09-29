@@ -12,7 +12,6 @@
 
 .line-container__line {
   position: relative;
-  left: .1rem;
   background-color: blue;
   height: 30%;
 }
@@ -30,6 +29,8 @@
 }
 
 .line-container__line-head {
+  position: relative;
+  right: .1rem;
   height: 100%;
   width: 3rem;
   background-color: blue;

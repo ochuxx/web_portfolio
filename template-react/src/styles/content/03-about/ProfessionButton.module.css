@@ -1,5 +1,7 @@
 .profession-container {
   position: relative;
+  width: 75%;
+  left: 25%;
 }
 
 .profession-container__header {
@@ -27,38 +29,57 @@
 
 .profession-container__aside {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
 }
 
 .profession-container__aside__button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.2rem;
+  padding: 1.5rem 0;
 }
 
 .profession-container__aside__button-container--dev {
   background-color: var(--secondary-color);
 }
 
+.profession-container__aside__button-container--dev button:hover,
+.profession-container__aside__reference-line--dev {
+  background-color: var(--gray-color);
+}
+
 .profession-container__aside__button-container--data {
   background-color: var(--green-color);
 }
 
+.profession-container__aside__button-container--data button:hover,
+.profession-container__aside__reference-line--data {
+  background-color: var(--green-secondary-color);
+}
+
 .profession-container__aside__button-container__button {
-  padding: 1rem 2rem;
-  font-size: 1rem;
+  padding: .8rem 1.2rem;
+  color: var(--black-color);
+  border: none;
+  border-radius: var(--little-border);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: "M PLUS Code Latin", monospace;
   cursor: pointer;
+  
+  transition: .3s ease;
 }
 
 .profession-container__aside__reference-line {
-  display: none;
-  width: 100%;
+  display: block;
+  width: 0%;
   height: 15%;
-  background-color: white;
   align-self: center;
+
+  transition: .25s ease;
 }
 
 .profession-container__aside__reference-line--active {
-  display: block;
+  width: 100%;
 }

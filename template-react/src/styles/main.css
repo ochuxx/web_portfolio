@@ -6,7 +6,9 @@
   --secondary-color: #3F5573;
   --gray-color: #6F87A6;
   --black-color: #1A1A1A;
+  --black-secondary-color: #101010;
   --green-color: #0d727a;
+  --green-secondary-color: #16b0bb;
   --little-border: .65rem;
   --mini-border: .32rem;
   background: linear-gradient(to right, var(--main-color) 60%, var(--secondary-color));

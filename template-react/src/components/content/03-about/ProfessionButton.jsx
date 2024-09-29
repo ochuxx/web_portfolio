@@ -28,7 +28,11 @@ export function ProfessionButton({ extension, extensionActive, handleClick }) {
         <span 
           className={`
             ${styles['profession-container__aside__reference-line']}
-            ${extensionActive === extension ? styles['profession-container__aside__reference-line--active'] : ''}
+            ${extensionActive === extension
+              ? styles['profession-container__aside__reference-line--active']
+              : ''
+            }
+            ${styles[`profession-container__aside__reference-line--${extensionWithoutDot}`]}
           `}
         >
         </span>

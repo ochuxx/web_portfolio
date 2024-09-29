@@ -1,15 +1,17 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFile } from '@fortawesome/free-solid-svg-icons';
+import styles from '@styles/content/03-about/DescriptionFile.module.css'
 
 export function DescriptionFile({ title, children, extension }) {
   return (
-    <section>
-      <FontAwesomeIcon icon={faFile}/>
-      <h1>{title}</h1>
-      <p>{children}</p>
-      <footer>
-        <img src='/ochux_logo.png' height={200} />
-        <span>info{extension}</span>
+    <section className={styles['file-container']}>
+      <h1 className={styles['file-container__title']}>{title}</h1>
+      <p className={styles['file-container__description']}>{children}</p>
+      <footer className={styles['file-container__footer']}>
+        <img
+        src='/ochux_logo.png'
+        height={200}
+        className={styles['file-container__footer__reference-image']}
+        />
+        <span className={styles['file-container__footer__file-name']}>info{extension}</span>
       </footer>
     </section>
   )
