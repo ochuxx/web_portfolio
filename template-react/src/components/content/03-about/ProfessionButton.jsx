@@ -3,19 +3,17 @@ import { faFile } from '@fortawesome/free-solid-svg-icons'
 import styles from '@styles/content/03-about/ProfessionButton.module.css'
 
 export function ProfessionButton({ extension, extensionActive, handleClick }) {
-  const extensionWithoutDot = extension.replace('.', '')
-
   return (
     <section className={styles['profession-container']} >
       <header className={styles['profession-container__header']}>
         <FontAwesomeIcon className={styles['profession-container__header__icon']} icon={faFile} />
-        <h3 className={styles['profession-container__header__title']}>{extension}</h3>
+        <h3 className={styles['profession-container__header__title']}>.{extension}</h3>
       </header>
       <aside className={styles['profession-container__aside']}>
         <div
           className={`
             ${styles['profession-container__aside__button-container']}
-            ${styles[`profession-container__aside__button-container--${extensionWithoutDot}`]}
+            ${styles[`profession-container__aside__button-container--${extension}`]}
           `}
         >
           <button
@@ -32,7 +30,7 @@ export function ProfessionButton({ extension, extensionActive, handleClick }) {
               ? styles['profession-container__aside__reference-line--active']
               : ''
             }
-            ${styles[`profession-container__aside__reference-line--${extensionWithoutDot}`]}
+            ${styles[`profession-container__aside__reference-line--${extension}`]}
           `}
         >
         </span>

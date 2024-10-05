@@ -9,6 +9,16 @@
   height: 85%;
 }
 
+.curriculum-section-container--data .line-container__line,
+.curriculum-section-container--data .line-container__line-head {
+  background-color: var(--green-secondary-color);
+}
+
+.curriculum-section-container--dev .line-container__line,
+.curriculum-section-container--dev .line-container__line-head {
+  background-color: var(--gray-color);
+}
+
 .line-container {
   display: flex;
   align-items: center;
@@ -18,7 +28,6 @@
 
 .line-container__line {
   position: relative;
-  background-color: blue;
   height: 30%;
 }
 
@@ -34,12 +43,15 @@
   width: 40%;
 }
 
+.line-container__line--very-small {
+  width: 20%;
+}
+
 .line-container__line-head {
   position: relative;
   right: .1rem;
   height: 100%;
   width: 3rem;
-  background-color: blue;
   border-radius: 50%;
   transition: .35s ease all;
 }

@@ -13,7 +13,7 @@ function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false
       <aside className={`
         ${styles['line-container__line-head']}
         ${hasCurriculumButton ? styles['line-container__line-head--has-button-child'] : ''}
-        ${extensionActive == '.dev' ? styles['line-container__line-head--is-square'] : ''}
+        ${extensionActive == 'dev' ? styles['line-container__line-head--is-square'] : ''}
       `}>
         {hasCurriculumButton ? <button>Descargar CV</button> : ''}
       </aside>
@@ -23,14 +23,19 @@ function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false
 
 export function CurriculumSection({ extensionActive }) {
   return (
-    <div className={styles['curriculum-section-container']}>
-      <DecorationLine widthClass='small' extensionActive={extensionActive} />
+    <div
+      className={`
+        ${styles['curriculum-section-container']}
+        ${styles[`curriculum-section-container--${extensionActive}`]}
+      `}
+    >
+      <DecorationLine widthClass='very-small' extensionActive={extensionActive} />
       <DecorationLine widthClass='small' extensionActive={extensionActive} />
       <DecorationLine widthClass='medium' extensionActive={extensionActive} />
       <DecorationLine widthClass='large' hasCurriculumButton />
       <DecorationLine widthClass='medium' extensionActive={extensionActive} />
       <DecorationLine widthClass='small' extensionActive={extensionActive} />
-      <DecorationLine widthClass='small' extensionActive={extensionActive} />
+      <DecorationLine widthClass='very-small' extensionActive={extensionActive} />
     </div>
   )
 }

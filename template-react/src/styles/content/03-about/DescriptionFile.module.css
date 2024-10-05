@@ -5,8 +5,20 @@
   justify-content: space-evenly;
   height: 85%;
   margin: auto;
-  background-color: blue;
+  padding: 0 1.5%;
   clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 0% 100%);
+}
+
+.file-container--data,
+.file-container--data .file-container__footer__file-name {
+  background-color: var(--green-secondary-color);
+
+}
+
+.file-container--dev,
+.file-container--dev .file-container__footer__file-name
+{
+  background-color: var(--gray-color);
 }
 
 .file-container::before {
@@ -28,12 +40,24 @@
 }
 
 .file-container__description {
-  padding: 0 1.2rem;
+  padding: 0 .8rem;
   font-size: 1.25rem;
 }
 
 .file-container__footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 0 1.5%;
+}
+
+.file-container__footer__file-name {
+  position: relative;
+  display: grid;
+  place-items: center;
+  top: 80%;
+  left: 3%;
+  height: 20%;
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+  color: black;
+  font-weight: bolder;
 }
