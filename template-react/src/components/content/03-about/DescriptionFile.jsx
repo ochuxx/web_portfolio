@@ -13,7 +13,6 @@ export function DescriptionFile({ title, children, extension }) {
       <footer className={styles['file-container__footer']}>
         <img
         src='/ochux_logo.png'
-        height={200}
         className={styles['file-container__footer__reference-image']}
         />
         <span className={styles['file-container__footer__file-name']}>info.{extension}</span>

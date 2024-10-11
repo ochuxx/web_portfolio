@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
 import styles from '@styles/content/03-about/CurriculumSection.module.css'
 
 function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false }) {
@@ -15,7 +16,15 @@ function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false
         ${hasCurriculumButton ? styles['line-container__line-head--has-button-child'] : ''}
         ${extensionActive == 'dev' ? styles['line-container__line-head--is-square'] : ''}
       `}>
-        {hasCurriculumButton ? <button>Descargar CV</button> : ''}
+        {hasCurriculumButton
+          ? <button className={styles['line-container__line-head__button']}>
+              <FontAwesomeIcon 
+                icon={faFilePdf}
+                className={styles['line-container__line-head__button__icon']}
+              />Descargar CV
+            </button>
+          : ''
+        }
       </aside>
     </div>
   )

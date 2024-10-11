@@ -12,6 +12,8 @@
   --green-secondary-color: #16b0bb;
   --little-border: .65rem;
   --mini-border: .32rem;
+  --max-width-in-about-items: 50rem;
+  --max-height-in-about-items: 40rem;
   background: linear-gradient(to right, var(--main-color) 60%, var(--secondary-color));
   font-family: "M PLUS Code Latin", monospace;
   font-size: 100%;
