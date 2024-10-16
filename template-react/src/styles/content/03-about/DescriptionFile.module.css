@@ -47,18 +47,19 @@
 
 .file-container__footer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
 }
 
 .file-container__footer__reference-image {
-  width: 100%;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .file-container__footer__file-name {
   position: relative;
   display: grid;
   place-items: center;
-  top: 80%;
+  top: 70%;
   left: 3%;
   height: 20%;
   border-top-left-radius: .5rem;

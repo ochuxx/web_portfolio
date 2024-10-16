@@ -8,12 +8,14 @@ const professionData = [
   {
     'title': 'Data Analysis',
     'extension': 'data',
-    'description': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae, dolorem suscipit voluptas officiis ex. Impedit aperiam, maxime eligendi voluptates cum voluptatem sed. Animi, voluptatum. Maxime beatae quibusdam error sequi.'
+    'description': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae, dolorem suscipit voluptas officiis ex. Impedit aperiam, maxime eligendi voluptates cum voluptatem sed. Animi, voluptatum. Maxime beatae quibusdam error sequi.',
+    'imagePath': '/assets/about/data_reference.png'
   },
   {
     'title': 'Development',
     'extension': 'dev',
-    'description': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae, dolorem suscipit voluptas officiis ex. Impedit aperiam, maxime eligendi voluptates cum voluptatem sed. Animi, voluptatum. Maxime beatae quibusdam error sequi.'
+    'description': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae, dolorem suscipit voluptas officiis ex. Impedit aperiam, maxime eligendi voluptates cum voluptatem sed. Animi, voluptatum. Maxime beatae quibusdam error sequi.',
+    'imagePath': '/assets/about/dev_reference.png'
   }
 ]
 
@@ -46,6 +48,7 @@ export function About() {
       <DescriptionFile
         title={professionDataCurrent.title}
         extension={professionDataCurrent.extension}
+        imagePath={professionDataCurrent.imagePath}
       >
         {professionDataCurrent.description}
       </DescriptionFile>
