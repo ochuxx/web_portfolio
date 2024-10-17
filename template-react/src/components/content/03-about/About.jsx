@@ -6,15 +6,15 @@ import styles from '@styles/content/03-about/About.module.css'
 
 const professionData = [
   {
-    'title': 'Data Analysis',
+    'title': 'Análisis de datos',
     'extension': 'data',
-    'description': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae, dolorem suscipit voluptas officiis ex. Impedit aperiam, maxime eligendi voluptates cum voluptatem sed. Animi, voluptatum. Maxime beatae quibusdam error sequi.',
+    'description': 'Para mí, Los datos son oportunidades para impulsar el crecimiento, mejorar la toma de decisiones y facilitar el seguimiento.',
     'imagePath': '/assets/about/data_reference.png'
   },
   {
-    'title': 'Development',
+    'title': 'Desarrollo web',
     'extension': 'dev',
-    'description': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae, dolorem suscipit voluptas officiis ex. Impedit aperiam, maxime eligendi voluptates cum voluptatem sed. Animi, voluptatum. Maxime beatae quibusdam error sequi.',
+    'description': 'Ese sitio web que necesita una actualización o que tienes en mente crear puede tener una solución. Ofrezco mejoras e implementaciones para llevarlo al siguiente nivel.',
     'imagePath': '/assets/about/dev_reference.png'
   }
 ]

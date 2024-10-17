@@ -1,8 +1,7 @@
 .file-container {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-rows: 20% 30% 50%;
   height: 85%;
   max-width: var(--max-width-in-about-items);
   max-height: var(--max-height-in-about-items);
@@ -37,10 +36,13 @@
 .file-container__title {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 200%;
 }
 
 .file-container__description {
+  display: flex;
+  align-items: center;
   padding: 0 3%;
   font-size: 110%;
 }
