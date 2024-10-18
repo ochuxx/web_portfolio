@@ -17,7 +17,12 @@ export function ProfessionButton({ extension, extensionActive, handleClick }) {
           `}
         >
           <button
-            className={styles['profession-container__aside__button-container__button']}
+            className={`
+              ${extensionActive === extension
+                ? styles['button--active']
+                : ''
+              }
+            `}
             onClick={() => handleClick(extension)}
           >
             Abrir archvio

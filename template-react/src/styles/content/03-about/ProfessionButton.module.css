@@ -44,6 +44,7 @@
 }
 
 .profession-container__aside__button-container--dev button:hover,
+.profession-container__aside__button-container--dev .button--active,
 .profession-container__aside__reference-line--dev {
   background-color: var(--gray-color);
 }
@@ -53,11 +54,12 @@
 }
 
 .profession-container__aside__button-container--data button:hover,
+.profession-container__aside__button-container--data .button--active,
 .profession-container__aside__reference-line--data {
   background-color: var(--green-secondary-color);
 }
 
-.profession-container__aside__button-container__button {
+.profession-container__aside__button-container button {
   padding: .8rem 1.2rem;
   color: var(--black-color);
   border: none;
