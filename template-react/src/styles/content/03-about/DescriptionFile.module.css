@@ -47,6 +47,18 @@
   font-size: 110%;
 }
 
+.file-container--data .file-container__description b {
+  color: var(--green-secondary-color);
+}
+
+.file-container--dev .file-container__description b {
+  color: var(--gray-color);
+}
+
+.file-container__description__words {
+  display: grid;
+}
+
 .file-container__footer {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
