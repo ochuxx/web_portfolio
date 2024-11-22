@@ -1,0 +1,14 @@
+.form {
+  display: grid;
+  gap: 10%;
+  width: 60%;
+  height: 100%;
+  padding: 20% 0;
+}
+
+.form__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 220%;
+}

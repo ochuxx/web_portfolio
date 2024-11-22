@@ -1,5 +1,49 @@
 .contact-container {
   display: grid;
-  place-content: center;
+  place-items: center;
   height: 84vh;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  height: 85%;
+  width: 100%;
+  max-height: var(--max-height-in-about-items);
+  max-width: calc(var(--max-width-in-about-items) + 3rem);
+  border-radius: var(--little-border);
+  background-color: var(--black-secondary-color);
+  box-shadow: 1rem 1rem 1rem .1rem var(--black-color);
+  transition: .2s ease;
+}
+
+.box__reference {
+  position: relative;
+}
+
+.box__reference__background-image {
+  height: 100%;
+  background-image: url('/assets/contact/code--blur.png');
+  background-size: 210%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-top-left-radius: var(--little-border);
+  border-bottom-left-radius: var(--little-border);
+}
+
+.box__reference__info {
+  position: absolute;
+  top: 0;
+}
+
+.box__form-container {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.box__form-container__mail-icon {
+  position: absolute;
+  top: 15%;
+  right: 0;
 }
