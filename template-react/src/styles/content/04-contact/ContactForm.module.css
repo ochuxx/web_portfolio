@@ -1,9 +1,10 @@
 .form {
   display: grid;
+  grid-template-rows: 2fr 1fr 1fr 2.5fr 2fr;
   gap: 10%;
   width: 60%;
   height: 100%;
-  padding: 20% 0;
+  padding: 15% 0;
 }
 
 .form__title {
@@ -11,4 +12,46 @@
   justify-content: center;
   align-items: center;
   font-size: 220%;
+}
+
+.form__input {
+  background-color: unset;
+  border: unset;
+  outline: none;
+  border-bottom: .1rem solid var(--gray-light-color);
+  color: var(--font-color);
+  font-family: "M PLUS Code Latin", monospace;
+  font-size: 100%;
+  padding: 0 2%;
+}
+
+.form__input::placeholder {
+  color: var(--gray-light-color);
+}
+
+.form__textarea {
+  position: relative;
+  display: flex;
+  resize: none;
+  padding-top: .2%;
+  border: .1rem solid var(--gray-light-color);
+  border-top-color: var(--gray-dark-color);
+  border-left-color: var(--gray-dark-color);
+  border-right-color: var(--gray-dark-color);
+  overflow: hidden;
+}
+
+.form__send-button {
+  border: none;
+  background-color: var(--main-color);
+  color: var(--font-color);
+  margin: 0 15%;
+  cursor: pointer;
+  transition: .1s ease;
+}
+
+.form__send-button:hover {
+  padding-top: 2%;
+  font-size: 110%;
+  background-color: var(--secondary-color);
 }

@@ -33,7 +33,16 @@
 
 .box__reference__info {
   position: absolute;
-  top: 0;
+  bottom: 14%;
+  left: -25%;
+  background-color: var(--black-secondary-color);
+  padding: 8%;
+  border-radius: var(--little-border);
+  /*box-shadow: 1rem 1rem 1rem .1rem var(--gray-color);*/
+}
+
+.box__reference__info__element {
+  font-size: 120%;
 }
 
 .box__form-container {
@@ -44,6 +53,8 @@
 
 .box__form-container__mail-icon {
   position: absolute;
-  top: 15%;
-  right: 0;
+  top: 10%;
+  right: -5%;
+  font-size: 350%;
+  color: var(--font-color);
 }
