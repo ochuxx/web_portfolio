@@ -38,6 +38,7 @@ export function PersonalImage() {
         <img
           src='/assets/home/cara3.png'
           alt='Personal Image'
+          loading='lazy'
           className={styles['personal-image']}
         />
       </figure>
