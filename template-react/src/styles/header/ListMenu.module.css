@@ -10,6 +10,7 @@
   list-style: none;
   cursor: pointer;
   white-space: nowrap;
+  user-select: none;
 }
 
 .item__bar, .item__bar--selected {

@@ -6,7 +6,7 @@ import styles from '@styles/content/MainContent.module.css';
 
 export function MainContent() {
   return (
-    <main className={styles['all-content-container']}>
+    <main className={styles['all-content-container']} id='main-component'>
       <Home />
       <Portfolio />
       <About />
