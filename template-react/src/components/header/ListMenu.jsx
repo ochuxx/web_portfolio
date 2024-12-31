@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import styles from '@styles/header/ListMenu.module.css'
 
 function MenuItem({ children, itemSelected, itemIndex, handleItemClick }) {
@@ -19,7 +19,9 @@ function MenuItem({ children, itemSelected, itemIndex, handleItemClick }) {
 export function ListMenu() {
   const items = [['Inicio', 1], ['Portafolio', 2], ['Acerca de', 3], ['Contacto', 4]]
   const [itemSelected, setItemSelected] = useState(items[0])
+  const itemSelectedRef = useRef(itemSelected)
 
+  // Mover scroll y saber en que módulo se encuentra el usuario
   const handleItemClick = (itemTitle, itemIndex) => {
     const contentComponent = document.querySelector('#main-component')
     const currentModuleHeight = contentComponent.getBoundingClientRect().height
@@ -28,17 +30,21 @@ export function ListMenu() {
       behavior:'smooth'
     })
     setItemSelected([itemTitle, itemIndex])
+    itemSelectedRef.current = [itemTitle, itemIndex]
   }
-  
-  /* ARREGLAR
+
+  // Centrar módulo actual al cambiar el alto de la ventana
   useEffect(() => {
-    window.addEventListener('resize', () => handleItemClick(itemSelected[0], itemSelected[1]))
+    const handleResize = () => {
+      const [title, index] = itemSelectedRef.current
+      handleItemClick(title, index)
+    }
+    window.addEventListener('resize', handleResize)
 
     return () => {
-      window.removeEventListener('resize', () => handleItemClick(itemSelected[0], itemSelected[1]))
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
-  */
 
   return (
       <ul className={styles['list-menu']}>
