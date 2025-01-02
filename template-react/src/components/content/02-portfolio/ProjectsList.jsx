@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useContext, useRef, useState } from 'react'
+import { scrollActiveContext } from '@/context/ScrollActiveComponent'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight, faFolder, faFile } from '@fortawesome/free-solid-svg-icons'
 import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
@@ -70,10 +71,35 @@ function ProjectFolder({ children, title, childIndex }) {
 }
 
 export function ProjectsList() {
+  const { activateScroll } = useContext(scrollActiveContext)
+  const folderContainerRef = useRef(null)
+
+  const handleMouseEnter = () => {
+    const element = folderContainerRef.current
+    const hasScroll =
+      element.scrollHeight > element.clientHeight &&
+      (element.scrollTop > 0 || element.scrollTop + element.clientHeight < element.scrollHeight)
+    activateScroll(hasScroll)
+  }
+
+  const handleMouseLeave = () => {
+    activateScroll(false)
+  }
+
   return (
-    <section className={styles['title-list-container']} id='projects-folder-main'>
+    <section className={styles['title-list-container']} >
       <h2 className={styles['project-title']}>Proyectos</h2>
-      <div className={styles['folders-container']}>
+      <div
+        className={styles['folders-container']}
+        onClick={() => {
+          setTimeout(() => {
+            handleMouseEnter()
+          }, 5) // Se retrasa el tiempo de función para actualizar las propiedades de la ref
+        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        ref={folderContainerRef}
+      >
         <ProjectFolder title='Análisis de datos' childIndex={0}>
           <ProjectFolder title='Proyecto 1' childIndex={1}>
             <ProjectFolder title='Proyecto 2' childIndex={2}>

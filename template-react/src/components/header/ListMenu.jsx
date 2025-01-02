@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useContext } from 'react'
 import styles from '@styles/header/ListMenu.module.css'
+import { scrollActiveContext } from '@/context/ScrollActiveComponent'
 
 function MenuItem({ itemSelected, thisItem, thisItemArrayIndex, handleItemClick }) {
   const isSelected = thisItem[0] == itemSelected[0]
@@ -21,6 +22,7 @@ export function ListMenu() {
   const itemIndexRef = useRef(0)
   const mouseScrollTimer = useRef(null)
   const [itemSelected, setItemSelected] = useState(items[itemIndexRef.current])
+  const { isScrollActive } = useContext(scrollActiveContext)
 
   // Mover scroll y saber en que módulo se encuentra el usuario
   const handleItemClick = (item, itemArrayIndex) => {
@@ -40,19 +42,21 @@ export function ListMenu() {
       handleItemClick(items[itemIndexRef.current], itemIndexRef.current)
     }
 
-    const handleArrowClick = (evt) => {
-      const key = evt.code
+    const handleKeyDown = (evt) => {
+      const key = evt.key
+      if (key != 'ArrowDown' && key != 'ArrowUp' && key != 'Tab') {return}
+
       let newIndex = itemIndexRef.current
-
-      if (key != 'ArrowDown' && key != 'ArrowUp') {
-        return
-      }
-
       evt.preventDefault()
+
+      // Condiciones para mover entre modulos con flechas
       key == 'ArrowUp' ? newIndex -= 1 : newIndex += 1
-      
-      if (newIndex > 3 || newIndex < 0) {
-        return
+      if (newIndex > 3) {newIndex = 3}
+      if (newIndex < 0) {newIndex = 0}
+
+      // En caso de que sea Tab
+      if (key == 'Tab') {
+        newIndex = 3
       }
 
       handleItemClick(items[newIndex], newIndex)
@@ -61,26 +65,28 @@ export function ListMenu() {
     const handleMouseScroll = (evt) => {
       clearTimeout(mouseScrollTimer.current) // Temporizador para evitar multiples eventos
       if (evt.ctrlKey) {return} // No alterar zoom
-      console.log(evt)
+      if (isScrollActive.current) {return} // No activar evento si el elemento focus tiene scroll
+
       mouseScrollTimer.current = setTimeout(() => {
         let newIndex = itemIndexRef.current
 
-        evt.preventDefault()
+        // Condiciones para mover entre modulos con wheel
         evt.deltaY < 0 ? newIndex -= 1 : newIndex += 1
-        if (newIndex > 3 || newIndex < 0) {
-          return
-        }
+        if (newIndex > 3) {newIndex = 3}
+        if (newIndex < 0) {newIndex = 0}
+
+        evt.preventDefault()
         handleItemClick(items[newIndex], newIndex)
       }, 150)
     }
 
     window.addEventListener('resize', handleResize)
-    window.addEventListener('keydown', handleArrowClick)
+    window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('wheel', handleMouseScroll)
 
     return () => {
       window.removeEventListener('resize', handleResize)
-      window.removeEventListener('keydown', handleArrowClick)
+      window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('wheel', handleMouseScroll)
     }
   }, [])
