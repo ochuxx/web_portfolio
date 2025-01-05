@@ -1,19 +1,6 @@
 import React from 'react'
 import styles from '@styles/content/01-home/PersonalImage.module.css'
 
-function ThematicVideo({ videoRoute }) {
-  return (
-    <video
-      autoPlay
-      muted
-      loop
-      className={styles['profession-video']} 
-    >
-      <source src={videoRoute} type='video/mp4' />
-    </video>
-  )
-}
-
 export function PersonalImage() {
   return (
     <div className={styles['images-container']}>
@@ -25,7 +12,12 @@ export function PersonalImage() {
           `
         }
       >
-        <ThematicVideo videoRoute='/assets/home/programming.mp4' />
+        <img
+          src='https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExejg3azF6Z2pmYjFscm1nNjJ3bDgyeGt0NTRmZXQwZjNsdnU2M3dkMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/KJmbSTSyIzetubNgJ5/giphy.gif'
+          alt='Data'
+          loading='lazy'
+          className={styles['profession-video']}
+        />
       </figure>
 
       <figure 
@@ -51,7 +43,15 @@ export function PersonalImage() {
           `
         }
       >
-        <ThematicVideo videoRoute='/assets/home/analyst2.mp4' />
+        {/* GIF SOURCES
+        1. https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTU1YnJuOG5ld2IwNjVmcXdsbHVqdmUzZjhiNjZvdzF5YXB3aWs3ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bmQBu3aSF0DxadphkG/giphy.gif'
+        */}
+        <img
+          src='https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2Q3cjNzeHVhcGhia2ZzaTFrb3RkZTJhaDR2NGNvMHp1aGE4enUwNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/c8knYYZ5vzC8V6tpMI/giphy.gif'
+          alt='Data'
+          loading='lazy'
+          className={styles['profession-video']}
+        />
       </figure>
     </div>
   )
