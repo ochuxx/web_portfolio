@@ -2,9 +2,8 @@
   display: flex;
   gap: .5rem;
   font-weight: 400;
-  font-size: 2.35rem;
-  line-height: 2.4rem;
-  width: 16.3rem;
+  font-size: 230%;
+  line-height: 100%;
 }
 
 .text-container__titles {
@@ -26,4 +25,13 @@
 
 @keyframes blink {
   60% { background-color: transparent; }
+}
+
+@media (max-width: 720px) {
+  .text-container__titles {
+    color: transparent;
+  }
+  .blink {
+    background-color: transparent;
+  }
 }

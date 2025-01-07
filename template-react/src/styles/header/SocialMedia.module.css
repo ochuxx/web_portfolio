@@ -10,7 +10,7 @@
   height: 2.75rem;
   color: var(--font-color);
 
-  transition: ease .15s;
+  transition: color ease .15s;
 }
 
 .icon-link__symbol--instagram:hover {
@@ -23,4 +23,10 @@
 
 .icon-link__symbol--github:hover {
   color: #333;
+}
+
+@media (max-width: 940px) {
+  .icon-link__symbol {
+    height: 2rem;
+  }
 }

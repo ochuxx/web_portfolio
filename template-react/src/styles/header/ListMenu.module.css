@@ -1,13 +1,49 @@
+/* DROP */
+.list-menu--drop {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4%;
+  border-bottom: 0.2rem solid var(--font-color);
+  border-top-left-radius: var(--little-border);
+  border-top-right-radius: var(--little-border);
+  color: var(--font-color);
+  cursor: pointer;
+
+  transition: 300ms ease box-shadow;
+}
+
+.list-menu--drop__title {
+  font-weight: normal;
+  user-select: none;
+  font-size: 100%;
+}
+
+.list-menu--drop__caret {
+  width: 0;
+  height: 0;
+  border-left: 0.4rem solid transparent;
+  border-right: 0.4rem solid transparent;
+  border-top: 0.8rem solid var(--font-color);
+
+  transition: 300ms ease;
+}
+
+.list-menu--drop__caret--active {
+  transform: rotate(180deg);
+}
+
+/* NO DROP */
 .list-menu {
   display: flex;
+  list-style: none;
   gap: 1.75rem;
 }
 
 .list-menu__item {
   position: relative;
   top: .25rem;
-  font-size: 1.2rem;
-  list-style: none;
+  font-size: 120%;
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
@@ -29,4 +65,61 @@
 
 .list-menu__item:hover .item__bar {
   background-color: var(--gray-color);
+}
+
+@media (max-width: 530px) {
+  .list-menu-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .list-menu--drop {
+    display: flex;
+  }
+
+  .list-menu {
+    position: absolute;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    background-color: var(--black-color);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+  }
+
+  .list-menu__item {
+    top: unset;
+    padding: 3% 3%;
+    font-size: 100%;
+  }
+
+  .list-menu__item__title {
+    position: relative;
+    left: 2%;
+  }
+
+  .list-menu__item__title--selected {
+    color: var(--black-color);
+  }
+
+  .item__bar, .item__bar--selected {
+    position: absolute;
+    top: 50%;
+    height: 100%;
+    z-index: -1;
+    transform: translate(0, -56%);
+    transition: none;
+  }
+
+  .list-menu__item:hover .item__bar {
+    background-color: var(--main-color);
+  }
+
+  .list-menu--drop-active {
+    opacity: unset;
+    visibility: unset;
+
+    transition: opacity ease 200ms, visibility ease 200ms;
+  }
 }

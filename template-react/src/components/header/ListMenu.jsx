@@ -11,7 +11,14 @@ function MenuItem({ itemSelected, thisItem, thisItemArrayIndex, handleItemClick 
       className={styles['list-menu__item']}
       onClick={() => handleItemClick(thisItem, thisItemArrayIndex)}
     >
-      <span>{thisItem[0]}</span>
+      <span
+        className={`
+          ${styles['list-menu__item__title']}
+          ${isSelected ? styles['list-menu__item__title--selected'] : ''}
+        `}
+      >
+        {thisItem[0]}
+      </span>
       <div className={`${styles[classOfBar]}`}></div>
     </li>
   )
@@ -22,12 +29,14 @@ export function ListMenu() {
   const itemIndexRef = useRef(0)
   const mouseScrollTimer = useRef(null)
   const [itemSelected, setItemSelected] = useState(items[itemIndexRef.current])
+  const [isDropActive, setIsDropActive] = useState(false) // Activar o desactivar menú en drop
   const { isScrollActive } = useContext(scrollActiveContext)
 
   // Mover scroll y saber en que módulo se encuentra el usuario
   const handleItemClick = (item, itemArrayIndex) => {
     const contentComponent = document.querySelector('#main-component')
     const currentModuleHeight = contentComponent.getBoundingClientRect().height
+    setIsDropActive(false)
     contentComponent.scrollTo({
       top: (currentModuleHeight * item[1]) - currentModuleHeight, // Mover scroll según el índice del módulo
       behavior:'smooth'
@@ -88,11 +97,21 @@ export function ListMenu() {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('wheel', handleMouseScroll)
-    }
+  }
   }, [])
 
   return (
-      <ul className={styles['list-menu']}>
+    <section className={styles['list-menu-container']}>
+      <div className={styles['list-menu--drop']} onClick={() => {setIsDropActive(!isDropActive)}}>
+        <h3 className={styles['list-menu--drop__title']}>{itemSelected[0]}</h3>
+        <span className={`
+          ${styles['list-menu--drop__caret']}
+          ${isDropActive ? styles['list-menu--drop__caret--active'] : ''}
+        `}>
+
+        </span>
+      </div>
+      <ul className={`${styles['list-menu']} ${isDropActive ? styles['list-menu--drop-active'] : ''}`}>
         {
           items.map((item, i) => (
             <MenuItem
@@ -105,5 +124,6 @@ export function ListMenu() {
           ))
         }
       </ul>
+    </section>
   )
 }

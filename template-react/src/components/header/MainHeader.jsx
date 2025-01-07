@@ -1,7 +1,7 @@
 import { AnimatedTitle } from './AnimatedTitle'
 import { SocialMedia } from './SocialMedia'
 import { ListMenu } from './ListMenu'
-import styles from '@styles/header/Header.module.css'
+import styles from '@styles/header/MainHeader.module.css'
 
 // Component: Masthead
 function Masthead() {
@@ -24,7 +24,7 @@ export function MainHeader() {
   return (
     <header className={styles['header-container']}>
       <Masthead />
-
+      
       <nav className={styles['list-menu-container']}>
         <ListMenu />
       </nav>
