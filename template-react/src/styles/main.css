@@ -19,6 +19,7 @@
   background: linear-gradient(to right, var(--main-color) 60%, var(--secondary-color));
   font-family: "M PLUS Code Latin", monospace;
   font-size: 100%;
+  overflow-x: hidden;
 }
 
 * {

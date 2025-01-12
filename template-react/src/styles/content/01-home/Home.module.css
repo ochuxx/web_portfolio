@@ -5,6 +5,19 @@
   align-self: center;
   place-items: center;
   height: 84vh;
+  width: 100vw;
+}
 
-  transition: 300ms ease;
+@media (max-width: 720px) {
+  .home-container {
+    grid-template-columns: unset;
+    grid-template-rows: 1fr 2fr;
+  }
+}
+
+@media (max-height: 390px) {
+  .home-container {
+    grid-template-columns: unset;
+    grid-template-rows: 1fr;
+  }
 }
