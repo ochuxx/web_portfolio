@@ -7,9 +7,9 @@
 .title-list-container {
   display: grid;
   grid-template-rows: 1fr 5fr;
-  width: 30rem;
-  height: 30rem;
-  max-height: 30rem;
+  width: 100%;
+  min-width: 20rem;
+  max-width: 30rem;
 }
 
 .project-title {
@@ -22,18 +22,19 @@
 .folders-container {
   overflow-y: auto;
   overflow-x: hidden;
-  height: var(--folders-container-height);
+  height: 100%;
+  min-height: var(--folders-container-height);
   max-height: var(--folders-container-height);
   width: 100%;
   border-radius: var(--mini-border);
   background-color: var(--black-color);
-  box-shadow: 0 .2rem 1rem .2rem #000000;
+  box-shadow: 0 .2rem 1rem .2rem transparent;
 
   transition: 200ms ease;
 }
 
 .folders-container:hover {
-  box-shadow: 0 .2rem 1rem .3rem #000000;
+  box-shadow: 0 .2rem 1rem .2rem #000000;
 }
 
 .folders-container::-webkit-scrollbar {
@@ -178,4 +179,18 @@
 
 .file:hover .file__title::before, .file:hover .file__title::after {
   width: 50%;
+}
+
+/* -- RESPONSIVE -- */
+
+@media (max-width: 900px) {
+  :root {
+    --folder-height: 2.5rem;
+    --folders-container-height: 15rem;
+  }
+
+  .title-list-container {
+    min-width: unset;
+    max-width: unset;
+  }
 }
