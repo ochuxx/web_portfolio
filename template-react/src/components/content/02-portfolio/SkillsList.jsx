@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartColumn, faCode } from '@fortawesome/free-solid-svg-icons'
 import dataSkills from '@skills-json'
@@ -8,7 +8,7 @@ const dataAnalyst = dataSkills.filter(data => data.profession === 'data')
 const dataDevelopment = dataSkills.filter(data => data.profession === 'development')
 const dataBoth = dataSkills.filter(data => data.profession === 'data_developmet')
 
-function SkillCards({ children }) {
+function SkillCards({ children, hideCardName }) {
   return (
     <ul className={styles['cards-container']}>
       {children.map(data => (
@@ -18,14 +18,16 @@ function SkillCards({ children }) {
             alt='icon'
             className={styles['card__icon']}
           />
-          <span className={styles['card__name']}>{data.name}</span>
+          <span className={styles['card__name']}>
+            {hideCardName ? '' : data.name /* Ocultar en caso de responsive pequeño */}
+          </span>
         </li>
       ))}
     </ul>
   )
 }
 
-function SkillsBox({ title, headerIcon, dataList, profession, eventMouseOnBox, eventMouseOffBox, className }) {
+function SkillsBox({ title, headerIcon, dataList, hideCardName, profession, eventMouseOnBox, eventMouseOffBox, className }) {
   const handleMouseEnter = () => {
     eventMouseOnBox(profession)
   }
@@ -44,7 +46,7 @@ function SkillsBox({ title, headerIcon, dataList, profession, eventMouseOnBox, e
         <FontAwesomeIcon icon={headerIcon} className={styles['box__header__icon']} />
         <h3 className={styles['box__header__title']}>{title}</h3>
       </header>
-      <SkillCards>
+      <SkillCards hideCardName={hideCardName}>
         {dataList}
       </SkillCards>
     </div>
@@ -53,6 +55,7 @@ function SkillsBox({ title, headerIcon, dataList, profession, eventMouseOnBox, e
 
 export function SkillsList() {
   const [boxHoverReference, setBoxHoverReference] = useState(null)
+  const [isCardNameHide, setIsCardNameHide] = useState(false)
 
   const eventMouseOnBox = (profession) => {
     setBoxHoverReference(profession)
@@ -86,6 +89,23 @@ export function SkillsList() {
     },
   ]
 
+  useEffect(() => {
+    const handleResizeWindow = (e) => {
+      const windowWidth = window.innerWidth
+      if (windowWidth <= 660) {
+        setIsCardNameHide(true)
+        return
+      }
+      setIsCardNameHide(false)
+    }
+
+    window.addEventListener('resize', handleResizeWindow)
+
+    return () => {
+      window.removeEventListener('resize', handleResizeWindow)
+    }
+  }, [])
+
   return (
     <section className={styles['title-box-container']}>
       <h2 className={styles['skill-title']}>Habilidades</h2>
@@ -103,6 +123,7 @@ export function SkillsList() {
               title={data.title}
               headerIcon={data.icon}
               dataList={data.data_list}
+              hideCardName={isCardNameHide}
               className={`
                 ${styles.box} 
                 ${styles[`box--${data.name}`]} 
