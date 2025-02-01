@@ -29,6 +29,7 @@
 
 @media (max-width: 720px) {
   .text-container__titles {
+    position: absolute;
     color: transparent;
   }
   .blink {

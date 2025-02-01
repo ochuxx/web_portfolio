@@ -1,6 +1,6 @@
 :root {
   --folder-height: 2.5rem;
-  --folders-container-height: 25rem;
+  --folders-container-height: 55vh;
 }
 
 /*--- module: ProjectsList ---*/
@@ -21,7 +21,7 @@
 
 .folders-container {
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
   height: 100%;
   min-height: var(--folders-container-height);
   max-height: var(--folders-container-height);
@@ -48,10 +48,6 @@
 .folders-container::-webkit-scrollbar-thumb {
   background: var(--font-color);
   border-radius: .5rem;
-}
-
-.folders-container::-webkit-scrollbar-thumb:hover {
-  background-color: #59708f;
 }
 
 /*--- module: ProjectFolder and ProjectFile ---*/
@@ -131,6 +127,7 @@
   position: relative;
   font-weight: 400;
   font-size: 1.25rem;
+  white-space: nowrap;
 }
 
 .folder__children-container {
@@ -185,12 +182,25 @@
 
 @media (max-width: 900px) {
   :root {
-    --folder-height: 2.5rem;
-    --folders-container-height: 15rem;
+    --folders-container-height: 35vh;
   }
 
   .title-list-container {
     min-width: unset;
     max-width: unset;
+  }
+}
+
+@media (max-width: 400px) {
+  .folder__header__title, .file__title {
+    position: relative;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .folder__header__folder-icon-container__folder-icon,
+  .file__file-icon {
+    position: relative;
+    height: 1.15rem;
   }
 }

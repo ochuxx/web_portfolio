@@ -28,6 +28,9 @@ function SkillCards({ children, hideCardName }) {
 }
 
 function SkillsBox({ title, headerIcon, dataList, hideCardName, profession, eventMouseOnBox, eventMouseOffBox, className }) {
+  const separateTitle = title.split(' ')
+  const lastTitleWord = separateTitle[separateTitle.length - 1]
+
   const handleMouseEnter = () => {
     eventMouseOnBox(profession)
   }
@@ -44,7 +47,13 @@ function SkillsBox({ title, headerIcon, dataList, hideCardName, profession, even
     >
       <header className={styles['box__header']}>
         <FontAwesomeIcon icon={headerIcon} className={styles['box__header__icon']} />
-        <h3 className={styles['box__header__title']}>{title}</h3>
+        <h3 className={styles['box__header__title']}>
+          {
+          hideCardName && lastTitleWord[0] != undefined
+            ? `${lastTitleWord[0].toUpperCase()}${lastTitleWord.slice(1)}`
+            : title
+          }
+        </h3>
       </header>
       <SkillCards hideCardName={hideCardName}>
         {dataList}
@@ -100,10 +109,12 @@ export function SkillsList() {
     }
 
     window.addEventListener('resize', handleResizeWindow)
+    window.addEventListener('load', handleResizeWindow)
 
     return () => {
       window.removeEventListener('resize', handleResizeWindow)
-    }
+      window.removeEventListener('load', handleResizeWindow)
+  }
   }, [])
 
   return (
