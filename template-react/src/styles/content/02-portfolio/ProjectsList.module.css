@@ -30,7 +30,7 @@
   background-color: var(--black-color);
   box-shadow: 0 .2rem 1rem .2rem transparent;
 
-  transition: 200ms ease;
+  transition: .2s ease box-shadow;
 }
 
 .folders-container:hover {
@@ -180,7 +180,7 @@
 
 /* -- RESPONSIVE -- */
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   :root {
     --folders-container-height: 35vh;
   }
@@ -203,4 +203,20 @@
     position: relative;
     height: 1.15rem;
   }
+}
+
+@media (max-height: 460px) {
+  .title-list-container {
+    grid-template-rows: 1fr;
+  }
+
+  .project-title {
+    display: none;
+  }
+}
+
+@media (min-width: 950px) and (max-height: 410px) {
+  :root {
+    --folders-container-height: 45vh;
+  } 
 }
