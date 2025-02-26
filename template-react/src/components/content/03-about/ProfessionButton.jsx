@@ -25,7 +25,7 @@ export function ProfessionButton({ extension, extensionActive, handleClick }) {
             `}
             onClick={() => handleClick(extension)}
           >
-            Abrir archvio
+            Abrir archivo
           </button>
         </div>
         <span 
