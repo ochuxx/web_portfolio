@@ -4,7 +4,7 @@ import styles from '@styles/content/03-about/CurriculumSection.module.css'
 
 function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false }) {
   return (
-    <div className={styles['line-container']}>
+    <div className={`${styles['line-container']} ${hasCurriculumButton ? styles['line-container--main'] : ''}`}>
       <span
         className={`
           ${styles['line-container__line']}

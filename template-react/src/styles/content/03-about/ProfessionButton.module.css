@@ -63,6 +63,9 @@
 }
 
 .profession-container__aside__button-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 80%;
   padding: 8% 0;
   color: var(--black-color);
@@ -84,7 +87,7 @@
   height: 7%;
   align-self: center;
   
-  transition: .25s ease;
+  transition: .25s ease width;
 }
 
 .profession-container__aside__reference-line--active {
@@ -98,5 +101,60 @@
 
   .profession-container__header__title {
     font-size: 85%;
+  }
+}
+
+@media (max-width: 910px) {
+  .profession-container {
+    display: flex;
+    align-items: end;
+    left: unset;
+    width: 45%;
+  }
+
+  .profession-container__header {
+    top: 0;
+    left: unset;
+    height: 25%;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .profession-container__header__title {
+    font-size: 75%;
+  }
+
+  .profession-container__aside {
+    display: grid;
+    grid-template-columns: unset;
+    grid-template-rows: 1fr 1fr;
+    height: 85%;
+    width: 100%;
+  }
+
+  .profession-container__aside__button-container {
+    max-height: unset;
+    padding: unset;
+  }
+
+  .profession-container__aside__button-container button {
+    height: 50%;
+  }
+
+  .profession-container__aside__reference-line {
+    position: relative;
+    bottom: 50%;
+    margin: auto;
+    height: 0%;
+    width: 3%;
+    min-width: .5rem;
+    z-index: -1;
+
+    transition: .25s ease height;
+}
+
+  .profession-container__aside__reference-line--active {
+    width: 3%;
+    height: 152%;
   }
 }

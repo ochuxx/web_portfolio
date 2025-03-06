@@ -119,3 +119,27 @@
     font-size: 75%;
   }
 }
+
+@media (max-width: 910px) {
+  .curriculum-section-container {
+    flex-direction: row;
+    gap: unset;
+    border: 1px solid blue;
+    height: 26vh;
+    width: 95%;
+    right: unset;
+  }
+
+  .line-container {
+    display: none;
+  }
+
+  .line-container--main {
+    display: block;
+  }
+
+  .line-container__line {
+    position: relative;
+    height: 10%;
+  }
+}

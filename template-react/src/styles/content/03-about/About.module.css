@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr 1.2fr;
   height: 84vh;
-  border: 1px solid red;
 }
 
 .about-container__prof-buttons-container {
@@ -11,4 +10,18 @@
   justify-content: space-evenly;
   height: 85%;
   margin: auto 0;
+}
+
+@media (max-width: 910px) {
+  .about-container {
+    grid-template-columns: unset;
+    grid-template-rows: 1.2fr 1fr 1.2fr;
+  }
+
+  .about-container__prof-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 26vh;
+  }
 }

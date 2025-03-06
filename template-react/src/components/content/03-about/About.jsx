@@ -36,7 +36,7 @@ export function About() {
   useEffect(() => {
     const handleResizeWindowAbout = () => {
       const windowWidth = window.innerWidth
-      setIsSimpleTitle(windowWidth <= 1200)
+      setIsSimpleTitle(windowWidth <= 520 || (windowWidth > 910 && windowWidth <= 1200))
     }
 
     window.addEventListener('resize', handleResizeWindowAbout)
