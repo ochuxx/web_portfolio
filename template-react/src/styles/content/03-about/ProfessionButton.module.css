@@ -1,8 +1,7 @@
 .profession-container {
   position: relative;
-  width: 75%;
+  width: 100%;
   left: 25%;
-  border: 1px solid red;
 }
 
 .profession-container__header {
@@ -11,7 +10,6 @@
   left: -7.5%;
   height: 60%;
   width: 15%;
-  border: 1px solid white;
 }
 
 .profession-container__header__icon {
@@ -33,14 +31,15 @@
 
 .profession-container__aside {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1.5fr 1.5fr;
 }
 
 .profession-container__aside__button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 0;
+  padding: 14% 0;
+  max-height: 10rem;
 }
 
 .profession-container__aside__button-container--dev {
@@ -70,7 +69,7 @@
   border: none;
   border-radius: var(--little-border);
   text-decoration: none;
-  font-size: unset;
+  font-size: 120%;
   font-weight: 500;
   font-family: "M PLUS Code Latin", monospace;
   white-space: nowrap;
@@ -82,12 +81,22 @@
 .profession-container__aside__reference-line {
   display: block;
   width: 0%;
-  height: 10%;
+  height: 7%;
   align-self: center;
-
+  
   transition: .25s ease;
 }
 
 .profession-container__aside__reference-line--active {
   width: 102%;
+}
+
+@media (max-width: 1200px) {
+  .profession-container__aside__button-container button {
+    font-size: 100%;
+  }
+
+  .profession-container__header__title {
+    font-size: 85%;
+  }
 }

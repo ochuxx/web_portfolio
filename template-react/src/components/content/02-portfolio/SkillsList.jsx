@@ -99,21 +99,17 @@ export function SkillsList() {
   ]
 
   useEffect(() => {
-    const handleResizeWindow = (e) => {
+    const handleResizeWindowSkillsList = () => {
       const windowWidth = window.innerWidth
-      if (windowWidth <= 660) {
-        setIsCardNameHide(true)
-        return
-      }
-      setIsCardNameHide(false)
+      setIsCardNameHide(windowWidth <= 660)
     }
 
-    window.addEventListener('resize', handleResizeWindow)
-    window.addEventListener('load', handleResizeWindow)
+    window.addEventListener('resize', handleResizeWindowSkillsList)
+    window.addEventListener('load', handleResizeWindowSkillsList)
 
     return () => {
-      window.removeEventListener('resize', handleResizeWindow)
-      window.removeEventListener('load', handleResizeWindow)
+      window.removeEventListener('resize', handleResizeWindowSkillsList)
+      window.removeEventListener('load', handleResizeWindowSkillsList)
   }
   }, [])
 

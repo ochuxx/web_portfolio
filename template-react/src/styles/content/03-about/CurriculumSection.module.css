@@ -1,14 +1,15 @@
 .curriculum-section-container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; 
   gap: 4%;
   margin: auto;
-  padding-top: 17%;
-  width: 100%;
-  max-width: var(--max-width-in-about-items);
-  max-height: var(--max-height-in-about-items);
+  width: 115%;
+  /* max-width: var(--max-width-in-about-items); */
+  /* max-height: var(--max-height-in-about-items); */
   height: 85%;
+  right: 15%;
 }
 
 .curriculum-section-container--data .line-container__line,
@@ -32,7 +33,7 @@
 
 .line-container__line {
   position: relative;
-  height: 20%;
+  height: 10%;
 }
 
 .line-container__line--large {
@@ -57,9 +58,10 @@
   align-items: center;
   justify-content: center;
   right: .1rem;
-  height: 100%;
-  width: 8%;
+  height: 2.5vw;
+  width: 2.5vw;
   border-radius: 50%;
+  
   transition: .35s ease all;
 }
 
@@ -79,7 +81,7 @@
   align-items: center;
   justify-content: center;
   gap: 3%;
-  height: 140%;
+  height: 120%;
   width: 100%;
   white-space: nowrap;
   background: linear-gradient(90deg, var(--black-secondary-color) 0%, #424949 100%);
@@ -89,7 +91,6 @@
   border-radius: 2rem;
   cursor: pointer;
   border: none;
-
 }
 
 .line-container__line-head__button:hover {
@@ -104,4 +105,17 @@
 .line-container__line-head__button__icon {
   color: var(--font-color);
   font-size: 160%;
+}
+
+@media (min-width: 4100px) {
+  .curriculum-section-container {
+    width: 130%;
+    right: 30%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .line-container__line-head__button {
+    font-size: 75%;
+  }
 }

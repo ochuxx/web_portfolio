@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr 1.2fr;
   height: 84vh;
+  border: 1px solid red;
 }
 
 .about-container__prof-buttons-container {
@@ -9,7 +10,5 @@
   flex-direction: column;
   justify-content: space-evenly;
   height: 85%;
-  max-width: var(--max-width-in-about-items);
-  max-height: var(--max-height-in-about-items);
   margin: auto 0;
 }
