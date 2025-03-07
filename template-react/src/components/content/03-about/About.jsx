@@ -14,7 +14,7 @@ const professionData = [
   },
   {
     'title': 'Desarrollo web',
-    'alterTitle': 'Desarrollo',
+    'alterTitle': 'Web',
     'extension': 'dev',
     'description': 'Ese sitio web que necesita una actualización o que tienes en mente crear puede tener una solución. Ofrezco mejoras e implementaciones para llevarlo al siguiente nivel ⚙️⬆️',
     'imagePath': '/assets/about/dev_reference.png'
@@ -24,6 +24,7 @@ const professionData = [
 export function About() {
   const [professionDataCurrent, setProfessionDataCurrent] = useState(professionData[0])
   const [isSimpleTitle, setIsSimpleTitle] = useState(false)
+  const [isSimpleDownload, setIsSimpleDownload] = useState(false)
   const handleClickProfession = (extensionClicked) => {
     if (extensionClicked == professionDataCurrent.extension) return
     if (extensionClicked == 'data') {
@@ -36,7 +37,9 @@ export function About() {
   useEffect(() => {
     const handleResizeWindowAbout = () => {
       const windowWidth = window.innerWidth
+      const windowHeight = window.innerHeight
       setIsSimpleTitle(windowWidth <= 520 || (windowWidth > 910 && windowWidth <= 1200))
+      setIsSimpleDownload(windowWidth <= 360 && windowHeight <= 560)
     }
 
     window.addEventListener('resize', handleResizeWindowAbout)
@@ -70,7 +73,7 @@ export function About() {
       >
         {professionDataCurrent.description}
       </DescriptionFile>
-      <CurriculumSection extensionActive={professionDataCurrent.extension} />
+      <CurriculumSection extensionActive={professionDataCurrent.extension} isSimpleDownload={isSimpleDownload}/>
     </section>
   )
 }

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
 import styles from '@styles/content/03-about/CurriculumSection.module.css'
 
-function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false }) {
+function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false, isSimpleDownload }) {
   return (
     <div className={`${styles['line-container']} ${hasCurriculumButton ? styles['line-container--main'] : ''}`}>
       <span
@@ -21,7 +21,7 @@ function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false
               <FontAwesomeIcon 
                 icon={faFilePdf}
                 className={styles['line-container__line-head__button__icon']}
-              />Descargar CV
+              />{isSimpleDownload ? 'CV' : 'Descargar CV'}
             </button>
           : ''
         }
@@ -30,7 +30,7 @@ function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false
   )
 }
 
-export function CurriculumSection({ extensionActive }) {
+export function CurriculumSection({ extensionActive, isSimpleDownload }) {
   return (
     <div
       className={`
@@ -41,7 +41,7 @@ export function CurriculumSection({ extensionActive }) {
       <DecorationLine widthClass='very-small' extensionActive={extensionActive} />
       <DecorationLine widthClass='small' extensionActive={extensionActive} />
       <DecorationLine widthClass='medium' extensionActive={extensionActive} />
-      <DecorationLine widthClass='large' hasCurriculumButton />
+      <DecorationLine widthClass='large' hasCurriculumButton isSimpleDownload={isSimpleDownload} />
       <DecorationLine widthClass='medium' extensionActive={extensionActive} />
       <DecorationLine widthClass='small' extensionActive={extensionActive} />
       <DecorationLine widthClass='very-small' extensionActive={extensionActive} />
