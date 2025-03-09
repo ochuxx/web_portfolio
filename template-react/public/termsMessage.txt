@@ -1,0 +1,42 @@
+<div style='font-family: "Times New Roman";'>
+<div>
+    <h4>Formulario de Contacto</h4>
+    <i>Última actualización: 08 de marzo de 2025</i>
+</div><br>
+
+  <p style='text-align: left;'>
+    Bienvenido(a) a Ochux Web. Al utilizar el formulario de contacto de este sitio web, aceptas los siguientes términos y condiciones. Se recomienda leerlos cuidadosamente antes de enviar cualquier información.
+  </p><br>
+
+    <div style='text-align: left;'>
+      <strong>1. Uso del Formulario de Contacto.</strong><br>
+      El formulario de "Contáctame" está diseñado para permitirte comunicarte conmigo con fines relacionados con mi portafolio, incluyendo consultas, colaboraciones o solicitudes profesionales. Me reservo el derecho de no responder a mensajes que considere inapropiados, irrelevantes o spam.
+    </div><br>
+    <div style='text-align: left;'>
+      <strong>2. Recopilación de Datos.</strong><br>
+      Al enviar el formulario, es posible que se recopile información personal como tu nombre, correo electrónico y el contenido de tu mensaje. Estos datos serán utilizados exclusivamente para:
+      <ul>
+        <div>Responder a tu consulta o mensaje.</div>
+        <div>Mantener un registro de la comunicación, si es necesario.</div>
+      </ul>
+      No compartiré tu información personal con terceros sin tu consentimiento expreso, salvo que sea requerido por la ley.
+    </div><br>
+    <div style='text-align: left;'>
+      <strong>3. Privacidad.</strong><br>
+      Me comprometo a proteger tu información personal de acuerdo con las leyes de privacidad aplicables, incluyendo la Ley 1581 de 2012 de la República de Colombia, que regula la protección de datos personales, y sus decretos reglamentarios. Sin embargo, ten en cuenta que ninguna transmisión de datos por internet es completamente segura, y el envío de información es bajo tu propio riesgo.
+    </div><br>
+    <div style='text-align: left;'>
+      <strong>4. Contenido Enviado.</strong><br>
+      Cualquier idea, propuesta o material que envíes a través del formulario no será considerado confidencial ni generará derechos de propiedad a tu favor, salvo que se acuerde lo contrario por escrito. Me reservo el derecho de utilizar o descartar dicho contenido a mi discreción, sin obligación alguna.
+    </div><br>
+    <div style='text-align: left;'>
+      <strong>5. Limitación de Responsabilidad.</strong><br>
+      No me hago responsable por cualquier pérdida o daño derivado del uso del formulario de contacto, incluyendo errores técnicos, retrasos en la respuesta o malentendidos en la comunicación.
+    </div><br>
+    <div style='text-align: left;'>
+      <strong>6. Cambios a los Términos.</strong><br>
+      Puedo actualizar estos términos y condiciones en cualquier momento sin previo aviso. La versión más reciente estará siempre disponible en esta página, y la fecha de actualización se indicará al inicio.
+    </div><br>
+
+    Al enviar el formulario, confirmas que has leído, entendido y aceptado estos términos y condiciones.
+</div>

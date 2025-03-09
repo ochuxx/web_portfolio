@@ -11,6 +11,9 @@
 /template-react/README.md
 /template-react/.gitignore
 
+# Some sources
+/template-react/src/captchakey.txt
+
 # Logs - templates-react
 !/template-react/public/ochux_logo.png
 /template-react/logs

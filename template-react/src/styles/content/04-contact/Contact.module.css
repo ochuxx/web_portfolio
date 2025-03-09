@@ -7,9 +7,9 @@
 .box {
   display: grid;
   grid-template-columns: 1fr 1.8fr;
-  height: 85%;
+  height: 90%;
   width: 100%;
-  max-height: var(--max-height-in-about-items);
+  max-height: 45rem;
   max-width: calc(var(--max-width-in-about-items) + 3rem);
   border-radius: var(--little-border);
   background-color: var(--black-secondary-color);

@@ -1,10 +1,11 @@
 .form {
-  display: grid;
-  grid-template-rows: 2fr 1fr 1fr 2.5fr 2fr;
-  gap: 10%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5%;
   width: 60%;
   height: 100%;
-  padding: 15% 0;
+  padding: 3% 0;
 }
 
 .form__title {
@@ -15,6 +16,7 @@
 }
 
 .form__input {
+  height: 8%;
   background-color: unset;
   border: unset;
   outline: none;
@@ -43,6 +45,34 @@
   border-left-color: var(--gray-dark-color);
   border-right-color: var(--gray-dark-color);
   overflow: hidden;
+  height: 13%;
+}
+
+.form__checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: unset;
+  gap: 3%;
+  cursor: default;
+  border: unset;
+}
+
+.form__checkbox__input {
+  transform: scale(1.5);
+  accent-color: var(--green-secondary-color);
+  cursor: pointer;
+}
+
+.form__checkbox__description__link {
+  color: var(--green-secondary-color);
+  cursor: pointer;
+}
+
+.form__captcha {
+  border: unset;
+  height: unset;
+  margin: auto;
 }
 
 .form__send-button {
@@ -51,6 +81,8 @@
   color: var(--font-color);
   margin: 0 15%;
   cursor: pointer;
+  height: 12%;
+  min-height: 2.5rem;
   transition: .1s ease;
 }
 

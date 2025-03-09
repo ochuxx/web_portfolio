@@ -1,3 +1,4 @@
 vite 5.3.5
 fontawesome any
 all resources on vite, react JS
+react-google-recaptcha
