@@ -7,29 +7,43 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import Swal from 'sweetalert2'
 
 export function ContactForm() {
-  const { isScrollActive } = useContext(scrollActiveContext) // Evitar mover entre páginas del sitio al activar la alerta Swal
+  const { isScrollActive } = useContext(scrollActiveContext) // Evitar mover entre páginas al activar términos
   const [isShowSendIcon, setIsShowSendIcon] = useState(false)
   const formRef = useRef(null)
-  const currentInputIndexRef = useRef(1)
-  const reCaptchaValue = useRef(null)
+  const currentInputIndexRef = useRef(6)
+  const reCaptchaRef = useRef(null)
   const termsContent = useRef(null)
 
+  // Evento al enviar formulario
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    console.log(reCaptchaValue.current.getValue()) // Verificar que hacer con el empty string
+
+    // Verificación de recaptcha
+    const token = reCaptchaRef.current.getValue()
+    if (!token) {
+      Swal.fire({
+        title: 'El CAPTCHA es obligatorio.',
+        text: 'Por favor, vuelve a intentarlo.',
+        icon: 'warning',
+        confirmButtonText: 'Entendido',
+        confirmButtonColor: '#0d727a'
+      })
+      return
+    }
+
+    formRef.current.reset()
+    reCaptchaRef.current.reset()
     alert('Los datos han sido enviados.')
   }
 
+  // Evento de animación para el botón "Enviar"
   const handleHoverSend = (evt) => {
     evt.type == 'mouseenter' || evt.type == 'focus'
     ? setIsShowSendIcon(true)
     : setIsShowSendIcon(false)
   }
 
-  const handleReCaptchaChange = () => {
-    console.log(reCaptchaValue.current.getValue())
-  }
-
+  // Evento de visualización de términos y condiciones
   const watchTermsAndConditions = () => {
     Swal.fire({
       title: 'Términos y Condiciones',
@@ -61,16 +75,22 @@ export function ContactForm() {
 
       const element = formRef.current
       let inputIndex = currentInputIndexRef.current
+      let isCombinationActive = evt.shiftKey
 
-      if (element.contains(document.activeElement)) {
-        inputIndex == 3 ? inputIndex = 6 : inputIndex ++
+      if (isCombinationActive) {
+        inputIndex == 6 ? inputIndex = 4 : inputIndex --
       } else {
-        inputIndex = 1
+        inputIndex == 4 ? inputIndex = 6 : inputIndex ++
       }
 
       inputIndex > element.children.length - 1 ? inputIndex = 1 : inputIndex
-
+      inputIndex < 1 ? inputIndex = 6 : inputIndex
       element.children[inputIndex].focus()
+
+      if (inputIndex == 4) {
+        element.children[inputIndex].firstChild.focus()
+      }
+
       currentInputIndexRef.current = inputIndex
     }
 
@@ -116,6 +136,8 @@ export function ContactForm() {
       >
         <input
           type='checkbox'
+          name='terms'
+          required
           className={`${styles['form__checkbox__input']}`}
         />
         <span
@@ -133,9 +155,8 @@ export function ContactForm() {
 
       <ReCAPTCHA
         className={`${styles['form__input']} ${styles['form__captcha']}`}
-        sitekey='token'
-        onChange={handleReCaptchaChange}
-        ref={reCaptchaValue}
+        sitekey='key'
+        ref={reCaptchaRef}
       />
 
       <button

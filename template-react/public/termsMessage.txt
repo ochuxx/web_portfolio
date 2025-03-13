@@ -10,7 +10,7 @@
 
     <div style='text-align: left;'>
       <strong>1. Uso del Formulario de Contacto.</strong><br>
-      El formulario de "Contáctame" está diseñado para permitirte comunicarte conmigo con fines relacionados con mi portafolio, incluyendo consultas, colaboraciones o solicitudes profesionales. Me reservo el derecho de no responder a mensajes que considere inapropiados, irrelevantes o spam.
+      Este formulario está diseñado para permitirte comunicarte conmigo con fines relacionados con mi portafolio, incluyendo consultas, colaboraciones o solicitudes profesionales. Me reservo el derecho de no responder a mensajes que considere inapropiados, irrelevantes o spam.
     </div><br>
     <div style='text-align: left;'>
       <strong>2. Recopilación de Datos.</strong><br>

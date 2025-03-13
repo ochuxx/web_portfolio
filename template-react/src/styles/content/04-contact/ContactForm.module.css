@@ -69,6 +69,10 @@
   cursor: pointer;
 }
 
+.form__checkbox__description__link:hover {
+  text-decoration: underline;
+}
+
 .form__captcha {
   border: unset;
   height: unset;
