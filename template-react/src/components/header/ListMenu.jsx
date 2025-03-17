@@ -89,15 +89,17 @@ export function ListMenu() {
       }, 150)
     }
 
+    window.addEventListener('load', handleResize) // Enviar a primera página al cargar página
     window.addEventListener('resize', handleResize)
     window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('wheel', handleMouseScroll)
 
     return () => {
+      window.removeEventListener('load', handleResize)
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('wheel', handleMouseScroll)
-  }
+    }
   }, [])
 
   return (

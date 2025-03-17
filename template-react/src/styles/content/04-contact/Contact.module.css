@@ -8,12 +8,12 @@
   display: grid;
   grid-template-columns: 1fr 1.8fr;
   height: 90%;
-  width: 100%;
-  max-height: 45rem;
+  width: 95%;
   max-width: calc(var(--max-width-in-about-items) + 3rem);
   border-radius: var(--little-border);
   background-color: var(--black-secondary-color);
   box-shadow: 1rem 1rem 1rem .1rem var(--black-color);
+
   transition: .2s ease;
 }
 
@@ -25,7 +25,7 @@
   height: 100%;
   background-image: url('/assets/contact/code2--blur.jpg');
   background-size: 200%;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   border-top-left-radius: var(--little-border);
   border-bottom-left-radius: var(--little-border);
@@ -38,7 +38,6 @@
   background-color: var(--black-secondary-color);
   padding: 8%;
   border-radius: var(--little-border);
-  /*box-shadow: 1rem 1rem 1rem .1rem var(--gray-color);*/
 }
 
 .box__reference__info__element {
@@ -57,4 +56,33 @@
   right: -5%;
   font-size: 350%;
   color: var(--font-color);
+}
+
+@media (max-width: 1100px) {
+  .box__reference__info {
+    bottom: 5%;
+    left: unset;
+    right: 50%;
+    transform: translate(50%, 0);
+  }
+
+  .box__form-container__mail-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .box__reference__info {
+    font-size: .6rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .box {
+    grid-template-columns: unset;
+  }
+
+  .box__reference {
+    display: none;
+  }
 }

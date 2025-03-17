@@ -64,6 +64,10 @@
   cursor: pointer;
 }
 
+.form__checkbox__description {
+  white-space: nowrap;
+}
+
 .form__checkbox__description__link {
   color: var(--green-secondary-color);
   cursor: pointer;
@@ -74,9 +78,18 @@
 }
 
 .form__captcha {
+  position: relative;
   border: unset;
-  height: unset;
+  height: 15%;
+  width: 100%;
   margin: auto;
+}
+
+.form__captcha__input {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
 }
 
 .form__send-button {
@@ -94,4 +107,31 @@
   padding-top: 2%;
   font-size: 110%;
   background-color: var(--secondary-color);
+}
+
+@media (max-width: 1100px) {
+  .form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 380px) {
+  .form {
+    width: 95%;
+  }
+
+  .form__checkbox__description {
+    font-size: 90%;
+    white-space: unset;
+  }
+
+  .form__captcha__input {
+    transform: translate(50%, 50%) scale(0.8);
+  }
+}
+
+@media (max-width: 270px) {
+  .form__captcha__input {
+    transform: translate(50%, 50%) scale(0.6);
+  }
 }

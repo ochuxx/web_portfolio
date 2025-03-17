@@ -50,6 +50,9 @@
 }
 
 .item__bar, .item__bar--selected {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
   height: .13rem;
   width: 95%;
   margin: auto;
@@ -60,7 +63,7 @@
 
 .item__bar--selected {
   background-color: var(--font-color);
-  height: .25rem;
+  height: .22rem;
 }
 
 .list-menu__item:hover .item__bar {
@@ -104,11 +107,12 @@
   }
 
   .item__bar, .item__bar--selected {
-    position: absolute;
     top: 50%;
+    left: unset;
     height: 100%;
     z-index: -1;
     transform: translate(0, -56%);
+    
     transition: none;
   }
 

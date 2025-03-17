@@ -43,6 +43,11 @@ export function ContactForm() {
     : setIsShowSendIcon(false)
   }
 
+  // Evento para cambiar de formRef en click
+  const handleInputClick = (newInputRef) => {
+    currentInputIndexRef.current = newInputRef
+  }
+
   // Evento de visualización de términos y condiciones
   const watchTermsAndConditions = () => {
     Swal.fire({
@@ -77,10 +82,15 @@ export function ContactForm() {
       let inputIndex = currentInputIndexRef.current
       let isCombinationActive = evt.shiftKey
 
-      if (isCombinationActive) {
+      // Condiciones para verificar hacia que input del form desplazar
+      if (isCombinationActive && element.contains(document.activeElement)) {
         inputIndex == 6 ? inputIndex = 4 : inputIndex --
-      } else {
+
+      } else if (!isCombinationActive && element.contains(document.activeElement)) {
         inputIndex == 4 ? inputIndex = 6 : inputIndex ++
+
+      } else if (!element.contains(document.activeElement)) {
+        inputIndex = 1
       }
 
       inputIndex > element.children.length - 1 ? inputIndex = 1 : inputIndex
@@ -115,6 +125,7 @@ export function ContactForm() {
         placeholder='Nombre / Empresa'
         required
         className={styles['form__input']}
+        onClick={() => {handleInputClick(1)}}
       />
       <input
         type='text'
@@ -122,6 +133,7 @@ export function ContactForm() {
         placeholder='Correo'
         required
         className={styles['form__input']}
+        onClick={() => {handleInputClick(2)}}
       />
       <textarea
         name='message'
@@ -129,7 +141,8 @@ export function ContactForm() {
         maxLength={100}
         required
         className={`${styles['form__input']} ${styles['form__textarea']}`}
-      ></textarea>
+        onClick={() => {handleInputClick(3)}}
+        ></textarea>
       
       <div
         className={`${styles['form__input']} ${styles['form__checkbox']}`}
@@ -139,6 +152,7 @@ export function ContactForm() {
           name='terms'
           required
           className={`${styles['form__checkbox__input']}`}
+          onClick={() => {handleInputClick(4)}}
         />
         <span
           className={`${styles['form__checkbox__description']}`}
@@ -153,14 +167,19 @@ export function ContactForm() {
         </span>
       </div>
 
-      <ReCAPTCHA
+      <div
         className={`${styles['form__input']} ${styles['form__captcha']}`}
-        sitekey='key'
-        ref={reCaptchaRef}
-      />
+      >
+        <ReCAPTCHA
+          className={`${styles['form__captcha__input']}`}
+          sitekey='sitekey'
+          ref={reCaptchaRef}
+        />
+      </div>
 
       <button
         type='submit'
+        onClick={() => {handleInputClick(5)}}
         onMouseEnter={handleHoverSend}
         onMouseLeave={handleHoverSend}
         onFocus={handleHoverSend}
