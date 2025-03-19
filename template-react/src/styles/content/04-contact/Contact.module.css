@@ -86,3 +86,22 @@
     display: none;
   }
 }
+
+@media (max-height: 380px),
+(max-width: 390px) and (max-height: 520px) {
+  .box {
+    grid-template-columns: 1fr 1.8fr;
+  }
+
+  .box__reference {
+    display: block;
+  }
+
+  .box__reference__info {
+    right: -90%;
+    left: unset;
+    bottom: 35%;
+    border: .1rem solid var(--green-secondary-color);
+    transform: translate(50%, 0);
+  }
+}

@@ -10,8 +10,9 @@ export function ContactForm() {
   const { isScrollActive } = useContext(scrollActiveContext) // Evitar mover entre páginas al activar términos
   const [isShowSendIcon, setIsShowSendIcon] = useState(false)
   const formRef = useRef(null)
-  const currentInputIndexRef = useRef(6)
   const reCaptchaRef = useRef(null)
+  const currentInputIndexRef = useRef(6)
+  const textareaMessageRef = useRef(null)
   const termsContent = useRef(null)
 
   // Evento al enviar formulario
@@ -63,6 +64,20 @@ export function ContactForm() {
     })
 
     isScrollActive.current = true
+  }
+
+  // Evento para scroll de textarea
+  const handleTextareaMouseEnter = () => {
+    const element = textareaMessageRef.current
+    const hasScroll =
+      element.scrollHeight > element.clientHeight &&
+      (element.scrollTop > 0 || element.scrollTop + element.clientHeight < element.scrollHeight)
+    isScrollActive.current = hasScroll
+  }
+
+  // Evento para salir del scroll de textarea
+  const handleTextareaMouseLeave = () => {
+    isScrollActive.current = false
   }
 
   useEffect(() => {
@@ -140,8 +155,11 @@ export function ContactForm() {
         placeholder='Mensaje'
         maxLength={100}
         required
+        ref={textareaMessageRef}
         className={`${styles['form__input']} ${styles['form__textarea']}`}
         onClick={() => {handleInputClick(3)}}
+        onMouseEnter={handleTextareaMouseEnter}
+        onMouseLeave={handleTextareaMouseLeave}
         ></textarea>
       
       <div
@@ -172,7 +190,7 @@ export function ContactForm() {
       >
         <ReCAPTCHA
           className={`${styles['form__captcha__input']}`}
-          sitekey='sitekey'
+          sitekey='6LchHe0qAAAAAGxMVPww7-TaeUMV022hTMy_T-b0'
           ref={reCaptchaRef}
         />
       </div>
@@ -192,7 +210,6 @@ export function ContactForm() {
           : 'Enviar'
         }
       </button>
-
     </form>
   )
 }
