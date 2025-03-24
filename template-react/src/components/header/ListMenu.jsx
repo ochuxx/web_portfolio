@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useContext } from 'react'
-import styles from '@styles/header/ListMenu.module.css'
 import { scrollActiveContext } from '@/context/ScrollActiveComponent'
+import styles from '@styles/header/ListMenu.module.css'
 
 function MenuItem({ itemSelected, thisItem, thisItemArrayIndex, handleItemClick }) {
   const isSelected = thisItem[0] == itemSelected[0]
@@ -89,17 +89,27 @@ export function ListMenu() {
       }, 150)
     }
 
+    // Ocultar drop-menu al dar click por fuera de las opciones
+    const handleClickWindow = (evt) => {
+      const targetClassName = evt.target.className 
+      if (!targetClassName.includes('list-menu') || targetClassName.includes('container')) {
+        setIsDropActive(false)
+      }
+    }
+
     window.addEventListener('load', handleResize) // Enviar a primera página al cargar página
     window.addEventListener('resize', handleResize)
     window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('wheel', handleMouseScroll)
+    window.addEventListener('click', handleClickWindow)
 
     return () => {
       window.removeEventListener('load', handleResize)
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('wheel', handleMouseScroll)
-    }
+      window.removeEventListener('click', handleClickWindow)
+  }
   }, [])
 
   return (
