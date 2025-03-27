@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Desarrollo web",
+    "type": "folder",
+    "level": 1,
+    "children": [
+      {
+        "name": "Sudoku",
+        "type": "folder",
+        "level": 2,
+        "children": [
+          {
+            "name": "GitHub",
+            "type": "file",
+            "level": 3,
+            "link": "https://github.com/ochuxx/sudoku"
+          },
+          {
+            "name": "Sitio web",
+            "type": "file",
+            "level": 3,
+            "link": "#"
+          }
+        ]
+      },
+      {
+        "name": "Snake",
+        "type": "folder",
+        "level": 2,
+        "children": [
+          {
+            "name": "GitHub",
+            "type": "file",
+            "level": 3,
+            "link": "https://github.com/ochuxx/sudoku"
+          },
+          {
+            "name": "Sitio web",
+            "type": "file",
+            "level": 3,
+            "link": "#"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Análisis de datos",
+    "type": "folder",
+    "level": 1,
+    "children": [
+      {
+        "name": "Proyecto 1",
+        "type": "folder",
+        "level": 2,
+        "children": [
+          {
+            "name": "Archivo 1",
+            "type": "file",
+            "level": 3,
+            "link": "#"
+          }
+        ]
+      }
+    ]
+  }
+]

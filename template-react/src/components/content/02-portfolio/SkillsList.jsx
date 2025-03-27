@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartColumn, faCode } from '@fortawesome/free-solid-svg-icons'
-import dataSkills from '@skills-json'
+import skillsData from '@skills-json'
 import styles from '@styles/content/02-portfolio/SkillsList.module.css'
 
-const dataAnalyst = dataSkills.filter(data => data.profession === 'data')
-const dataDevelopment = dataSkills.filter(data => data.profession === 'development')
-const dataBoth = dataSkills.filter(data => data.profession === 'data_developmet')
+const dataAnalyst = skillsData.filter(data => data.profession === 'data')
+const dataDevelopment = skillsData.filter(data => data.profession === 'development')
+const dataBoth = skillsData.filter(data => data.profession === 'data_developmet')
 
 function SkillCards({ children, hideCardName }) {
   return (
