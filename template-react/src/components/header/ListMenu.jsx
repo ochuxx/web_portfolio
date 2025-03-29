@@ -109,7 +109,7 @@ export function ListMenu() {
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('wheel', handleMouseScroll)
       window.removeEventListener('click', handleClickWindow)
-  }
+    }
   }, [])
 
   return (

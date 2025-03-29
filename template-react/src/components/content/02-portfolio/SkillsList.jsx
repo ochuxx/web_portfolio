@@ -115,7 +115,7 @@ export function SkillsList() {
 
   return (
     <section className={styles['title-box-container']}>
-      <h2 className={styles['skill-title']}>Habilidades</h2>
+      <h2 className={styles['skill-title']}>Herramientas</h2>
       <div
         className={`
           ${styles['boxes-container']} 
