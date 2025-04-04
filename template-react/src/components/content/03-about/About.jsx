@@ -10,14 +10,14 @@ const professionData = [
     'alterTitle': 'Datos',
     'extension': 'data',
     'description': 'Para mí, Los datos son oportunidades para impulsar el crecimiento, mejorar la toma de decisiones y facilitar el seguimiento 📈💸',
-    'imagePath': '/assets/about/data_reference.png'
+    'imagePath': '/assets/about/data_reference.webp'
   },
   {
     'title': 'Desarrollo web',
     'alterTitle': 'Web',
     'extension': 'dev',
     'description': 'Ese sitio web que necesita una actualización o que tienes en mente crear puede tener una solución. Ofrezco mejoras e implementaciones para llevarlo al siguiente nivel ⚙️⬆️',
-    'imagePath': '/assets/about/dev_reference.png'
+    'imagePath': '/assets/about/dev_reference.webp'
   }
 ]
 

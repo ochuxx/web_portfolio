@@ -20,7 +20,7 @@
   {
     "id": 4,
     "name": "SQL",
-    "icon": "assets/portfolio/skills/sql.png",
+    "icon": "assets/portfolio/skills/sql.svg",
     "profession": "data_developmet"
   },
   {
@@ -50,7 +50,7 @@
   {
     "id": 9,
     "name": "Django",
-    "icon": "assets/portfolio/skills/django.png",
+    "icon": "assets/portfolio/skills/django.svg",
     "profession": "development"
   },
   {

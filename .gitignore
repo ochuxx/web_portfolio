@@ -2,11 +2,14 @@
 *.svg
 *.png
 *.jpg
+*.webp
+*.gif
 /color_palet/
 /Documentation/
 /env/
 /ochux_web_project/
 /some_videos/
+/old/
 /template-react/package-lock.json
 /template-react/README.md
 /template-react/.gitignore

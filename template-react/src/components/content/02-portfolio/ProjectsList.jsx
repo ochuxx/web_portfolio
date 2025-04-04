@@ -1,29 +1,34 @@
 import { useContext, useRef, useState } from 'react'
 import { scrollActiveContext } from '@/context/ScrollActiveComponent'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretRight, faFolder, faFile, faImages } from '@fortawesome/free-solid-svg-icons'
-import { faFolderOpen, faWindowMaximize } from '@fortawesome/free-regular-svg-icons'
-import { faGithubAlt } from '@fortawesome/free-brands-svg-icons'
+import { faCaretRight, faFolder } from '@fortawesome/free-solid-svg-icons'
+import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 import styles from '@styles/content/02-portfolio/ProjectsList.module.css'
 import projectsData from '@/projects.json'
+import { projectsFilesIcons } from '@/utils/projectsFilesIcons'
 
-const filesIcons = {
-  'GitHub': faGithubAlt,
-  'Sitio web': faWindowMaximize,
-  'Imágenes': faImages,
-  'any': faFile
-}
+const filesIconsStack = projectsFilesIcons[1]
+const allFilesIcons = projectsFilesIcons[2]
 
 function ProjectFile({ title, childIndex, link='#' }) {
-  const iconTitle = Object.hasOwn(filesIcons, title) ? title : 'any'
-
+  const iconTitle = Object.hasOwn(allFilesIcons, title) ? title : 'any'
   return (
     <a className={styles.file} href={link} target='_blank'>
-        <FontAwesomeIcon
-          style={{ marginLeft: `calc((${childIndex} * 1.6rem) + .5rem)` }}
-          className={styles['file__file-icon']}
-          icon={filesIcons[iconTitle]}
-        />
+        {
+        !Object.keys(filesIconsStack).includes(title) // El título no existe en las claves de Stack
+          ?
+          <FontAwesomeIcon
+            style={{ marginLeft: `calc((${childIndex} * 1.6rem) + .5rem)` }}
+            className={styles['file__file-icon']}
+            icon={allFilesIcons[iconTitle]}
+          />
+          :
+          <img
+            style={{ marginLeft: `calc((${childIndex} * 1.6rem) + .5rem)` }}
+            className={styles['file__file-icon']}
+            src={allFilesIcons[iconTitle]}
+          />
+        }
         <h3 className={styles['file__title']}>{title}</h3>
     </a>
   )

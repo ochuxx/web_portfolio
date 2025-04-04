@@ -15,7 +15,7 @@
             "level": 3,
             "children": [
               {
-                "name": "HTML",
+                "name": "HTML5",
                 "type": "file",
                 "level": 4,
                 "link": "https://developer.mozilla.org/es/docs/Web/HTML"
@@ -27,7 +27,7 @@
                 "link": "https://developer.mozilla.org/es/docs/Web/JavaScript"
               },
               {
-                "name": "CSS",
+                "name": "CSS3",
                 "type": "file",
                 "level": 4,
                 "link": "https://developer.mozilla.org/es/docs/Web/CSS"
@@ -78,7 +78,7 @@
             "level": 3,
             "children": [
               {
-                "name": "HTML",
+                "name": "HTML5",
                 "type": "file",
                 "level": 4,
                 "link": "https://developer.mozilla.org/es/docs/Web/HTML"
@@ -90,7 +90,7 @@
                 "link": "https://developer.mozilla.org/es/docs/Web/JavaScript"
               },
               {
-                "name": "CSS",
+                "name": "CSS3",
                 "type": "file",
                 "level": 4,
                 "link": "https://developer.mozilla.org/es/docs/Web/CSS"
@@ -99,13 +99,19 @@
                 "name": "Python",
                 "type": "file",
                 "level": 4,
-                "link": "https://docs.python.org/3/"
+                "link": "https://docs.python.org/"
               },
               {
                 "name": "Django",
                 "type": "file",
                 "level": 4,
-                "link": "https://docs.djangoproject.com/en/5.1/"
+                "link": "https://docs.djangoproject.com/en/"
+              },
+              {
+                "name": "SQL",
+                "type": "file",
+                "level": 4,
+                "link": "https://www.w3schools.com/sql/"
               }
             ]
           },
