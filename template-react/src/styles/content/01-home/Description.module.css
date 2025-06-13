@@ -1,6 +1,7 @@
 .description-container {
   width: 100%;
   max-width: 30rem;
+  z-index: 1;
 }
 
 .description-container__title {

@@ -19,7 +19,7 @@ function ProjectFile({ title, childIndex, link='#', imagesReference=false }) {
     // Guardar rutas de imagenes para posteriormente poner en HTML de Swal
     let imagesElements = ''
     projectsImagesEvidences[imagesReference].map(imagePath => {
-      imagesElements += `<img class="alert-images__container--image" src=${imagePath}>`
+      imagesElements += `<img class="alert-images__container__image" src=${imagePath}>`
     })
 
     Swal.fire({

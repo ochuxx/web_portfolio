@@ -7,28 +7,12 @@ export function PersonalImage() {
       <figure 
         className={
           `
-          ${styles['images-container__video-container']} 
-          ${styles['images-container__video-container--video1']}
-          `
-        }
-      >
-        <img
-          src='/assets/home/code.webp'
-          alt='Data'
-          loading='lazy'
-          className={styles['profession-video']}
-        />
-      </figure>
-
-      <figure 
-        className={
-          `
           ${styles['images-container__img-container']} 
           `
         }
       >
         <img
-          src='/assets/home/cara3.webp'
+          src='/assets/home/cara4.png'
           alt='Personal Image'
           loading='lazy'
           className={styles['personal-image']}
