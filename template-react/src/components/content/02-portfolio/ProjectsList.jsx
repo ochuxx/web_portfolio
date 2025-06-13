@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from 'react'
+import Swal from 'sweetalert2'
 import { scrollActiveContext } from '@/context/ScrollActiveComponent'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight, faFolder } from '@fortawesome/free-solid-svg-icons'
@@ -6,14 +7,56 @@ import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 import styles from '@styles/content/02-portfolio/ProjectsList.module.css'
 import projectsData from '@/projects.json'
 import { projectsFilesIcons } from '@/utils/projectsFilesIcons'
+import { projectsImagesEvidences } from '@/utils/projectsImagesEvidences'
 
 const filesIconsStack = projectsFilesIcons[1]
 const allFilesIcons = projectsFilesIcons[2]
 
-function ProjectFile({ title, childIndex, link='#' }) {
+function ProjectFile({ title, childIndex, link='#', imagesReference=false }) {
+  const { isScrollActive } = useContext(scrollActiveContext)    
+  
+  const showImages = () => {
+    // Guardar rutas de imagenes para posteriormente poner en HTML de Swal
+    let imagesElements = ''
+    projectsImagesEvidences[imagesReference].map(imagePath => {
+      imagesElements += `<img class="alert-images__container--image" src=${imagePath}>`
+    })
+
+    Swal.fire({
+      title: `Screenshots de ${imagesReference}`,
+      html: `
+        <div
+          class="alert-images__container"
+        >
+          ${imagesElements}
+        </div>
+      `,
+      showConfirmButton: false,
+      showCloseButton: true,
+      customClass: {
+        popup: 'alert-images',
+        title: 'alert-images__title',
+      }
+    })
+    .then(() => {
+      isScrollActive.current = false
+    })
+
+    // Tiempo de espera para evitar interferencia con el activateScroll de abajo
+    // y así mantener scroll inactivo cuando alerta con imágenes se está mostrando
+    setTimeout(() => {
+      isScrollActive.current = true 
+    }, 100)
+  }
+
   const iconTitle = Object.hasOwn(allFilesIcons, title) ? title : 'any'
   return (
-    <a className={styles.file} href={link} target='_blank'>
+    <a
+      className={styles.file}
+      href={iconTitle != 'Imágenes' ? link : undefined}
+      target={iconTitle != 'Imágenes' ? '_blank' : undefined}
+      onClick={iconTitle == 'Imágenes' ? showImages : undefined}
+    >
         {
         !Object.keys(filesIconsStack).includes(title) // El título no existe en las claves de Stack
           ?
@@ -100,11 +143,11 @@ const FoldersAndFiles = ({ projectData, Component }) => {
       <Component title={projectData.name} childIndex={projectData.level - 1}>
         {
           projectData.children.map((newProjectData, i) => (
-              <FoldersAndFiles
-                key={i}
-                projectData={newProjectData}
-                Component={newProjectData.type == 'folder' ? ProjectFolder : ProjectFile}
-              />
+            <FoldersAndFiles
+              key={i}
+              projectData={newProjectData}
+              Component={newProjectData.type == 'folder' ? ProjectFolder : ProjectFile}
+            />
           ))
         }
       </Component>
@@ -112,7 +155,12 @@ const FoldersAndFiles = ({ projectData, Component }) => {
   }
 
   return (
-    <Component title={projectData.name} childIndex={projectData.level - 1} link={projectData.link}/>
+    <Component
+      title={projectData.name}
+      childIndex={projectData.level - 1}
+      link={projectData.link}
+      imagesReference={'imagesReference' in projectData ? projectData.imagesReference : false}
+    />
   )
 }
 

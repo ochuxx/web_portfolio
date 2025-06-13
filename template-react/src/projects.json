@@ -44,7 +44,7 @@
             "name": "Sitio web",
             "type": "file",
             "level": 3,
-            "link": "#"
+            "link": "https://ochuxx.github.io/sudoku/"
           }
         ]
       },
@@ -54,16 +54,41 @@
         "level": 2,
         "children": [
           {
+            "name": "Stack",
+            "type": "folder",
+            "level": 3,
+            "children": [
+              {
+                "name": "HTML5",
+                "type": "file",
+                "level": 4,
+                "link": "https://developer.mozilla.org/es/docs/Web/HTML"
+              },
+              {
+                "name": "JavaScript",
+                "type": "file",
+                "level": 4,
+                "link": "https://developer.mozilla.org/es/docs/Web/JavaScript"
+              },
+              {
+                "name": "CSS3",
+                "type": "file",
+                "level": 4,
+                "link": "https://developer.mozilla.org/es/docs/Web/CSS"
+              }
+            ]
+          },
+          {
             "name": "GitHub",
             "type": "file",
             "level": 3,
-            "link": "https://github.com/ochuxx/sudoku"
+            "link": "https://github.com/ochuxx/snake_game"
           },
           {
             "name": "Sitio web",
             "type": "file",
             "level": 3,
-            "link": "#"
+            "link": "https://ochuxx.github.io/snake_game/"
           }
         ]
       },
@@ -125,7 +150,8 @@
             "name": "Imágenes",
             "type": "file",
             "level": 3,
-            "link": "#"
+            "link": "#",
+            "imagesReference": "BoliPola"
           }
         ]
       }

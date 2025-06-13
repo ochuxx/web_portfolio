@@ -1,5 +1,5 @@
-import { faCaretRight, faFolder, faFile, faImages } from '@fortawesome/free-solid-svg-icons'
-import { faFolderOpen, faWindowMaximize } from '@fortawesome/free-regular-svg-icons'
+import { faFile, faImages } from '@fortawesome/free-solid-svg-icons'
+import { faWindowMaximize } from '@fortawesome/free-regular-svg-icons'
 import { faGithubAlt } from '@fortawesome/free-brands-svg-icons'
 import skillsData from '@skills-json'
 

@@ -36,3 +36,43 @@ body {
   overflow: hidden;
   color: var(--font-color);
 }
+
+/* Editar Swal de ProjectsList */
+.alert-images {
+  width: 75%;
+  background-color: var(--black-color);
+  border-radius: .8rem;
+  box-shadow: 0 0 1rem .4rem var(--black-secondary-color);
+}
+
+.alert-images__title {
+  color: var(--font-color);
+}
+
+.alert-images__container {
+  width: 95%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 1rem;
+}
+
+.alert-images__container::-webkit-scrollbar {
+  height: .5rem;
+}
+
+.alert-images__container::-webkit-scrollbar-track {
+  border-radius: .5rem;
+}
+
+.alert-images__container::-webkit-scrollbar-thumb {
+  background: var(--font-color);
+  border-radius: .5rem;
+}
+
+.alert-images__container--image {
+  display: inline-block;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 .5rem;
+  object-fit: cover;
+}
