@@ -8,6 +8,7 @@ function projectsFilesIconsConverter() {
   const filesIcons = {
     'GitHub': faGithubAlt,
     'Sitio web': faWindowMaximize,
+    'Dashboard': faWindowMaximize,
     'Imágenes': faImages,
     'any': faFile
   }
@@ -25,4 +26,4 @@ function projectsFilesIconsConverter() {
   return [filesIcons, filesIconsStack, allFilesIcons]
 }
 
-export const projectsFilesIcons = projectsFilesIconsConverter()
+export const PROJECTS_FILES_ICONS = projectsFilesIconsConverter()

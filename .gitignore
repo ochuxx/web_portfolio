@@ -4,6 +4,7 @@
 *.jpg
 *.webp
 *.gif
+*.webm
 /color_palet/
 /Documentation/
 /env/
@@ -16,6 +17,8 @@
 
 # Some sources
 /template-react/src/captchakey.txt
+/template-react/src/gasurl.txt
+/template-react/src/utils/backendLink.js
 
 # Logs - templates-react
 !/template-react/public/ochux_logo.png

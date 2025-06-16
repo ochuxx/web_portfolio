@@ -76,3 +76,13 @@ body {
   margin: 0 .5rem;
   object-fit: cover;
 }
+
+@media (max-width: 950px) {
+  .alert-images {
+    width: 100%;
+  }
+
+  .alert-images__container__image {
+    width: 220%;
+  }
+}

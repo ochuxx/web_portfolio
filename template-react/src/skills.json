@@ -58,5 +58,17 @@
     "name": "React.js",
     "icon": "assets/portfolio/skills/react.svg",
     "profession": "development"
+  },
+  {
+    "id": 11,
+    "name": "GAS",
+    "icon": "assets/portfolio/skills/gas.png",
+    "profession": "data_developmet"
+  },
+  {
+    "id": 12,
+    "name": "Sheets",
+    "icon": "assets/portfolio/skills/sheets.svg",
+    "profession": "data"
   }
 ]

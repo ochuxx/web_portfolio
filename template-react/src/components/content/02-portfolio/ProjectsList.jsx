@@ -6,20 +6,29 @@ import { faCaretRight, faFolder } from '@fortawesome/free-solid-svg-icons'
 import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 import styles from '@styles/content/02-portfolio/ProjectsList.module.css'
 import projectsData from '@/projects.json'
-import { projectsFilesIcons } from '@/utils/projectsFilesIcons'
-import { projectsImagesEvidences } from '@/utils/projectsImagesEvidences'
+import { PROJECTS_FILES_ICONS } from '@/utils/projectsFilesIcons'
+import { PROJECTS_IMAGES_EVIDENCES } from '@/utils/projectsImagesEvidences'
 
-const filesIconsStack = projectsFilesIcons[1]
-const allFilesIcons = projectsFilesIcons[2]
+const filesIconsStack = PROJECTS_FILES_ICONS[1]
+const allFilesIcons = PROJECTS_FILES_ICONS[2]
 
 function ProjectFile({ title, childIndex, link='#', imagesReference=false }) {
-  const { isScrollActive } = useContext(scrollActiveContext)    
+  const { isScrollActive } = useContext(scrollActiveContext)
   
   const showImages = () => {
     // Guardar rutas de imagenes para posteriormente poner en HTML de Swal
     let imagesElements = ''
-    projectsImagesEvidences[imagesReference].map(imagePath => {
-      imagesElements += `<img class="alert-images__container__image" src=${imagePath}>`
+    PROJECTS_IMAGES_EVIDENCES[imagesReference].some(imagePath => {
+      if (!imagePath.includes('.webm')) {
+        imagesElements += `<img class="alert-images__container__image" src=${imagePath}>`
+        return
+      }
+      imagesElements +=
+        `<video controls autoplay muted class="alert-images__container__image"> 
+          <source src=${imagePath} type='video/mp4'>
+          <source src=${imagePath} type='video/webm'>
+          El navegador no soporta este video
+        </video>`
     })
 
     Swal.fire({

@@ -11,5 +11,14 @@ export default defineConfig({
       '@skills-json': path.resolve(__dirname, './src/skills.json')
     },
   },
-  plugins: [react()]
+  plugins: [react()],
+  server: {
+    proxy: {
+      '/macros': {
+        target: 'https://script.google.com',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
 })

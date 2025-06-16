@@ -130,7 +130,7 @@
                 "name": "Django",
                 "type": "file",
                 "level": 4,
-                "link": "https://docs.djangoproject.com/en/"
+                "link": "https://docs.djangoproject.com/es/"
               },
               {
                 "name": "SQL",
@@ -154,6 +154,95 @@
             "imagesReference": "BoliPola"
           }
         ]
+      },
+      {
+        "name": "Akasha Studio (supp front-end)",
+        "type": "folder",
+        "level": 2,
+        "children": [
+          {
+            "name": "Stack",
+            "type": "folder",
+            "level": 3,
+            "children": [
+              {
+                "name": "HTML5",
+                "type": "file",
+                "level": 4,
+                "link": "https://developer.mozilla.org/es/docs/Web/HTML"
+              },
+              {
+                "name": "JavaScript",
+                "type": "file",
+                "level": 4,
+                "link": "https://developer.mozilla.org/es/docs/Web/JavaScript"
+              },
+              {
+                "name": "CSS3",
+                "type": "file",
+                "level": 4,
+                "link": "https://developer.mozilla.org/es/docs/Web/CSS"
+              }
+            ]
+          },
+          {
+            "name": "Imágenes",
+            "type": "file",
+            "level": 3,
+            "link": "#",
+            "imagesReference": "Akasha Studio"
+          },
+          {
+            "name": "Sitio web",
+            "type": "file",
+            "level": 3,
+            "link": "https://akashastudio.tv"
+          }
+        ]
+      },
+      {
+        "name": "Ochux Web",
+        "type": "folder",
+        "level": 2,
+        "children": [
+          {
+            "name": "Stack",
+            "type": "folder",
+            "level": 3,
+            "children": [
+              {
+                "name": "React.js",
+                "type": "file",
+                "level": 4,
+                "link": "https://react.dev"
+              },
+              {
+                "name": "JavaScript",
+                "type": "file",
+                "level": 4,
+                "link": "https://developer.mozilla.org/es/docs/Web/JavaScript"
+              },
+              {
+                "name": "CSS3",
+                "type": "file",
+                "level": 4,
+                "link": "https://developer.mozilla.org/es/docs/Web/CSS"
+              }
+            ]
+          },
+          {
+            "name": "GitHub",
+            "type": "file",
+            "level": 3,
+            "link": "https://github.com/ochuxx/web_portfolio"
+          },
+          {
+            "name": "Sitio web",
+            "type": "file",
+            "level": 3,
+            "link": "#"
+          }
+        ]
       }
     ]
   },
@@ -163,15 +252,34 @@
     "level": 1,
     "children": [
       {
-        "name": "Proyecto 1",
+        "name": "STEESDC (Datos sintéticos)",
         "type": "folder",
         "level": 2,
         "children": [
           {
-            "name": "Archivo 1",
+            "name": "Stack",
+            "type": "folder",
+            "level": 3,
+            "children": [
+              {
+                "name": "Power BI",
+                "type": "file",
+                "level": 4,
+                "link": "https://learn.microsoft.com/es-es/power-bi/"
+              },
+              {
+                "name": "Excel",
+                "type": "file",
+                "level": 4,
+                "link": "https://support.microsoft.com/es-es/excel"
+              }
+            ]
+          },
+          {
+            "name": "Dashboard",
             "type": "file",
             "level": 3,
-            "link": "#"
+            "link": "https://app.powerbi.com/view?r=eyJrIjoiYjJlYTU4ODgtNTJjZC00YzdjLTlkMGYtYTBlNTg4MWE2MDM5IiwidCI6ImEwZmJiMTkyLTYxZjAtNDk2Zi1iNjRhLTAwMThmMDg5M2ExNiJ9"
           }
         ]
       }

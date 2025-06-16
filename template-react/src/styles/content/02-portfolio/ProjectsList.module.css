@@ -178,6 +178,16 @@
   width: 50%;
 }
 
+/* La edición de Swal de ProjectsList se encuentra en main.css */
+
+.alert-images__container__image {
+  display: inline-block;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 .5rem;
+  object-fit: cover;
+}
+
 /* -- RESPONSIVE -- */
 
 @media (max-width: 950px) {

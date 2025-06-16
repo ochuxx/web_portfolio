@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { scrollActiveContext } from '@/context/ScrollActiveComponent'
 import styles from '@styles/content/04-contact/ContactForm.module.css'
+import captchaKey from '@/captchakey.txt?raw' // Info de .txt
+import apiUrl from '@/gasurl.txt?raw'
 import ReCAPTCHA from 'react-google-recaptcha'
 import Swal from 'sweetalert2'
 
@@ -14,6 +16,34 @@ export function ContactForm() {
   const currentInputIndexRef = useRef(6)
   const textareaMessageRef = useRef(null)
   const termsContent = useRef(null)
+
+  const postDataToGAS = () => {
+    const response = fetch(apiUrl, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: "Hello from react!!"
+      })
+    })
+    .then((res) => res.text())
+    .then(text => {
+      console.log("Res crud", text)
+      try {
+        console.log("Respuesta parsed.", JSON.parse(text))
+      } catch (err) {
+        console.log("Error parsing.", err)
+      }
+    })
+    .catch(() => {
+      console.log("Error en la comunicación con el servidor")
+    })
+
+    console.log(response)
+    return response
+  }
 
   // Evento al enviar formulario
   const handleSubmit = (evt) => {
@@ -34,6 +64,7 @@ export function ContactForm() {
 
     formRef.current.reset()
     reCaptchaRef.current.reset()
+    postDataToGAS()
     alert('Los datos han sido enviados.')
   }
 
@@ -190,7 +221,7 @@ export function ContactForm() {
       >
         <ReCAPTCHA
           className={`${styles['form__captcha__input']}`}
-          sitekey='6LchHe0qAAAAAGxMVPww7-TaeUMV022hTMy_T-b0'
+          sitekey={captchaKey}
           ref={reCaptchaRef}
         />
       </div>

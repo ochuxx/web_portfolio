@@ -17,12 +17,16 @@ function DecorationLine({ widthClass, extensionActive, hasCurriculumButton=false
         ${extensionActive == 'dev' ? styles['line-container__line-head--is-square'] : ''}
       `}>
         {hasCurriculumButton
-          ? <button className={styles['line-container__line-head__button']}>
+          ? <a
+              className={styles['line-container__line-head__button']}
+              href='https://drive.google.com/file/d/12uts1lrbJZbxWHOsG10-lkmPPi9YYPLc/view?usp=sharing'
+              target='_blank'
+            >
               <FontAwesomeIcon 
                 icon={faFilePdf}
                 className={styles['line-container__line-head__button__icon']}
-              />{isSimpleDownload ? 'CV' : 'Descargar CV'}
-            </button>
+              />{isSimpleDownload ? 'CV' : 'Ver CV'}
+            </a>
           : ''
         }
       </aside>
