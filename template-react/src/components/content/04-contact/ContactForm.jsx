@@ -17,18 +17,21 @@ export function ContactForm() {
   const textareaMessageRef = useRef(null)
   const termsContent = useRef(null)
 
+  // Enviar data al backend
   const postDataToGAS = () => {
     const response = fetch(apiUrl, {
       method: "POST",
       mode: "cors",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        token: import.meta.env.VITE_SECRET_KEY,
+        origin: window.location.origin,
         message: "Hello from react!!"
       })
     })
-    .then((res) => res.text())
+    .then(res => res.text())
     .then(text => {
       console.log("Res crud", text)
       try {

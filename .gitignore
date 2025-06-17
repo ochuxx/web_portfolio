@@ -8,12 +8,15 @@
 /color_palet/
 /Documentation/
 /env/
+/my-backend/
 /ochux_web_project/
 /some_videos/
 /old/
 /template-react/package-lock.json
 /template-react/README.md
 /template-react/.gitignore
+/template-react/.env
+/template-react/.env.local
 
 # Some sources
 /template-react/src/captchakey.txt
