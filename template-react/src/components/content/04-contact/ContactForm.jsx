@@ -8,17 +8,42 @@ import apiUrl from '@/gasurl.txt?raw'
 import ReCAPTCHA from 'react-google-recaptcha'
 import Swal from 'sweetalert2'
 
+const regexPatternsChange = {
+  name: /^[a-zA-Z0-9\sáéíóúÁÉÍÓÚñÑüÜ]*$/,
+  email: /^[a-zA-Z0-9@._\-+]*$/,
+  message: /^[\p{L}\p{N}\s.,!?¿¡():;"'@#&%\-_/\\[\]{}]*$/u
+}
+const regexPatternsSubmit = {
+  name: /^[a-zA-Z0-9\sáéíóúÁÉÍÓÚñÑüÜ]*$/,
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // Ejemplo: user@domain.com
+  message: /^[\p{L}\p{N}\s.,!?¿¡():;"'@#&%\-_/\\[\]{}]*$/u
+}
+
 export function ContactForm() {
-  const { isScrollActive } = useContext(scrollActiveContext) // Evitar mover entre páginas al activar términos
+  const { isScrollActive } = useContext(scrollActiveContext) // Evitar mover entre páginas al activar información de términos
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+  // Guardar valores anteriores para hacer cambios en tiempo real en validación de campos
+  const [formDataBackup, setFormDataBackup] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
   const [isShowSendIcon, setIsShowSendIcon] = useState(false)
   const formRef = useRef(null)
   const reCaptchaRef = useRef(null)
   const currentInputIndexRef = useRef(6)
   const textareaMessageRef = useRef(null)
   const termsContent = useRef(null)
+  const [isTermsChecked, setIsTermsChecked] = useState(false)
 
   // Enviar data al backend
-  const postDataToGAS = () => {
+  const postDataToGAS = (data) => {
+    const dataToSend = {...data, terms: isTermsChecked}
+
     const response = fetch(apiUrl, {
       method: "POST",
       mode: "cors",
@@ -28,12 +53,11 @@ export function ContactForm() {
       body: JSON.stringify({
         token: import.meta.env.VITE_SECRET_KEY,
         origin: window.location.origin,
-        message: "Hello from react!!"
+        data: dataToSend
       })
     })
     .then(res => res.text())
     .then(text => {
-      console.log("Res crud", text)
       try {
         console.log("Respuesta parsed.", JSON.parse(text))
       } catch (err) {
@@ -43,14 +67,27 @@ export function ContactForm() {
     .catch(() => {
       console.log("Error en la comunicación con el servidor")
     })
-
+    
     console.log(response)
     return response
   }
 
   // Evento al enviar formulario
   const handleSubmit = (evt) => {
+    console.log(evt)
     evt.preventDefault()
+    
+    Object.keys(formData).forEach(key => {
+      if (!regexPatternsSubmit[key].test(formData[key])) {
+        Swal.fire({
+          title: 'Datos no válidos ❌',
+          text: 'Quizás el correo o demás campos están mal escritos.',
+          confirmButtonText: 'Entendido',
+          confirmButtonColor: '#101010'
+        })
+        return
+      }
+    })
 
     // Verificación de recaptcha
     const token = reCaptchaRef.current.getValue()
@@ -67,8 +104,23 @@ export function ContactForm() {
 
     formRef.current.reset()
     reCaptchaRef.current.reset()
-    postDataToGAS()
-    alert('Los datos han sido enviados.')
+    postDataToGAS(formData)
+  }
+
+  const handleChange = (e) => {
+    const inputName = e.target.name
+    const inputValue = e.target.value
+    const newData = {...formData, [inputName]: inputValue}
+
+    if (!regexPatternsChange[inputName].test(inputValue)) {
+      e.target.value = formDataBackup[inputName]
+      return
+    }
+
+    setFormData(newData)
+    setFormDataBackup(newData)
+
+    console.log(formData)
   }
 
   // Evento de animación para el botón "Enviar"
@@ -172,28 +224,36 @@ export function ContactForm() {
         type='text'
         name='name'
         placeholder='Nombre / Empresa'
+        maxLength={40}
+        minLength={2}
         required
         className={styles['form__input']}
         onClick={() => {handleInputClick(1)}}
+        onChange={handleChange}
       />
       <input
         type='text'
         name='email'
         placeholder='Correo'
+        maxLength={80}
+        minLength={4}
         required
         className={styles['form__input']}
         onClick={() => {handleInputClick(2)}}
+        onChange={handleChange}
       />
       <textarea
         name='message'
         placeholder='Mensaje'
         maxLength={100}
+        minLength={10}
         required
         ref={textareaMessageRef}
         className={`${styles['form__input']} ${styles['form__textarea']}`}
         onClick={() => {handleInputClick(3)}}
         onMouseEnter={handleTextareaMouseEnter}
         onMouseLeave={handleTextareaMouseLeave}
+        onChange={handleChange}
         ></textarea>
       
       <div
@@ -205,6 +265,7 @@ export function ContactForm() {
           required
           className={`${styles['form__checkbox__input']}`}
           onClick={() => {handleInputClick(4)}}
+          onChange={(e) => setIsTermsChecked(e.target.checked)}
         />
         <span
           className={`${styles['form__checkbox__description']}`}

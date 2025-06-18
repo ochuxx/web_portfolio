@@ -25,7 +25,6 @@ function ProjectFile({ title, childIndex, link='#', imagesReference=false }) {
       }
       imagesElements +=
         `<video controls autoplay muted class="alert-images__container__image"> 
-          <source src=${imagePath} type='video/mp4'>
           <source src=${imagePath} type='video/webm'>
           El navegador no soporta este video
         </video>`
