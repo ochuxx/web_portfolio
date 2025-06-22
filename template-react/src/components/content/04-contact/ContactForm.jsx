@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { faPaperPlane, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
 import { scrollActiveContext } from '@/context/ScrollActiveComponent'
 import styles from '@styles/content/04-contact/ContactForm.module.css'
 import captchaKey from '@/captchakey.txt?raw' // Info de .txt
@@ -33,6 +33,7 @@ export function ContactForm() {
     message: ''
   })
   const [isShowSendIcon, setIsShowSendIcon] = useState(false)
+  const [isShowLoadIcon, setIsShowLoadIcon] = useState(false)
   const formRef = useRef(null)
   const reCaptchaRef = useRef(null)
   const currentInputIndexRef = useRef(6)
@@ -58,25 +59,59 @@ export function ContactForm() {
     })
     .then(res => res.text())
     .then(text => {
+      setIsShowLoadIcon(false)
       try {
-        console.log("Respuesta parsed.", JSON.parse(text))
+        const resJson = JSON.parse(text)
+        console.log("Respuesta parsed.", resJson)
+        // En caso de vulnerabilidad
+        if ('error' in resJson) {
+          Swal.fire({
+            title: 'Ha ocurrido un error en el envío de datos',
+            text: resJson.error,
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#cb4335'
+          })
+          return
+        }
+
+        Swal.fire({
+          title: 'Los datos han sido enviados',
+          icon: 'success',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: '#27ae60'
+        })
+        formRef.current.reset()
       } catch (err) {
+        Swal.fire({
+          title: 'Ha ocurrido un error en el envío de datos',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: '#cb4335'
+        })
         console.log("Error parsing.", err)
       }
     })
     .catch(() => {
-      console.log("Error en la comunicación con el servidor")
+      setIsShowLoadIcon(false)
+      Swal.fire({
+        title: 'Ha ocurrido un error en el servidor',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+        confirmButtonColor: '#cb4335'
+      })
     })
     
+    setIsShowLoadIcon(true)
     console.log(response)
     return response
   }
 
   // Evento al enviar formulario
   const handleSubmit = (evt) => {
-    console.log(evt)
     evt.preventDefault()
-    
+    let isDataValid = true
+
     Object.keys(formData).forEach(key => {
       if (!regexPatternsSubmit[key].test(formData[key])) {
         Swal.fire({
@@ -85,9 +120,11 @@ export function ContactForm() {
           confirmButtonText: 'Entendido',
           confirmButtonColor: '#101010'
         })
+        isDataValid = false
         return
       }
     })
+    if (!isDataValid) return
 
     // Verificación de recaptcha
     const token = reCaptchaRef.current.getValue()
@@ -102,9 +139,8 @@ export function ContactForm() {
       return
     }
 
-    formRef.current.reset()
-    reCaptchaRef.current.reset()
     postDataToGAS(formData)
+    reCaptchaRef.current.reset()
   }
 
   const handleChange = (e) => {
@@ -119,8 +155,6 @@ export function ContactForm() {
 
     setFormData(newData)
     setFormDataBackup(newData)
-
-    console.log(formData)
   }
 
   // Evento de animación para el botón "Enviar"
@@ -298,11 +332,14 @@ export function ContactForm() {
         onFocus={handleHoverSend}
         onBlur={handleHoverSend}
         className={`${styles['form__input']} ${styles['form__send-button']}`}
+        disabled={isShowLoadIcon ? true : false}
       >
         {
           isShowSendIcon
           ? <FontAwesomeIcon icon={faPaperPlane} bounce />
-          : 'Enviar'
+          : isShowLoadIcon
+            ? <FontAwesomeIcon icon={faHourglassHalf} spin />
+            : 'Enviar'
         }
       </button>
     </form>
