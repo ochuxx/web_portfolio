@@ -25,7 +25,6 @@ app.post('/do-post', (req, res) => {
 
   axios.request(options)
   .then((resGas) => {
-    console.log(resGas)
     if (resGas.data.success) {
       res.json({
         success: true,
