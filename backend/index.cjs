@@ -31,9 +31,11 @@ app.post('/do-post', (req, res) => {
         success: true,
         resGas: resGas.data,
       })
+
     } else {
       res.json({
         success: false,
+        userMessage: resGas.data.error,
         error: resGas.data.error,
       })
     }
@@ -41,6 +43,7 @@ app.post('/do-post', (req, res) => {
   .catch((err) => {
     res.status(500).json({
       success: false,
+      userMessage: 'Posiblemente en el servidor, vuelve a intentarlo más tarde...',
       error: err.message
     })
   })

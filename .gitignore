@@ -5,10 +5,13 @@
 *.webp
 *.gif
 *.webm
+*.env
+*.env.local
+*package-lock.json
 /color_palet/
 /Documentation/
 /env/
-/my-backend/
+/backend/node_modules
 /ochux_web_project/
 /some_videos/
 /old/

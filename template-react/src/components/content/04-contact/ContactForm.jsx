@@ -58,7 +58,7 @@ export function ContactForm() {
       if (!resJson.success) {
         Swal.fire({
           title: 'Ha ocurrido un error en el envío de datos',
-          text: 'Posiblemente en el servidor, vuelve a intentarlo más tarde...',
+          text: resJson.error,
           icon: 'error',
           confirmButtonText: 'Ok',
           confirmButtonColor: '#cb4335'
