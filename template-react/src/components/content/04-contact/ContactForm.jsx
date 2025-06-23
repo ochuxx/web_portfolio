@@ -4,7 +4,6 @@ import { faPaperPlane, faHourglassHalf } from '@fortawesome/free-solid-svg-icons
 import { scrollActiveContext } from '@/context/ScrollActiveComponent'
 import styles from '@styles/content/04-contact/ContactForm.module.css'
 import captchaKey from '@/captchakey.txt?raw' // Info de .txt
-import apiUrl from '@/gasurl.txt?raw'
 import ReCAPTCHA from 'react-google-recaptcha'
 import Swal from 'sweetalert2'
 
@@ -45,57 +44,41 @@ export function ContactForm() {
   const postDataToGAS = (data) => {
     const dataToSend = {...data, terms: isTermsChecked}
 
-    const response = fetch(apiUrl, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        token: import.meta.env.VITE_SECRET_KEY,
-        origin: window.location.origin,
-        data: dataToSend
-      })
+    const response = fetch("http://localhost:8000/do-post", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     })
     .then(res => res.text())
     .then(text => {
       setIsShowLoadIcon(false)
-      try {
-        const resJson = JSON.parse(text)
-        console.log("Respuesta parsed.", resJson)
-        // En caso de vulnerabilidad
-        if ('error' in resJson) {
-          Swal.fire({
-            title: 'Ha ocurrido un error en el envío de datos',
-            text: resJson.error,
-            icon: 'error',
-            confirmButtonText: 'Ok',
-            confirmButtonColor: '#cb4335'
-          })
-          return
-        }
-
-        Swal.fire({
-          title: 'Los datos han sido enviados',
-          icon: 'success',
-          confirmButtonText: 'Ok',
-          confirmButtonColor: '#27ae60'
-        })
-        formRef.current.reset()
-      } catch (err) {
+      const resJson = JSON.parse(text)
+      console.log("Respuesta parsed.", resJson)
+      
+      if (!resJson.success) {
         Swal.fire({
           title: 'Ha ocurrido un error en el envío de datos',
+          text: 'Posiblemente en el servidor, vuelve a intentarlo más tarde...',
           icon: 'error',
           confirmButtonText: 'Ok',
           confirmButtonColor: '#cb4335'
         })
-        console.log("Error parsing.", err)
+        return
       }
+
+      Swal.fire({
+        title: 'Los datos han sido enviados',
+        icon: 'success',
+        confirmButtonText: 'Ok',
+        confirmButtonColor: '#27ae60'
+      })
+      formRef.current.reset()
     })
-    .catch(() => {
+    .catch((err) => {
       setIsShowLoadIcon(false)
       Swal.fire({
         title: 'Ha ocurrido un error en el servidor',
+        text: 'Vuelve a intentarlo más tarde...',
         icon: 'error',
         confirmButtonText: 'Ok',
         confirmButtonColor: '#cb4335'
@@ -103,7 +86,6 @@ export function ContactForm() {
     })
     
     setIsShowLoadIcon(true)
-    console.log(response)
     return response
   }
 
@@ -127,6 +109,7 @@ export function ContactForm() {
     if (!isDataValid) return
 
     // Verificación de recaptcha
+    /*
     const token = reCaptchaRef.current.getValue()
     if (!token) {
       Swal.fire({
@@ -138,7 +121,7 @@ export function ContactForm() {
       })
       return
     }
-
+    */
     postDataToGAS(formData)
     reCaptchaRef.current.reset()
   }
