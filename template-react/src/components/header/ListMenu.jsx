@@ -94,6 +94,7 @@ export function ListMenu() {
     const handleTouchStart = (evt) => {
       if (isScrollActive.current) {return} // No activar evento si el elemento focus tiene scroll
       touchStartY.current = evt.touches[0].clientY
+      evt.preventDefault()
     }
 
     const handleTouchEnd = (evt) => {
@@ -131,7 +132,7 @@ export function ListMenu() {
     window.addEventListener('resize', handleResize)
     window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('wheel', handleMouseScroll)
-    window.addEventListener('touchstart', handleTouchStart, { passive: true })
+    window.addEventListener('touchstart', handleTouchStart, { passive: false })
     window.addEventListener('touchend', handleTouchEnd, { passive: false })
     window.addEventListener('click', handleClickWindow)
 
