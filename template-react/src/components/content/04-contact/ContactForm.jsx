@@ -44,7 +44,7 @@ export function ContactForm() {
   const postDataToGAS = (data) => {
     const dataToSend = {...data, terms: isTermsChecked}
 
-    const response = fetch("http://localhost:8000/do-post", {
+    const response = fetch("https://web-portfolio-4xne.onrender.com/do-post", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(dataToSend)
@@ -66,13 +66,14 @@ export function ContactForm() {
 
       Swal.fire({
         title: 'La información ha sido enviada',
+        text: '¡Espera a una pronta respuesta!',
         icon: 'success',
         confirmButtonText: 'Ok',
         confirmButtonColor: '#27ae60'
       })
       formRef.current.reset()
     })
-    .catch((err) => {
+    .catch(() => {
       setIsShowLoadIcon(false)
       Swal.fire({
         title: 'Ha ocurrido un error en el servidor',

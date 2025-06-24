@@ -227,6 +227,24 @@
                 "type": "file",
                 "level": 4,
                 "link": "https://developer.mozilla.org/es/docs/Web/CSS"
+              },
+              {
+                "name": "Node.js",
+                "type": "file",
+                "level": 4,
+                "link": "https://nodejs.org/docs/latest/api/"
+              },
+              {
+                "name": "GAS",
+                "type": "file",
+                "level": 4,
+                "link": "https://developers.google.com/apps-script"
+              },
+              {
+                "name": "Sheets",
+                "type": "file",
+                "level": 4,
+                "link": "https://developers.google.com/workspace/sheets"
               }
             ]
           },

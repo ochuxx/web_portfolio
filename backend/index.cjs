@@ -5,7 +5,11 @@ const axios = require('axios')
 require('dotenv').config()
 
 const app = express()
-app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+}))
 app.use(express.json()); // Middleware
 
 app.post('/do-post', (req, res) => {

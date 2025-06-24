@@ -70,5 +70,11 @@
     "name": "Sheets",
     "icon": "assets/portfolio/skills/sheets.svg",
     "profession": "data"
+  },
+  {
+    "id": 13,
+    "name": "Node.js",
+    "icon": "assets/portfolio/skills/node.svg",
+    "profession": "development"
   }
 ]
