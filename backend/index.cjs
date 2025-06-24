@@ -4,10 +4,22 @@ const cors = require('cors')
 const axios = require('axios')
 require('dotenv').config()
 
+allowedOrigins = [
+  'https://www.ochux-web.vercel.app',
+  'https://ochux-web.vercel.app',
+  'http://localhost:5173',
+]
+
 const app = express()
 app.use(cors({
-  origin: 'https://ochux-web.vercel.app/',
-  methods: ['GET', 'POST', 'OPTIONS'],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('No autorizado por CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }))
 app.use(express.json()); // Middleware
