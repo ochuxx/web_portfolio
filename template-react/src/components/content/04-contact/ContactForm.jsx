@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
 import { scrollActiveContext } from '@/context/ScrollActiveComponent'
 import styles from '@styles/content/04-contact/ContactForm.module.css'
-import captchaKey from '@/captchakey.txt?raw' // Info de .txt
 import ReCAPTCHA from 'react-google-recaptcha'
 import Swal from 'sweetalert2'
+
+const recaptchaKey = import.meta.env.VITE_SECRET_CAPTCHA
 
 const regexPatternsChange = {
   name: /^[a-zA-Z0-9\sáéíóúÁÉÍÓÚñÑüÜ]*$/,
@@ -301,7 +302,7 @@ export function ContactForm() {
       >
         <ReCAPTCHA
           className={`${styles['form__captcha__input']}`}
-          sitekey={captchaKey}
+          sitekey='6LffImIrAAAAANF9O5FfMfLszqWRELtugCvW9rU3'
           ref={reCaptchaRef}
         />
       </div>
