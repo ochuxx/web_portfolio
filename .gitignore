@@ -1,10 +1,4 @@
 *.mp4
-*.svg
-*.png
-*.jpg
-*.webp
-*.gif
-*.webm
 *.env
 *.env.local
 *package-lock.json
