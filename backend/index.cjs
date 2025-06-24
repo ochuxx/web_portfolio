@@ -6,7 +6,7 @@ require('dotenv').config()
 
 const app = express()
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://ochux-web.vercel.app/',
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }))
