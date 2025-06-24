@@ -44,21 +44,19 @@ export function ContactForm() {
   const postDataToGAS = (data) => {
     const dataToSend = {...data, terms: isTermsChecked}
 
-    const response = fetch("https://web-portfolio-4xne.onrender.com/do-post", {
+    const response = fetch("http://localhost:8000/do-post", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(dataToSend)
     })
     .then(res => res.text())
     .then(text => {
       setIsShowLoadIcon(false)
       const resJson = JSON.parse(text)
-      console.log("Respuesta parsed.", resJson)
-      
       if (!resJson.success) {
         Swal.fire({
-          title: 'Ha ocurrido un error en el envío de datos',
-          text: resJson.error,
+          title: 'Ha ocurrido un error en el envío de la información',
+          text: resJson.userMessage,
           icon: 'error',
           confirmButtonText: 'Ok',
           confirmButtonColor: '#cb4335'
@@ -67,7 +65,7 @@ export function ContactForm() {
       }
 
       Swal.fire({
-        title: 'Los datos han sido enviados',
+        title: 'La información ha sido enviada',
         icon: 'success',
         confirmButtonText: 'Ok',
         confirmButtonColor: '#27ae60'
@@ -97,7 +95,7 @@ export function ContactForm() {
     Object.keys(formData).forEach(key => {
       if (!regexPatternsSubmit[key].test(formData[key])) {
         Swal.fire({
-          title: 'Datos no válidos ❌',
+          title: 'Campos no válidos ❌',
           text: 'Quizás el correo o demás campos están mal escritos.',
           confirmButtonText: 'Entendido',
           confirmButtonColor: '#101010'
@@ -109,7 +107,6 @@ export function ContactForm() {
     if (!isDataValid) return
 
     // Verificación de recaptcha
-    /*
     const token = reCaptchaRef.current.getValue()
     if (!token) {
       Swal.fire({
@@ -121,7 +118,6 @@ export function ContactForm() {
       })
       return
     }
-    */
     postDataToGAS(formData)
     reCaptchaRef.current.reset()
   }
@@ -233,6 +229,7 @@ export function ContactForm() {
     <form
       className={styles.form}
       onSubmit={handleSubmit}
+      autoComplete='off'
       ref={formRef}
     >
       <h2 className={styles['form__title']}>Contáctame</h2>

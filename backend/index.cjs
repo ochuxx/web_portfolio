@@ -6,9 +6,11 @@ require('dotenv').config()
 
 const app = express()
 app.use(cors())
+app.use(express.json()); // Middleware
 
 app.post('/do-post', (req, res) => {
-  const data = req.body
+  const dataToSend = req.body
+  console.log(dataToSend)
 
   const options = {
     method: "POST",
@@ -19,12 +21,13 @@ app.post('/do-post', (req, res) => {
     data: {
       token: process.env.SECRET_TOKEN_GAS_KEY,
       origin: req.headers.origin || "http://localhost:5173",
-      data: data
+      data: dataToSend
     }
   }
 
   axios.request(options)
   .then((resGas) => {
+    console.log(resGas.data)
     if (resGas.data.success) {
       res.json({
         success: true,
@@ -40,6 +43,7 @@ app.post('/do-post', (req, res) => {
     }
   })
   .catch((err) => {
+    console.log(err)
     res.status(500).json({
       success: false,
       userMessage: 'Posiblemente en el servidor, vuelve a intentarlo más tarde...',
