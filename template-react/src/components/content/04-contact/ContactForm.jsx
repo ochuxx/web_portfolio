@@ -72,6 +72,7 @@ export function ContactForm() {
         confirmButtonColor: '#27ae60'
       })
       formRef.current.reset()
+      reCaptchaRef.current.reset()
     })
     .catch(() => {
       setIsShowLoadIcon(false)
@@ -82,6 +83,7 @@ export function ContactForm() {
         confirmButtonText: 'Ok',
         confirmButtonColor: '#cb4335'
       })
+      reCaptchaRef.current.reset()
     })
     
     setIsShowLoadIcon(true)
@@ -120,7 +122,6 @@ export function ContactForm() {
       return
     }
     postDataToGAS(formData)
-    reCaptchaRef.current.reset()
   }
 
   const handleChange = (e) => {
