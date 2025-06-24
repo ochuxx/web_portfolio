@@ -24,7 +24,7 @@ app.post('/do-post', (req, res) => {
     },
     data: {
       token: process.env.SECRET_TOKEN_GAS_KEY,
-      origin: req.headers.origin || "http://localhost:5173",
+      origin: req.headers.origin,
       data: dataToSend
     }
   }
@@ -39,6 +39,7 @@ app.post('/do-post', (req, res) => {
       })
 
     } else {
+      console.log(resGas.data.error)
       res.json({
         success: false,
         userMessage: resGas.data.error,
