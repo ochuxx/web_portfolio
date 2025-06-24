@@ -28,6 +28,8 @@ export function ListMenu() {
   const items = [['Inicio', 1], ['Portafolio', 2], ['Acerca de', 3], ['Contacto', 4]]
   const itemIndexRef = useRef(0)
   const mouseScrollTimer = useRef(null)
+  const touchScrollTimer = useRef(null)
+  const touchStartY = useRef(0)
   const [itemSelected, setItemSelected] = useState(items[itemIndexRef.current])
   const [isDropActive, setIsDropActive] = useState(false) // Activar o desactivar menú en drop
   const { isScrollActive } = useContext(scrollActiveContext)
@@ -45,7 +47,7 @@ export function ListMenu() {
     setItemSelected(item)
   }
 
-  // Centrar módulos mediante el zoom, flechas del teclado y scroll del mouse
+  // Centrar módulos mediante el zoom, flechas del teclado, scroll del mouse y touch
   useEffect(() => {
     const handleResize = () => {
       handleItemClick(items[itemIndexRef.current], itemIndexRef.current)
@@ -89,6 +91,34 @@ export function ListMenu() {
       }, 150)
     }
 
+    const handleTouchStart = (evt) => {
+      if (isScrollActive.current) {return} // No activar evento si el elemento focus tiene scroll
+      touchStartY.current = evt.touches[0].clientY
+    }
+
+    const handleTouchEnd = (evt) => {
+      clearTimeout(touchScrollTimer.current) // Temporizador para evitar multiples eventos
+      if (isScrollActive.current) {return} // No activar evento si el elemento focus tiene scroll
+
+      const touchEndY = evt.changedTouches[0].clientY
+      const touchDiff = touchStartY.current - touchEndY
+      const minSwipeDistance = 50 // Distancia mínima para considerar como swipe
+
+      if (Math.abs(touchDiff) < minSwipeDistance) {return} // No hacer nada si el swipe es muy pequeño
+
+      touchScrollTimer.current = setTimeout(() => {
+        let newIndex = itemIndexRef.current
+
+        // Condiciones para mover entre modulos con touch
+        touchDiff > 0 ? newIndex += 1 : newIndex -= 1 // Swipe hacia arriba = siguiente módulo
+        if (newIndex > 3) {newIndex = 3}
+        if (newIndex < 0) {newIndex = 0}
+
+        evt.preventDefault()
+        handleItemClick(items[newIndex], newIndex)
+      }, 100)
+    }
+
     // Ocultar drop-menu al dar click por fuera de las opciones
     const handleClickWindow = (evt) => {
       const targetClassName = evt.target.className 
@@ -101,6 +131,8 @@ export function ListMenu() {
     window.addEventListener('resize', handleResize)
     window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('wheel', handleMouseScroll)
+    window.addEventListener('touchstart', handleTouchStart, { passive: true })
+    window.addEventListener('touchend', handleTouchEnd, { passive: false })
     window.addEventListener('click', handleClickWindow)
 
     return () => {
@@ -108,6 +140,8 @@ export function ListMenu() {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('wheel', handleMouseScroll)
+      window.removeEventListener('touchstart', handleTouchStart)
+      window.removeEventListener('touchend', handleTouchEnd)
       window.removeEventListener('click', handleClickWindow)
     }
   }, [])
