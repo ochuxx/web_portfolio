@@ -28,6 +28,10 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overscroll-behavior-y: none;
+}
+
 body {
   display: grid;
   grid-template-rows: 16vh 84vh;
