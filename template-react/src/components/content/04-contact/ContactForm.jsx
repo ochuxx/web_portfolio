@@ -99,7 +99,7 @@ export function ContactForm() {
     Object.keys(formData).forEach(key => {
       if (!regexPatternsSubmit[key].test(formData[key])) {
         Swal.fire({
-          title: 'Campos no válidos ❌',
+          title: 'Campos no válidos',
           text: 'Quizás el correo o demás campos están mal escritos.',
           confirmButtonText: 'Entendido',
           confirmButtonColor: '#101010'
