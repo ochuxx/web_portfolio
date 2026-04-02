@@ -1,6 +1,0 @@
-vite
-react@19.2.4
-fontawesome
-react-google-recaptcha
-sweetalert2
-vercel
