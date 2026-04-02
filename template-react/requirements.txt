@@ -1,6 +1,6 @@
-vite 5.3.5
+vite
+react@19.2.4
 fontawesome
-all resources on vite, react JS
 react-google-recaptcha
 sweetalert2
 vercel
